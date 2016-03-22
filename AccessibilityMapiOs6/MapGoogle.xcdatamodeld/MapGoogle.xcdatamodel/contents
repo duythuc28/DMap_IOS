@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AccessType" representedClassName="AccessType" syncable="YES">
+        <attribute name="accessDescribtion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accessImageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accessName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accessName_en" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accessTypeID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="locations_ref" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="location_AccessType" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isBookmark" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="longtitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location_AccessType" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AccessType" inverseName="locations_ref" inverseEntity="AccessType" syncable="YES"/>
+        <relationship name="location_LocationType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationType" inverseName="location" inverseEntity="LocationType" syncable="YES"/>
+    </entity>
+    <entity name="LocationTemp" syncable="YES">
+        <attribute name="accesstype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isUser" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationtype" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="longtitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userphone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LocationType" representedClassName="LocationType" syncable="YES">
+        <attribute name="isCheck" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="locationImageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationName_en" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationTypeID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="location" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Location" inverseName="location_LocationType" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AccessType" positionX="-1262" positionY="-54" width="128" height="135"/>
+        <element name="Location" positionX="-1512" positionY="-58" width="128" height="178"/>
+        <element name="LocationTemp" positionX="-1332" positionY="162" width="128" height="178"/>
+        <element name="LocationType" positionX="-1503" positionY="207" width="128" height="133"/>
+    </elements>
+</model>

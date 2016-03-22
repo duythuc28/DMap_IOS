@@ -1,0 +1,96 @@
+/* 
+  Localizable.strings
+  DMap
+
+  Created by MC976 on 8/9/15.
+  Copyright (c) 2015 apple. All rights reserved.
+*/
+"Settings" = "Settings";
+"Information" = "Information";
+"Feedback" = "Feedback";
+"Measure Accessibility" = "Measure Accessibility";
+"Accessibility Category" = "Accessibility Category";
+"Add Feedback" = "Add Feedback";
+"Add New Place" = "Add New Place";
+"Details" = "Details";
+"Place Category" = "Place categories";
+"Input your text" = "Input your text";
+"Place Information" = "Place Information";
+"Place Name" = "Name";
+"Place Address" = "Place Address";
+"Place Phone" = "Contact Phone";
+"Your phone number" = "Your phone number";
+"Radius range" = "Radius range";
+"Save to device" = "Save to device";
+"Routes" = "Routes";
+"Send to admin" = "Send to admin";
+"Bike" = "Motorbike";
+"Bus" = "Bus";
+"Bookmark" = "Bookmark";
+"Update Database" = "Update Database";
+"Add New Place" = "Add New Place";
+"List" = "List";
+"Send all to admin" = "Send all to admin";
+"Language" = "Language";
+"From" = "From";
+"To" = "To";
+"Find your route" = "Find your route";
+"Cancel" = "Cancel";
+"Current Location" = "Current location";
+"AlertSuccess" = "Success";
+"AlertSaveSuccess" = "Data saved successfully";
+"AlertAddSuccess" = "You have added one location to your favourite";
+"About" = "About";
+"Help" = "Help";
+"Save" = "Save";
+"Done" = "Done";
+"Select" = "SELECT";
+"Saved places" = "Saved places";
+"Post to server" = "Post to server";
+"Save to list" = "Save to list";
+"Post All" = "Post All";
+"Ok" = "Ok";
+"Cancel" = "Cancel";
+"Success" = "Success";
+"Save success" = "Congratulation, you have changed data";
+"Bike" = "Motorbike";
+"Bus" = "Bus";
+"Bus number" = "Bus number";
+"Walking" = "Walking";
+"Post Feedback" = "Post Feedback";
+"Name/Phone/Email" = "Name/Phone/Email";
+"From Place" = "From Place";
+"To Place" = "To Place";
+"Authentication" = "Authentication";
+"User Phone" = "Phone number";
+"Password" = "Password";
+"Select Routes" = "Select Routes";
+"From:" = "From:";
+"To:" = "To:";
+"Find routes" = "Find routes";
+"Admin" = "Administrator";
+"Contributor" = "Contributor";
+// ALERT VIEW
+"Update Success" = "Update Successfully";
+"Bookmark Success" = "Bookmark success ";
+"Error" = "Error";
+"Fill Information" = "Please select places";
+"Error Password" = "Please fill password";
+"Error Internet Connection" = "Can not connect to Internet";
+"Error GPS" = "Please check GPS in your device";
+"Error Post" = "Can not post to server";
+"Information" = "Information";
+"Success" = "Success";
+"Error Validation" = "Please check your input information";
+"Success Post Message" = "You have posted data successfully";
+"Success Save Message" = "You have saved data successfully";
+"Elevator" ="Door width > 90 cm\nDepth > 130 cm\nHeight of buttons from 90-120 cm.";
+"Corrirdor/Pathway" = "Width > 120cm\nTurning area > 90 cm";
+"Building entrance" = "Slopes < 15 degree\nSteps >= 1";
+"Toilet" = "Entrance > 80 cm\nSeat height 40 – 50 cm\nSink height from 40 to 80 cm.";
+"Door" = "Width > 90 cm\nHandle height: 80-100 cm\nWashbasin height: 40 – 80 cm.";
+"loading" = "Loading data...";
+"DRD" = "Disability Research and Capacity Development Center";
+"DRD Info" = "The Disability Research and Capacity Development Center (DRD Center) is a non-profit organization for the rights of people with disabilities. Located in Ho Chi Minh City, DRD Center builds a support model to promote equal opportunities for people with disabilities, encourage and create conditions for people with disabilities to fully participate in society. ";
+"Hoa Sen" ="Main partner: Hoa Sen University";
+"Hoa Sen Info" = "Established in 1991 as a not - for –profit institution, Hoa Sen University aims to prepare individuals for adaptability, lifelong learning capability and competitiveness in a changing global environment. The university is located in the heart of Ho Chi Minh City, Vietnam. ";

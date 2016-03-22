@@ -1,0 +1,91 @@
+/* 
+  Localizable.strings
+  DMap
+
+  Created by MC976 on 8/9/15.
+  Copyright (c) 2015 apple. All rights reserved.
+*/
+"Settings" = "Cài đặt";
+"Information" = "Thông tin DMap";
+"Feedback" = "Phản hồi";
+"Measure Accessibility" = "Đo khả năng tiếp cận";
+"Accessibility Category" = "Loại tiếp cận";
+"Add Feedback" = "Thêm phản hồi";
+"Add New Place" = "Thêm điểm tiếp cận";
+"Details" = "Thông tin chi tiết";
+"Input your text" = "Nhập thông tin";
+"Place Category" = "Loại địa điểm";
+"Place Information" = "Thông tin địa điểm";
+"Place Name" = "Tên địa điểm";
+"Place Address" = "Địa chỉ";
+"Place Phone" = "Số điện thoại";
+"Your phone number" = "Số điện thoại của bạn";
+"Radius range" = "Bán kính";
+"Save to device" = "Lưu vào máy";
+"Routes" = "Lộ trình";
+"Send to admin" = "Gửi cho admin";
+"Motorbike" = "Xe máy";
+"Bus" = "Xe buýt";
+"Bookmark" = "Đánh dấu địa điểm";
+"Update Database" = "Cập nhật dữ liệu";
+"Add New Place" = "Thêm điểm tiếp cận";
+"List" = "Danh sách địa điểm";
+"Send all to admin" = "Gửi hết cho admin";
+"Language" ="Ngôn ngữ";
+"From" =  "Đi từ";
+"To" = "Đến";
+"Find your route" = "Tìm lộ trình";
+"Cancel" = "Huỷ";
+"Current Location" = "Vị trí của bạn";
+"AlertSuccess" = "Thành công";
+"AlertSaveSuccess" = "Dữ liệu đã được lưu";
+"AlertAddSuccess" = "Địa điểm đã được thêm vào danh sách";
+"About" = "Thông tin";
+"Help" = "Giúp đỡ";
+"Save" = "Lưu";
+"Done" = "Lưu";
+"Select" = "LỰA CHỌN";
+"Saved places" = "Địa điểm đã lưu";
+"Post to server" = "Gửi lên hệ thống";
+"Save to list" = "Lưu danh sách";
+"Post All" = "Gửi hết";
+"Ok" = "Đồng ý";
+"Cancel" = "Huỷ";
+"Success" = "Thành công";
+"Save success" = "Bạn đã lưu dữ liệu thành công";
+"Bike" =  "Xe máy";
+"Bus" = "Xe buýt";
+"Bus number" = "Chuyến xe buýt";
+"Walking" = "Đi bộ";
+"Post Feedback" = "Gửi phản hồi";
+"Name/Phone/Email" = "Tên/Số điện thoại/Email";
+"From Place" = "Điểm đi";
+"To Place" = "Điểm đến";
+"Authentication" = "Xác nhận thông tin";
+"User Phone" = "Số điện thoại";
+"Password" = "Mật khẩu";
+"Select Routes" = "Lựa chọn đường đi";
+"From:" = "Từ:";
+"To:" = "To";
+"Find routes" = "Tìm lộ trình";
+"Admin" = "Quản lý";
+"Contributor" = "Người dùng";
+// ALERT VIEW
+"Update Success" = "Cập nhật thành công";
+"Bookmark Success" = "Bookmark thành công ";
+"Error" = "Lỗi";
+"Fill Information" = "Xin hãy chọn địa điểm";
+"Error Password" = "Xin hãy nhập vào password";
+"Error Internet Connection" = "Không thể kết nối Internet";
+"Error GPS" = "Kiểm tra lại GPS của thiết bị";
+"Error Post" = "Không thể gửi lên server";
+"Information" = "Thông tin";
+"Success" = "Thành công";
+"Error Validation" = "Kiểm tra lại thông tin nhập của bạn";
+"Success Post Message" = "Bạn đã gửi dữ liệu thành công";
+"Success Save Message" = "Bạn đã lưu dữ liệu thành công";
+"loading" = "Đang tải dữ liệu";
+"DRD" = "Trung tâm Khuyết tật và phát triển";
+"DRD Info" = "Trung tâm Khuyết tật và phát triển (DRD) tại Thành phố Hồ Chí Minh là một tổ chức phi lợi nhuận bảo vệ quyền lợi của người khuyết tật. DRD xây dựng mô hình hỗ trợ đem lại bình đẳng cho người khuyết tật, khuyến khích và tạo điều kiện cho họ tham gia vào tất cả các hoạt động như những công dân khác trong xã hội. ";
+"Hoa Sen" ="Đối tác chính: Đại học Hoa Sen";
+"Hoa Sen Info" = "Hoa Sen là trường đại học tư thục phi lợi nhuận được thành lập vào năm 1991. Đại học Hoa Sen cam kết chuẩn bị cho sinh viên những kỹ năng học tập suốt đời và khả năng thích nghi cao.  Trường cũng hướng đến tăng cường tính cạnh tranh của sinh viên trong môi trường toàn cầu năng động. Đại học Hoa Sen đặt tại Thành phố Hồ Chí Minh. ";
