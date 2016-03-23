@@ -1,0 +1,30 @@
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - GoogleMaps (1.12.3)
+  - IQKeyboardManager (3.3.7)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - GoogleMaps (~> 1.12)
+  - IQKeyboardManager
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  GoogleMaps: a4ac67918d0b5ba5f6b9893ac80487e357779e6c
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+
+COCOAPODS: 0.39.0
