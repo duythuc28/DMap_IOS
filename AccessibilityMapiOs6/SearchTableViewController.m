@@ -35,7 +35,6 @@
     [super viewDidLoad];
     self.data       = [[Location getAllData] mutableCopy];
     searchResult    = self.data;
-    //[self performSelector:@selector(callSearchBar) withObject:nil afterDelay:0.01];
     [self callSearchBar];
 }
 
@@ -61,8 +60,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    //return self.data.count;
     return [searchResult count];
 }
 
@@ -71,16 +68,14 @@
 {
     static NSString * cellIdentifier = @"PlaceInfoCell";
     PlaceInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    [self setUpCell:cell atIndexPath:indexPath];
+//    [self setUpCell:cell atIndexPath:indexPath];
+    if ([searchResult count]) {
+        Location * location = [searchResult objectAtIndex:indexPath.row];
+        [cell setUpCellWithPlace:location];
+    }
     return cell;
 }
 
-- (void)setUpCell:(PlaceInfoCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Location * searchPlace = (Location *) [searchResult objectAtIndex:indexPath.row];
-    cell.placeTitle.text  =  searchPlace.title;
-    cell.placeDescription.text = searchPlace.address;
-    cell.imageView.image = [LocationType getImageByLocationTypeId:[searchPlace.location_LocationType.locationTypeID intValue]];
-}
 
 - (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
     [sizingCell layoutIfNeeded];
@@ -96,8 +91,10 @@
     dispatch_once(&onceToken, ^{
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"PlaceInfoCell"];
     });
-    
-    [self setUpCell:cell atIndexPath:indexPath];
+    if ([searchResult count]) {
+        Location * location = [searchResult objectAtIndex:indexPath.row];
+        [cell setUpCellWithPlace:location];
+    }
     
     return [self calculateHeightForConfiguredSizingCell:cell];
 }

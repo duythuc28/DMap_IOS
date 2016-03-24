@@ -7,7 +7,14 @@
 //
 
 #import "PlaceInfoCell.h"
+#import "LocationType.h"
 
 @implementation PlaceInfoCell
+
+- (void)setUpCellWithPlace:(Location *) location {
+    self.placeTitle.text  =  location.title;
+    self.placeDescription.text = location.address;
+    self.placeImage.image = [LocationType getImageByLocationTypeId:[location.location_LocationType.locationTypeID intValue]];
+}
 
 @end

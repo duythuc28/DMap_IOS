@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
 @interface PlaceInfoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView * placeImage;
 @property (weak, nonatomic) IBOutlet UILabel     * placeTitle;
 @property (weak, nonatomic) IBOutlet UILabel     * placeDescription;
-
+- (void)setUpCellWithPlace:(Location *)location;
 @end
