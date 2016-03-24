@@ -68,7 +68,6 @@
 {
     static NSString * cellIdentifier = @"PlaceInfoCell";
     PlaceInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-//    [self setUpCell:cell atIndexPath:indexPath];
     if ([searchResult count]) {
         Location * location = [searchResult objectAtIndex:indexPath.row];
         [cell setUpCellWithPlace:location];
@@ -79,7 +78,6 @@
 
 - (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
     [sizingCell layoutIfNeeded];
-    
     CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height;
 }

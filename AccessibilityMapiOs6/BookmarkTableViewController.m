@@ -8,9 +8,9 @@
 
 #import "BookmarkTableViewController.h"
 #import "Location.h"
-#import "BookmarkTableViewCellController.h"
 #import "ViewController.h"
 #import "MainViewController.h"
+#import "PlaceInfoCell.h"
 @interface BookmarkTableViewController ()<UISearchBarDelegate , UIAlertViewDelegate>
 {
     NSMutableArray *searchResult;
@@ -51,25 +51,41 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    //return self.data.count;
     return [searchResult count];
-    
 }
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static PlaceInfoCell *cell = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"PlaceInfoCell"];
+    });
+    if ([searchResult count]) {
+        Location * location = [searchResult objectAtIndex:indexPath.row];
+        [cell setUpCellWithPlace:location];
+    }
+    
+    return [self calculateHeightForConfiguredSizingCell:cell];
+}
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* SimpleIdentifier = @"SimpleIdentifier";
-    BookmarkTableViewCellController *cell = [self.tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
-    Location* bookmark = (Location*) [searchResult objectAtIndex:indexPath.row];
-    
-    cell.labelTitle.text=bookmark.title;
-    cell.labelDetail.text=bookmark.address;
-    cell._phone.text = bookmark.phone;
-    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
-    //[cell setAvailability:[bookmark.idcode intValue]];
-    
+    static NSString * cellIdentifier = @"PlaceInfoCell";
+    PlaceInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if ([searchResult count]) {
+        Location * location = [searchResult objectAtIndex:indexPath.row];
+        [cell setUpCellWithPlace:location];
+    }
     return cell;
 }
 
