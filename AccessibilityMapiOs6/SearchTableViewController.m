@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "Location.h"
 #import "ViewController.h"
+#import "PlaceInfoCell.h"
 @interface SearchTableViewController ()<UISearchBarDelegate>
 {
     NSMutableArray *searchResult;
@@ -68,19 +69,39 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* SimpleIdentifier = @"SimpleIdentifier";
-    UITableViewCell *cell=[self.tableView dequeueReusableCellWithIdentifier:SimpleIdentifier];
-    Location* bookmark = (Location*) [searchResult objectAtIndex:indexPath.row];
-    if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimpleIdentifier];
-    }
-    
-    cell.textLabel.text=bookmark.title;
-    cell.detailTextLabel.text=bookmark.address;
-    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+    static NSString * cellIdentifier = @"PlaceInfoCell";
+    PlaceInfoCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    [self setUpCell:cell atIndexPath:indexPath];
     return cell;
-
 }
+
+- (void)setUpCell:(PlaceInfoCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Location * searchPlace = (Location *) [searchResult objectAtIndex:indexPath.row];
+    cell.placeTitle.text  =  searchPlace.title;
+    cell.placeDescription.text = searchPlace.address;
+    cell.imageView.image = [LocationType getImageByLocationTypeId:[searchPlace.location_LocationType.locationTypeID intValue]];
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell layoutIfNeeded];
+    
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static PlaceInfoCell *cell = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"PlaceInfoCell"];
+    });
+    
+    [self setUpCell:cell atIndexPath:indexPath];
+    
+    return [self calculateHeightForConfiguredSizingCell:cell];
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

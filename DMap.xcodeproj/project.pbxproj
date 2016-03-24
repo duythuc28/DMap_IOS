@@ -57,6 +57,7 @@
 		18DDA10219DD215800834B78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10119DD215800834B78 /* CoreLocation.framework */; };
 		18DDA10419DD217C00834B78 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10319DD217C00834B78 /* AVFoundation.framework */; };
 		64BD88F76619EA6901F89123 /* libPods-DMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F8BBAD4A7022EC938A27BA /* libPods-DMap.a */; };
+		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
 		8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */; };
 		8B1C11F71B772AFF00AA2F0C /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F61B772AFF00AA2F0C /* ToolView.xib */; };
 		8B1C11F91B772B1000AA2F0C /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F81B772B1000AA2F0C /* CustomAlertViewController.xib */; };
@@ -192,6 +193,8 @@
 		18DDA10319DD217C00834B78 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5080A1591E70ABF8D7F12E94 /* Pods-DMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.debug.xcconfig"; sourceTree = "<group>"; };
 		6AC4A4A11CA3DE3000C1D220 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		6AC4A4A51CA3ECD800C1D220 /* PlaceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoCell.h; sourceTree = "<group>"; };
+		6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoCell.m; sourceTree = "<group>"; };
 		78F8BBAD4A7022EC938A27BA /* libPods-DMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1065E41BA73BBD00565A3B /* InfoDRDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDRDViewController.h; sourceTree = "<group>"; };
 		8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDRDViewController.m; sourceTree = "<group>"; };
@@ -504,21 +507,11 @@
 		18DDA0B919DD185900834B78 /* AccessibilityMapiOs6 */ = {
 			isa = PBXGroup;
 			children = (
+				6AC4A4A31CA3EAE900C1D220 /* Sections */,
+				6AC4A4A21CA3EAB500C1D220 /* Views */,
 				6AC4A49F1CA3DD8C00C1D220 /* Shared */,
-				8BB97F9F1B0BB11A00BAC5FD /* CustomInfoView */,
-				8BAFDDB91AB4224F00BD49D0 /* CustomAlertView */,
 				D6A4CBFE1A3B15FE003CFE12 /* MainMap */,
-				D644D7A91A3A041900F15FF5 /* Language */,
-				D6EB548C1A09C802008CDED8 /* AJCombobox */,
-				D6C210ED19F2783D007BAF88 /* AddLocation */,
-				18296F3019E9460600AE7F0B /* LocationDetail */,
-				D6EB62D619DEEBEE00E505CA /* DrawView */,
-				182FB7FA19DD838500205E8B /* MoreInfoView */,
-				182FB7F619DD770C00205E8B /* SearchView */,
-				182FB7EF19DD5EB600205E8B /* Bookmark */,
 				182FB7DE19DD507800205E8B /* CustomInfo */,
-				182FB7DA19DD456C00205E8B /* MapDirection */,
-				183DCAAD19DD34E40054A630 /* Settings */,
 				185023B719E8D0C2008156D5 /* Coredata */,
 				18DDA0CB19DD185900834B78 /* Images.xcassets */,
 				18DDA0BA19DD185900834B78 /* Supporting Files */,
@@ -560,6 +553,8 @@
 		6AC4A49F1CA3DD8C00C1D220 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D644D7A91A3A041900F15FF5 /* Language */,
+				182FB7DA19DD456C00205E8B /* MapDirection */,
 				6AC4A4A01CA3DDA100C1D220 /* Constant */,
 				8B52EB731BA5ECF500EFC89F /* Library */,
 				8B99A1361B9C54F0004789C1 /* Utils */,
@@ -573,6 +568,40 @@
 				6AC4A4A11CA3DE3000C1D220 /* Constant.h */,
 			);
 			name = Constant;
+			sourceTree = "<group>";
+		};
+		6AC4A4A21CA3EAB500C1D220 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6AC4A4A41CA3EC9E00C1D220 /* Place Info Cell */,
+				D6EB548C1A09C802008CDED8 /* AJCombobox */,
+				8BAFDDB91AB4224F00BD49D0 /* CustomAlertView */,
+				8BB97F9F1B0BB11A00BAC5FD /* CustomInfoView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		6AC4A4A31CA3EAE900C1D220 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				182FB7FA19DD838500205E8B /* MoreInfoView */,
+				D6EB62D619DEEBEE00E505CA /* DrawView */,
+				183DCAAD19DD34E40054A630 /* Settings */,
+				182FB7EF19DD5EB600205E8B /* Bookmark */,
+				182FB7F619DD770C00205E8B /* SearchView */,
+				18296F3019E9460600AE7F0B /* LocationDetail */,
+				D6C210ED19F2783D007BAF88 /* AddLocation */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
+		6AC4A4A41CA3EC9E00C1D220 /* Place Info Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6AC4A4A51CA3ECD800C1D220 /* PlaceInfoCell.h */,
+				6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */,
+			);
+			name = "Place Info Cell";
 			sourceTree = "<group>";
 		};
 		8B52EB731BA5ECF500EFC89F /* Library */ = {
@@ -918,6 +947,7 @@
 				D6C210F219F278BE007BAF88 /* AddLocationViewController.m in Sources */,
 				182FB80419DD855000205E8B /* Guide.m in Sources */,
 				18296F4D19E96EEB00AE7F0B /* LocationFeedbackCellController.m in Sources */,
+				6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */,
 				185023C019E8F150008156D5 /* LocationType.m in Sources */,
 				182FB7F919DD772400205E8B /* SearchTableViewController.m in Sources */,
 				18296F5719E989CD00AE7F0B /* UploadData.m in Sources */,

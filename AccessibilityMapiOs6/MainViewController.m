@@ -41,29 +41,23 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
     // Do any additional setup after loading the view.
     self.fakeButtonSearchBarClicked.hidden = YES;
     /* Add the search bar */
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(53, 0, screenWidth-53-53, 44)];
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(53, 0, SCREEN_WIDTH-53-53, 44)];
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
     [self setCustomNavigationBackButton];
 }
 
+/**
+ *  Setup back button item
+ */
 - (void)setCustomNavigationBackButton
 {
     UIImage *backBtn = [UIImage imageNamed:@"main_back_button"];
     backBtn = [backBtn imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     self.navigationController.navigationBar.backIndicatorImage = backBtn;
     self.navigationController.navigationBar.backIndicatorTransitionMaskImage = backBtn;
+    // Cheat to hide title
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -66) forBarMetrics:UIBarMetricsDefault];
-//    UIBarButtonItem *newBackButton =
-//    [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"main_back_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-//                                     style:UIBarButtonItemStyleBordered
-//                                    target:self
-//                                    action:@selector(popViewControllerAnimated:)];
-//    self.navigationItem.backBarButtonItem = newBackButton;
-//    self.navigationController.navigationBar.backIndicatorImage = nil;
-//    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = nil
 }
 
 - (void)didReceiveMemoryWarning
