@@ -191,6 +191,7 @@
 		18DDA10119DD215800834B78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		18DDA10319DD217C00834B78 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5080A1591E70ABF8D7F12E94 /* Pods-DMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.debug.xcconfig"; sourceTree = "<group>"; };
+		6AC4A4A11CA3DE3000C1D220 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		78F8BBAD4A7022EC938A27BA /* libPods-DMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1065E41BA73BBD00565A3B /* InfoDRDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDRDViewController.h; sourceTree = "<group>"; };
 		8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDRDViewController.m; sourceTree = "<group>"; };
@@ -503,8 +504,7 @@
 		18DDA0B919DD185900834B78 /* AccessibilityMapiOs6 */ = {
 			isa = PBXGroup;
 			children = (
-				8B52EB731BA5ECF500EFC89F /* Library */,
-				8B99A1361B9C54F0004789C1 /* Utils */,
+				6AC4A49F1CA3DD8C00C1D220 /* Shared */,
 				8BB97F9F1B0BB11A00BAC5FD /* CustomInfoView */,
 				8BAFDDB91AB4224F00BD49D0 /* CustomAlertView */,
 				D6A4CBFE1A3B15FE003CFE12 /* MainMap */,
@@ -555,6 +555,24 @@
 				18DDA0DA19DD185900834B78 /* DMapTests-Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AC4A49F1CA3DD8C00C1D220 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6AC4A4A01CA3DDA100C1D220 /* Constant */,
+				8B52EB731BA5ECF500EFC89F /* Library */,
+				8B99A1361B9C54F0004789C1 /* Utils */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		6AC4A4A01CA3DDA100C1D220 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				6AC4A4A11CA3DE3000C1D220 /* Constant.h */,
+			);
+			name = Constant;
 			sourceTree = "<group>";
 		};
 		8B52EB731BA5ECF500EFC89F /* Library */ = {

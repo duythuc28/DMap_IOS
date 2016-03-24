@@ -15,4 +15,5 @@
 @property (strong) NSMutableArray*      data;
 
 @property (strong, nonatomic) UISearchBar *searchBar;
+
 @end

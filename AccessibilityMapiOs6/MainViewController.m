@@ -46,8 +46,25 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(53, 0, screenWidth-53-53, 44)];
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
+    [self setCustomNavigationBackButton];
 }
 
+- (void)setCustomNavigationBackButton
+{
+    UIImage *backBtn = [UIImage imageNamed:@"main_back_button"];
+    backBtn = [backBtn imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationController.navigationBar.backIndicatorImage = backBtn;
+    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = backBtn;
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -66) forBarMetrics:UIBarMetricsDefault];
+//    UIBarButtonItem *newBackButton =
+//    [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"main_back_button"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+//                                     style:UIBarButtonItemStyleBordered
+//                                    target:self
+//                                    action:@selector(popViewControllerAnimated:)];
+//    self.navigationItem.backBarButtonItem = newBackButton;
+//    self.navigationController.navigationBar.backIndicatorImage = nil;
+//    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = nil
+}
 
 - (void)didReceiveMemoryWarning
 {
