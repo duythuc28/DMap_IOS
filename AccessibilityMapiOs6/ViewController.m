@@ -17,8 +17,10 @@
 #import <MapKit/MapKit.h>
 #import "LocationTabBarController.h"
 #import "LocalizeHelper.h"
-@interface ViewController ()
 
+
+@interface ViewController ()
+@property (strong, nonatomic) PlaceInfoWindowView * placeInfoView;
 @end
 
 @implementation ViewController
@@ -26,6 +28,15 @@
     BOOL firstLocationUpdate_;
     NSMutableArray* waypoints_;
     NSMutableArray* waypointStrings_;
+}
+
+- (PlaceInfoWindowView *)placeInfoView {
+    if (!_placeInfoView) {
+        _placeInfoView = [[PlaceInfoWindowView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 260, SCREEN_WIDTH, 150)];
+        _placeInfoView.delegate = self;
+        [self.view addSubview:_placeInfoView];
+    }
+    return _placeInfoView;
 }
 
 - (void) viewWillLayoutSubviews
@@ -235,37 +246,75 @@
     [self.mapview setSelectedMarker:theMarker];
 }
 
-//Marker Window Content
-- (UIView *)mapView:(GMSMapView *)mapView markerInfoContents:(GMSMarker *)marker {
+- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     CustomMarker * cusMarker = (CustomMarker*)marker;
-    if(cusMarker.locationMarker == TRUE)
-    {
-        CustomMarker *cusMarker = (CustomMarker *)marker;
-        CustomInfoWindowView *view = [[[NSBundle mainBundle] loadNibNamed:@"CustomInfoWindowView" owner:self options:nil] objectAtIndex:0];
-        
-        view.infoTitle.text = cusMarker.location.title;
-        view.infoAddress.text = cusMarker.location.address;
-        return view;
-    }
-    else
-        return nil;
+        if(cusMarker.locationMarker == TRUE)
+        {
+            self.placeInfoView.placeTitle.text = cusMarker.location.title;
+            self.placeInfoView.placeAddress.text = cusMarker.location.address;
+            self.placeInfoView.location = cusMarker.location;
+            
+            self.placeInfoView.alpha = 0.0;
+            [UIView animateWithDuration:0.4 animations:^{
+                self.placeInfoView.alpha = 1.0;
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+            GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
+            [self.mapview animateWithCameraUpdate:cameraUpdate];
+            
+            return YES;
+        }
+        else
+            return NO;
 }
+
+#pragma mark - Place Info View Delegate
+- (void)closeButtonClicked:(PlaceInfoWindowView *)placeInfoView {
+    [UIView animateWithDuration:0.4 animations:^{
+        self.placeInfoView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+- (void)placeInfoViewClicked:(PlaceInfoWindowView *)placeInfoView {
+    LocationTabBarController *detailView        = (LocationTabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationDetailTabBar"];
+        detailView.rootViewController = self.parentController;
+        detailView.locationInfo       = placeInfoView.location;
+        [self.parentController.navigationController pushViewController:detailView animated:YES];
+}
+//Marker Window Content
+//- (UIView *)mapView:(GMSMapView *)mapView markerInfoContents:(GMSMarker *)marker {
+//    CustomMarker * cusMarker = (CustomMarker*)marker;
+//    if(cusMarker.locationMarker == TRUE)
+//    {
+//        CustomMarker *cusMarker = (CustomMarker *)marker;
+//        CustomInfoWindowView *view = [[[NSBundle mainBundle] loadNibNamed:@"CustomInfoWindowView" owner:self options:nil] objectAtIndex:0];
+//        
+//        view.infoTitle.text = cusMarker.location.title;
+//        view.infoAddress.text = cusMarker.location.address;
+//        return view;
+//    }
+//    else
+//        return nil;
+//}
 
 
 //Tap on the marker
 -(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:marker
 {
     //CustomMarker *cusMarker = (CustomMarker*)marker;
-    CustomMarker * cusMarker = (CustomMarker*)marker;
-    if(cusMarker.locationMarker == TRUE)
-    {
-        LocationTabBarController *detailView        = (LocationTabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationDetailTabBar"];
-        
-        detailView.rootViewController = self.parentController;
-        detailView.locationInfo       = cusMarker.location;
-        
-        [self.parentController.navigationController pushViewController:detailView animated:YES];
-    }
+//    CustomMarker * cusMarker = (CustomMarker*)marker;
+//    if(cusMarker.locationMarker == TRUE)
+//    {
+//        LocationTabBarController *detailView        = (LocationTabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationDetailTabBar"];
+//        
+//        detailView.rootViewController = self.parentController;
+//        detailView.locationInfo       = cusMarker.location;
+//        
+//        [self.parentController.navigationController pushViewController:detailView animated:YES];
+//    }
 }
 
 

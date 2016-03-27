@@ -10,8 +10,9 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "MainViewController.h"
 #import "Location.h"
+#import "PlaceInfoWindowView.h"
 
-@interface ViewController : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
+@interface ViewController : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate , PlaceInfoWindowDelegate >
 @property (strong) MainViewController*  parentController;
 @property (strong )GMSMapView*          mapview;
 @property (strong) GMSPolyline*         polyline;

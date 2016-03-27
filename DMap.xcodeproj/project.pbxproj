@@ -64,6 +64,8 @@
 		8B1C11FB1B772B3E00AA2F0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11FA1B772B3E00AA2F0C /* Main.storyboard */; };
 		8B1C11FD1B772B9E00AA2F0C /* SubAcViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11FC1B772B9E00AA2F0C /* SubAcViewController.xib */; };
 		8B1C11FF1B772C0400AA2F0C /* FromToRouteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11FE1B772C0400AA2F0C /* FromToRouteView.xib */; };
+		8B4C31121CA68A7300BFC4E0 /* PlaceInfoWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4C31111CA68A7300BFC4E0 /* PlaceInfoWindowView.m */; };
+		8B4C31141CA68A8600BFC4E0 /* PlaceInfoWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B4C31131CA68A8600BFC4E0 /* PlaceInfoWindowView.xib */; };
 		8B99A1391B9C5507004789C1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B99A1381B9C5507004789C1 /* Utils.m */; };
 		8BA518E31B77B17B00C6BA03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BA518E51B77B17B00C6BA03 /* Localizable.strings */; };
 		8BAFDDBD1AB422B300BD49D0 /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAFDDBB1AB422B300BD49D0 /* CustomAlertViewController.m */; };
@@ -71,6 +73,8 @@
 		8BD2481E1BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD248191BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m */; };
 		8BD2481F1BC2C77F00BBC829 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2481B1BC2C77F00BBC829 /* SVProgressHUD.bundle */; };
 		8BD248201BC2C77F00BBC829 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2481D1BC2C77F00BBC829 /* SVProgressHUD.m */; };
+		8BFB4A911CA855F1005C7058 /* UILabel+VerticalAlign.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB4A901CA855F1005C7058 /* UILabel+VerticalAlign.m */; };
+		8BFB4A941CA857CB005C7058 /* TopAlignLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFB4A931CA857CB005C7058 /* TopAlignLabel.m */; };
 		D60BD26E1A2E2935008DA0B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA0B719DD185900834B78 /* UIKit.framework */; };
 		D61C452319FF8BD60076D8F7 /* SaveLocationTempTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = D61C452219FF8BD60076D8F7 /* SaveLocationTempTableController.m */; };
 		D61C452619FF8C0D0076D8F7 /* SaveLocationTempTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D61C452519FF8C0D0076D8F7 /* SaveLocationTempTableViewCell.m */; };
@@ -203,6 +207,9 @@
 		8B1C11FA1B772B3E00AA2F0C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8B1C11FC1B772B9E00AA2F0C /* SubAcViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubAcViewController.xib; sourceTree = "<group>"; };
 		8B1C11FE1B772C0400AA2F0C /* FromToRouteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FromToRouteView.xib; sourceTree = "<group>"; };
+		8B4C31101CA68A7300BFC4E0 /* PlaceInfoWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoWindowView.h; sourceTree = "<group>"; };
+		8B4C31111CA68A7300BFC4E0 /* PlaceInfoWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoWindowView.m; sourceTree = "<group>"; };
+		8B4C31131CA68A8600BFC4E0 /* PlaceInfoWindowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoWindowView.xib; sourceTree = "<group>"; };
 		8B99A1371B9C5507004789C1 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Utils/Utils.h; sourceTree = "<group>"; };
 		8B99A1381B9C5507004789C1 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Utils/Utils.m; sourceTree = "<group>"; };
 		8BA518E41B77B17B00C6BA03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -217,6 +224,10 @@
 		8BD2481B1BC2C77F00BBC829 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Library/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		8BD2481C1BC2C77F00BBC829 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = Library/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
 		8BD2481D1BC2C77F00BBC829 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Library/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		8BFB4A8F1CA855F1005C7058 /* UILabel+VerticalAlign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+VerticalAlign.h"; sourceTree = "<group>"; };
+		8BFB4A901CA855F1005C7058 /* UILabel+VerticalAlign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+VerticalAlign.m"; sourceTree = "<group>"; };
+		8BFB4A921CA857CB005C7058 /* TopAlignLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAlignLabel.h; sourceTree = "<group>"; };
+		8BFB4A931CA857CB005C7058 /* TopAlignLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAlignLabel.m; sourceTree = "<group>"; };
 		D2208A99F5303F5DE3482CC0 /* Pods-DMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.release.xcconfig"; sourceTree = "<group>"; };
 		D61C452119FF8BD60076D8F7 /* SaveLocationTempTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveLocationTempTableController.h; sourceTree = "<group>"; };
 		D61C452219FF8BD60076D8F7 /* SaveLocationTempTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveLocationTempTableController.m; sourceTree = "<group>"; };
@@ -553,6 +564,8 @@
 		6AC4A49F1CA3DD8C00C1D220 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8BFB4A8B1CA85185005C7058 /* SubClass */,
+				8BA928E91CA7C963006CE206 /* Categories */,
 				D644D7A91A3A041900F15FF5 /* Language */,
 				182FB7DA19DD456C00205E8B /* MapDirection */,
 				6AC4A4A01CA3DDA100C1D220 /* Constant */,
@@ -573,6 +586,7 @@
 		6AC4A4A21CA3EAB500C1D220 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B4C310F1CA68A4100BFC4E0 /* Info Window */,
 				6AC4A4A41CA3EC9E00C1D220 /* Place Info Cell */,
 				D6EB548C1A09C802008CDED8 /* AJCombobox */,
 				8BAFDDB91AB4224F00BD49D0 /* CustomAlertView */,
@@ -602,6 +616,16 @@
 				6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */,
 			);
 			name = "Place Info Cell";
+			sourceTree = "<group>";
+		};
+		8B4C310F1CA68A4100BFC4E0 /* Info Window */ = {
+			isa = PBXGroup;
+			children = (
+				8B4C31101CA68A7300BFC4E0 /* PlaceInfoWindowView.h */,
+				8B4C31111CA68A7300BFC4E0 /* PlaceInfoWindowView.m */,
+				8B4C31131CA68A8600BFC4E0 /* PlaceInfoWindowView.xib */,
+			);
+			name = "Info Window";
 			sourceTree = "<group>";
 		};
 		8B52EB731BA5ECF500EFC89F /* Library */ = {
@@ -634,6 +658,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		8BA928E91CA7C963006CE206 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8BFB4A8F1CA855F1005C7058 /* UILabel+VerticalAlign.h */,
+				8BFB4A901CA855F1005C7058 /* UILabel+VerticalAlign.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		8BAFDDB91AB4224F00BD49D0 /* CustomAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +685,15 @@
 				8B1C11F61B772AFF00AA2F0C /* ToolView.xib */,
 			);
 			name = CustomInfoView;
+			sourceTree = "<group>";
+		};
+		8BFB4A8B1CA85185005C7058 /* SubClass */ = {
+			isa = PBXGroup;
+			children = (
+				8BFB4A921CA857CB005C7058 /* TopAlignLabel.h */,
+				8BFB4A931CA857CB005C7058 /* TopAlignLabel.m */,
+			);
+			name = SubClass;
 			sourceTree = "<group>";
 		};
 		D644D7A91A3A041900F15FF5 /* Language */ = {
@@ -867,6 +909,7 @@
 				8B1C11F91B772B1000AA2F0C /* CustomAlertViewController.xib in Resources */,
 				8B1C11FB1B772B3E00AA2F0C /* Main.storyboard in Resources */,
 				8BA518E31B77B17B00C6BA03 /* Localizable.strings in Resources */,
+				8B4C31141CA68A8600BFC4E0 /* PlaceInfoWindowView.xib in Resources */,
 				D68B7C5D1A0FDB3700775478 /* locationDetail(35x35).png in Resources */,
 				D6A7D0FB1A0A14F900236ACC /* SubAcTableCell.xib in Resources */,
 				1868B6531A05CC6100DE27AE /* ComboBox.xib in Resources */,
@@ -945,6 +988,7 @@
 				18296F4219E9495400AE7F0B /* DetailLocationViewController.m in Sources */,
 				18296F3F19E947BF00AE7F0B /* LocationTabBarController.m in Sources */,
 				D6C210F219F278BE007BAF88 /* AddLocationViewController.m in Sources */,
+				8BFB4A941CA857CB005C7058 /* TopAlignLabel.m in Sources */,
 				182FB80419DD855000205E8B /* Guide.m in Sources */,
 				18296F4D19E96EEB00AE7F0B /* LocationFeedbackCellController.m in Sources */,
 				6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */,
@@ -974,8 +1018,10 @@
 				D6AA64E919F38C3100391F36 /* AccessTypeTableViewCell.m in Sources */,
 				D6D2644719F36DD600A85950 /* LocationTypeTableViewController.m in Sources */,
 				18214DB319EE6BF1003BE4F0 /* Base64.m in Sources */,
+				8BFB4A911CA855F1005C7058 /* UILabel+VerticalAlign.m in Sources */,
 				D6AA64EC19F38C4900391F36 /* AccessTypeTableViewController.m in Sources */,
 				1868B6521A05CC6100DE27AE /* ComboBox.m in Sources */,
+				8B4C31121CA68A7300BFC4E0 /* PlaceInfoWindowView.m in Sources */,
 				182FB7F519DD5EBD00205E8B /* BookmarkTableViewController.m in Sources */,
 				18DDA0C419DD185900834B78 /* AppDelegate.m in Sources */,
 				18296F4A19E96EC700AE7F0B /* LocationFeedbackTableController.m in Sources */,
