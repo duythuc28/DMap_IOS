@@ -57,6 +57,8 @@
 		18DDA10219DD215800834B78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10119DD215800834B78 /* CoreLocation.framework */; };
 		18DDA10419DD217C00834B78 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10319DD217C00834B78 /* AVFoundation.framework */; };
 		64BD88F76619EA6901F89123 /* libPods-DMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F8BBAD4A7022EC938A27BA /* libPods-DMap.a */; };
+		6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A801CA9256E0057AAF4 /* RequestDataManager.m */; };
+		6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A841CA933640057AAF4 /* SplashViewController.m */; };
 		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
 		8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */; };
 		8B1C11F71B772AFF00AA2F0C /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F61B772AFF00AA2F0C /* ToolView.xib */; };
@@ -196,6 +198,10 @@
 		18DDA10119DD215800834B78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		18DDA10319DD217C00834B78 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5080A1591E70ABF8D7F12E94 /* Pods-DMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.debug.xcconfig"; sourceTree = "<group>"; };
+		6A679A7F1CA9256E0057AAF4 /* RequestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestDataManager.h; sourceTree = "<group>"; };
+		6A679A801CA9256E0057AAF4 /* RequestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestDataManager.m; sourceTree = "<group>"; };
+		6A679A831CA933640057AAF4 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		6A679A841CA933640057AAF4 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		6AC4A4A11CA3DE3000C1D220 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		6AC4A4A51CA3ECD800C1D220 /* PlaceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoCell.h; sourceTree = "<group>"; };
 		6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoCell.m; sourceTree = "<group>"; };
@@ -561,9 +567,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6A679A7E1CA925050057AAF4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				6A679A7F1CA9256E0057AAF4 /* RequestDataManager.h */,
+				6A679A801CA9256E0057AAF4 /* RequestDataManager.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		6A679A821CA92EA40057AAF4 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				6A679A831CA933640057AAF4 /* SplashViewController.h */,
+				6A679A841CA933640057AAF4 /* SplashViewController.m */,
+			);
+			name = "Splash Screen";
+			sourceTree = "<group>";
+		};
 		6AC4A49F1CA3DD8C00C1D220 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				6A679A7E1CA925050057AAF4 /* Networking */,
 				8BFB4A8B1CA85185005C7058 /* SubClass */,
 				8BA928E91CA7C963006CE206 /* Categories */,
 				D644D7A91A3A041900F15FF5 /* Language */,
@@ -598,6 +623,7 @@
 		6AC4A4A31CA3EAE900C1D220 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				6A679A821CA92EA40057AAF4 /* Splash Screen */,
 				182FB7FA19DD838500205E8B /* MoreInfoView */,
 				D6EB62D619DEEBEE00E505CA /* DrawView */,
 				183DCAAD19DD34E40054A630 /* Settings */,
@@ -984,6 +1010,7 @@
 				D6A7D0FA1A0A14F900236ACC /* SubAcTableCell.m in Sources */,
 				182FB7D319DD450600205E8B /* CustomMarker.m in Sources */,
 				8BC405291B0E2ED700688D66 /* ToolView.m in Sources */,
+				6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */,
 				183DCAB019DD34EC0054A630 /* FilterController.m in Sources */,
 				18296F4219E9495400AE7F0B /* DetailLocationViewController.m in Sources */,
 				18296F3F19E947BF00AE7F0B /* LocationTabBarController.m in Sources */,
@@ -1012,6 +1039,7 @@
 				D6EB62DC19DEEC1600E505CA /* TableViewCell.m in Sources */,
 				D66A078119EA76FF009CE296 /* TableViewController.m in Sources */,
 				182FB7F419DD5EBD00205E8B /* BookmarkTableViewCellController.m in Sources */,
+				6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */,
 				D6EB54971A09CF76008CDED8 /* AJComboBox.m in Sources */,
 				D61C452619FF8C0D0076D8F7 /* SaveLocationTempTableViewCell.m in Sources */,
 				D660BD7A19ED1C11002595B5 /* Reachability.m in Sources */,

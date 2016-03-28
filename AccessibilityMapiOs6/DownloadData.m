@@ -13,19 +13,8 @@
 #import "AccessType.h"
 #import "Comment.h"
 #import "Base64.h"
+#import "RequestDataManager.h"
 @implementation DownloadData
-
-//static NSString *LOCATION_API = @"http://www.accessmap.somee.com/AccessMapServices.svc/GetLocation?Time=%@";
-//static NSString *ACCESSTYPE_API = @"http://www.accessmap.somee.com/AccessMapServices.svc/GetAccessibilityType?Time=%@";
-//static NSString *LOCATIONTYPE_API = @"http://www.accessmap.somee.com/AccessMapServices.svc/GetLocationType?Time=%@";
-//
-//static NSString *COMMENT_API = @"http://www.accessmap.somee.com/AccessMapServices.svc/GetFeedback?locationid=%@";
-
-//static NSString *LOCATION_API = @"http://mapsdemo.tk/web/api/get/locations?Time=%@";
-//static NSString *ACCESSTYPE_API = @"http://mapsdemo.tk/web/api/get/access_types?Time=%@";
-//static NSString *LOCATIONTYPE_API = @"http://mapsdemo.tk/web/api/get/location_types?Time=%@";
-//
-//static NSString *COMMENT_API = @"http://mapsdemo.tk/web/api/get/feedback?Locationid=%@";
 
 
 + (NSArray *) downloadCommentFromLocationID:(NSString*)locationId{
@@ -58,40 +47,25 @@
 }
 
 + (BOOL)downloadLocation{
-    @try {
-        id lastupdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastupdate"];
-        NSString* timestamp;
-        NSString *url;
-        if(!lastupdate)
-        {
-            timestamp = @"0";
-            url = [NSString stringWithFormat:@"%@%@",LOCATION_API,timestamp];
-        }
-        else
-        {
-            timestamp = lastupdate;
-            url = [NSString stringWithFormat:@"%@%@",LOCATION_API,timestamp];
-        }
-        NSURL *jsonURL = [NSURL URLWithString:url];
-        
-        NSURLResponse *response = nil;
-        NSError* error = nil;
-        
-        
-        NSData* data = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:jsonURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:(15.0)] returningResponse:&response error:&error];
-        if(error!=nil)
-            NSLog(@"Whoops, couldn't download: %@", [error localizedDescription]);
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        [DownloadData storeLocationToCoreData:(NSArray*)[json valueForKeyPath:@"Location"]];
-        
-        //Set lastupdate time
-        NSString* lastUpdate = [json valueForKeyPath:@"Time"];
+    id lastupdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastupdate"];
+    NSString* timestamp = @"0";
+    if(lastupdate)
+    {
+        timestamp = lastupdate;
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@",LOCATION_API,timestamp];
+    RequestDataManager * requestData = [[RequestDataManager alloc]initWithUrl:url];
+    [requestData setRequestMethod:GET];
+    [requestData requestHTMLDataSuccess:^(NSURLSessionTask *operation, id response) {
+        NSDictionary * responseData = response;
+        [DownloadData storeLocationToCoreData:(NSArray*)[responseData objectForKey:@"Location"]];
+        NSString* lastUpdate = [responseData objectForKey:@"Time"];
         [[NSUserDefaults standardUserDefaults] setObject:lastUpdate forKey:@"lastupdate"];
-        return YES;
-    }
-    @catch (NSException *exception) {
-        return NO;
-    }
+
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Can not download data");
+    }];
+    return YES;
 }
 + (void) storeLocationToCoreData:(NSArray*)json{
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -126,37 +100,24 @@
 
 
 + (BOOL)downloadAccessType{
-    @try {
-        id lastupdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastupdate"];
-        NSString* timestamp;
-        NSString *url;
-        if(!lastupdate)
-        {
-            timestamp = @"0";
-            url = [NSString stringWithFormat:@"%@%@",ACCESSTYPE_API,timestamp];
-        }
-        else
-        {
-            timestamp = lastupdate;
-            url = [NSString stringWithFormat:@"%@%@",ACCESSTYPE_API,timestamp];
-        }
-        
-        NSURL *jsonURL = [NSURL URLWithString:url];
-        NSURLResponse *response = nil;
-        NSError* error = nil;
-        NSData* data = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:jsonURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:(15.0)] returningResponse:&response error:&error];
-        if(error!=nil)
-            NSLog(@"Whoops, couldn't download: %@", [error localizedDescription]);
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        //[DownloadData storeAccessTypeToCoreData:[(NSArray*)[json valueForKey:@"AccessibilityType"]]];
-        [DownloadData storeAccessTypeToCoreData:(NSArray*)[json valueForKeyPath:@"AccessibilityType"]];
-        return YES;
-        
+    id lastupdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastupdate"];
+    NSString* timestamp = @"0";
+    if(lastupdate)
+    {
+       timestamp = lastupdate;
     }
-    @catch (NSException *exception) {
-        return NO;
-    }
-    
+    NSString * url = [NSString stringWithFormat:@"%@%@",ACCESSTYPE_API,timestamp];
+    RequestDataManager * requestData = [[RequestDataManager alloc]initWithUrl:url];
+    [requestData setRequestMethod:GET];
+    [requestData requestHTMLDataSuccess:^(NSURLSessionTask *operation, id response) {
+        NSDictionary * json = response;
+        [DownloadData storeAccessTypeToCoreData:(NSArray*)[json objectForKey:@"AccessibilityType"]];
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Can not download Access Type");
+        NSLog(@"Error %@",error.description);
+    }];
+    return YES;
+
 }
 
 + (void)storeAccessTypeToCoreData:(NSArray *)json{
@@ -191,35 +152,26 @@
 }
 
 +(BOOL)downloadLocationType{
-    @try {
-        id lastupdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastupdate"];
-        NSString* timestamp;
-        NSString *url;
-        if(!lastupdate)
-        {
-            timestamp = @"0";
-            url = [NSString stringWithFormat:@"%@%@",LOCATIONTYPE_API,timestamp];
-        }
-        else
-        {
-            timestamp = lastupdate;
-            url = [NSString stringWithFormat:@"%@%@",LOCATIONTYPE_API,timestamp];
-        }
-        
-        NSURL *jsonURL = [NSURL URLWithString:url];
-        NSURLResponse *response = nil;
-        NSError* error = nil;
-        NSData* data = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:jsonURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:(15.0)] returningResponse:&response error:&error];
-        if(error!=nil)
-            NSLog(@"Whoops, couldn't download: %@", [error localizedDescription]);
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        [DownloadData storeLocaionTypeToCoreData:(NSArray*)[json valueForKeyPath:@"LocationType"]];
-        return YES;
-        
+    id lastupdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastupdate"];
+    NSString* timestamp = @"0";
+    if(lastupdate)
+    {
+        timestamp = lastupdate;
     }
-    @catch (NSException *exception) {
-        return NO;
-    }
+    NSString *url = [NSString stringWithFormat:@"%@%@",LOCATIONTYPE_API,timestamp];
+
+    RequestDataManager * requestData = [[RequestDataManager alloc]initWithUrl:url];
+    [requestData setRequestMethod:GET];
+    [requestData requestHTMLDataSuccess:^(NSURLSessionTask *operation, id response) {
+        NSDictionary * json = response;
+        [DownloadData storeLocaionTypeToCoreData:(NSArray*)[json objectForKey:@"LocationType"]];
+        [self downloadLocation];
+        NSLog(@"Location Type %@",response);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Can not download Location Type");
+        NSLog(@"Error %@",error.description);
+    }];
+    return YES;
 }
 +(void)storeLocaionTypeToCoreData:(NSArray*)json{
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -282,17 +234,9 @@
     if (![self downloadAccessType]) {
         return NO;
     }
-    if(![self downloadLocationType]){
+    if (![self downloadLocationType]) {
         return NO;
     }
-    if(![self downloadLocation]){
-        return NO;
-    }
-    /*
-     NSArray* test1 = [AccessType getAllData];
-     NSArray* test2 = [LocationType getAllData];
-     NSArray* test3 = [Location getAllData];
-     */
     return YES;
 }
 

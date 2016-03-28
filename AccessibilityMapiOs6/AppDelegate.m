@@ -10,6 +10,8 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "DownloadData.h"
 #import "LocalizeHelper.h"
+#import "SplashViewController.h"
+
 @implementation AppDelegate
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -18,16 +20,23 @@ id services_;
 bool isTimeOut;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [NSThread sleepForTimeInterval:2.0];
+   
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:GOOGLE_MAP_API_KEY];
     services_ = [GMSServices sharedServices];
+    NSString * languageKey = [[NSUserDefaults standardUserDefaults] objectForKey:APP_LANGUAGE];
+    if ([languageKey isEqualToString:@"vi"] || languageKey == nil) {
+        [[LocalizeHelper sharedLocalSystem] setLanguage:@"vi"];
+    }
+    else
+    {
+        [[LocalizeHelper sharedLocalSystem] setLanguage:@"en"];
+    }
     
     id firstTime = [[NSUserDefaults standardUserDefaults] objectForKey:kFIRST_TIME];
     
     if(firstTime == nil){
         //Set settings
-        
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"radius"];
         [[NSUserDefaults standardUserDefaults] setObject:@"vi" forKey:APP_LANGUAGE];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:TRUE] forKey:kFIRST_TIME];
@@ -42,14 +51,9 @@ bool isTimeOut;
                                                     otherButtonTitles:nil];
             [message show];
         }
-    }
-    NSString * languageKey = [[NSUserDefaults standardUserDefaults] objectForKey:APP_LANGUAGE];
-    if ([languageKey isEqualToString:@"vi"]) {
-        [[LocalizeHelper sharedLocalSystem] setLanguage:@"vi"];
-    }
-    else
-    {
-        [[LocalizeHelper sharedLocalSystem] setLanguage:@"en"];
+        UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SplashViewController * splashViewController = [storyBoard instantiateViewControllerWithIdentifier:@"SplashViewController"];
+        self.window.rootViewController = splashViewController;
     }
     return YES;
 }
