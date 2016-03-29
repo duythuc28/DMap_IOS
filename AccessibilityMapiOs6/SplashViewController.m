@@ -22,10 +22,13 @@
             });
         } else {
             NSLog(@"Error");
-        }       
+        }
     }];
 }
 
+/**
+ *  Move to Main Navigation Controller
+ */
 - (void)loadingFinish {
     AppDelegate * appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     UINavigationController * mainViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MainNavigationController"];

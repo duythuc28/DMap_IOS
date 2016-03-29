@@ -12,7 +12,6 @@
 @interface DownloadData : NSObject <NSURLConnectionDelegate>
 
 
-+ (void)createDir :(NSString *)dirName;
 + (BOOL) downloadImageFromURL:(NSString*)url toPath:(NSString*)path;
 
 + (BOOL) downloadLocation;
@@ -28,6 +27,11 @@
 
 + (NSArray *) downloadCommentFromLocationID:(NSString*)locationId;
 
+/**
+ *  Download whole data package
+ *
+ *  @param completionHandler Block notify after request successfully
+ */
 + (void) downloadDataCompletion:(void (^) (BOOL finished)) completionHandler;
 
 @end
