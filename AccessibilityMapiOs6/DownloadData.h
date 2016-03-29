@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface DownloadData : NSObject <NSURLConnectionDelegate>
+
+
 + (void)createDir :(NSString *)dirName;
 + (BOOL) downloadImageFromURL:(NSString*)url toPath:(NSString*)path;
 
@@ -24,5 +27,7 @@
 
 
 + (NSArray *) downloadCommentFromLocationID:(NSString*)locationId;
+
++ (void) downloadDataCompletion:(void (^) (BOOL finished)) completionHandler;
 
 @end

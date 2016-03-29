@@ -178,7 +178,7 @@
         <!--Navigation Controller-->
         <scene sceneID="of9-dQ-361">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1kd-sd-ZBI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="1kd-sd-ZBI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" backIndicatorImage="main_back_button" id="aCb-AP-gde">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -213,11 +213,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash Image" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-B8-wVu">
                                 <rect key="frame" x="0.0" y="-2" width="320" height="570"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-jL-Urz">
+                                <rect key="frame" x="150" y="398" width="20" height="20"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fFn-B8-wVu" secondAttribute="trailing" id="Gs8-Fi-VE7"/>
                             <constraint firstItem="fFn-B8-wVu" firstAttribute="top" secondItem="sRh-5T-fS3" secondAttribute="bottom" constant="-22" id="Gz4-xn-lsw"/>
+                            <constraint firstItem="Rls-jL-Urz" firstAttribute="centerX" secondItem="fFn-B8-wVu" secondAttribute="centerX" id="PKY-Mq-ncZ"/>
+                            <constraint firstItem="dQl-Ne-dbn" firstAttribute="top" secondItem="Rls-jL-Urz" secondAttribute="bottom" constant="150" id="orm-vf-w2f"/>
                             <constraint firstItem="dQl-Ne-dbn" firstAttribute="top" secondItem="fFn-B8-wVu" secondAttribute="bottom" id="xOz-nH-3ug"/>
                             <constraint firstItem="fFn-B8-wVu" firstAttribute="leading" secondItem="Yu7-8X-piK" secondAttribute="leading" id="xvv-jb-WSd"/>
                         </constraints>
@@ -299,20 +305,20 @@
                                     <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="geP-vR-tb7"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Địa chỉ" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mw3-g7-XgT">
-                                <rect key="frame" x="8" y="212" width="306" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="qR3-dF-08N"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Điện thoại địa điểm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bOR-v1-byB">
                                 <rect key="frame" x="8" y="160" width="306" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                 <connections>
                                     <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="Krt-eD-g2b"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Địa chỉ" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mw3-g7-XgT">
+                                <rect key="frame" x="8" y="212" width="306" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="qR3-dF-08N"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnx-gm-IoY">

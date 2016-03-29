@@ -35,25 +35,25 @@ bool isTimeOut;
     
     id firstTime = [[NSUserDefaults standardUserDefaults] objectForKey:kFIRST_TIME];
     
-    if(firstTime == nil){
+    if(firstTime == nil) {
         //Set settings
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"radius"];
         [[NSUserDefaults standardUserDefaults] setObject:@"vi" forKey:APP_LANGUAGE];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:TRUE] forKey:kFIRST_TIME];
         //Download the marker
-        if (![DownloadData downloadWholePackage])
-        {
-            isTimeOut = true;
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                              message:@"Your internet quality is not good enough to download data ! Go to Update Location to download again"
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-            [message show];
-        }
+//        if (![DownloadData downloadWholePackage])
+//        {
+//            isTimeOut = true;
+//            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                              message:@"Your internet quality is not good enough to download data ! Go to Update Location to download again"
+//                                                             delegate:nil
+//                                                    cancelButtonTitle:@"OK"
+//                                                    otherButtonTitles:nil];
+//            [message show];
+//        }
         UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         SplashViewController * splashViewController = [storyBoard instantiateViewControllerWithIdentifier:@"SplashViewController"];
-        self.window.rootViewController = splashViewController;
+        [self.window setRootViewController:splashViewController];
     }
     return YES;
 }
