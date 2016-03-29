@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TopAlignLabel.h"
-#import "Location.h"
+#import "CustomMarker.h"
 
 @class PlaceInfoWindowView;
 @protocol PlaceInfoWindowDelegate <NSObject>
@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *placeIcon;
 @property (weak, nonatomic) id <PlaceInfoWindowDelegate> delegate;
 
-@property (strong, nonatomic) Location * location;
+@property (strong, nonatomic) CustomMarker * customMarker;
 
 - (id)initWithFrame:(CGRect)frame;
 

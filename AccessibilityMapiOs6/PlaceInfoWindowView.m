@@ -18,7 +18,7 @@
         self.subView.layer.borderWidth = 0.5;
         self.placeIcon.layer.borderWidth = 0.5;
         self.placeIcon.layer.borderColor = [[UIColor darkGrayColor] CGColor];
-        self.alpha = 0.0;
+//        self.alpha = 0.0;
     }
     return self;
 }

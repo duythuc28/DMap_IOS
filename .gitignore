@@ -591,3 +591,21 @@ Pods/Target Support Files/Pods-DMap/Pods-DMap-frameworks.sh
 Pods/Target Support Files/Pods-DMap/Pods-DMap-resources.sh
 Pods/Target Support Files/Pods-DMap/Pods-DMap.debug.xcconfig
 Pods/Target Support Files/Pods-DMap/Pods-DMap.release.xcconfig
+DMap.xcworkspace/xcshareddata/DMap.xcscmblueprint
+DMap.xcworkspace/xcuserdata/mc976.xcuserdatad/UserInterfaceState.xcuserstate
+DMap.xcworkspace/xcuserdata/mc976.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+Pods/AFNetworking/LICENSE
+Pods/DCAnimationKit/LICENSE
+Pods/DCAnimationKit/README.md
+Pods/DCAnimationKit/UIView+DCAnimationKit.h
+Pods/DCAnimationKit/UIView+DCAnimationKit.m
+Pods/Headers/Private/DCAnimationKit/UIView+DCAnimationKit.h
+Pods/Headers/Public/DCAnimationKit/UIView+DCAnimationKit.h
+Pods/Pods.xcodeproj/xcuserdata/mc976.xcuserdatad/xcschemes/AFNetworking.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mc976.xcuserdatad/xcschemes/DCAnimationKit.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mc976.xcuserdatad/xcschemes/IQKeyboardManager.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mc976.xcuserdatad/xcschemes/Pods-DMap.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/mc976.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/Target Support Files/DCAnimationKit/DCAnimationKit-dummy.m
+Pods/Target Support Files/DCAnimationKit/DCAnimationKit-prefix.pch
+Pods/Target Support Files/DCAnimationKit/DCAnimationKit.xcconfig

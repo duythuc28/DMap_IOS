@@ -18,7 +18,7 @@
 @property (strong) GMSPolyline*         polyline;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 //@property (strong) GMSCameraUpdate *    camerapos;
-@property (strong) NSMutableArray* markers;
+@property (strong, nonatomic) NSMutableArray* markers;
 - (void) reloadMarker;
 - (void) updateCamWithBookmark:(Location*) bookmark;
 - (void) updateCamWithSearch:(Location*)search;

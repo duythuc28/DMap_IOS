@@ -28,15 +28,29 @@
     BOOL firstLocationUpdate_;
     NSMutableArray* waypoints_;
     NSMutableArray* waypointStrings_;
+    UIControl * mapViewControl;
 }
 
 - (PlaceInfoWindowView *)placeInfoView {
     if (!_placeInfoView) {
-        _placeInfoView = [[PlaceInfoWindowView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 260, SCREEN_WIDTH, 150)];
+        
+        mapViewControl = [[UIControl alloc]initWithFrame:self.view.frame];
+//        mapViewControl.alpha = 0.25;
+//        mapViewControl.backgroundColor = [UIColor blackColor];
+        [mapViewControl addTarget:self action:@selector(closeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:mapViewControl];
+        
+        _placeInfoView = [[PlaceInfoWindowView alloc]initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 150)];
         _placeInfoView.delegate = self;
         [self.view addSubview:_placeInfoView];
     }
     return _placeInfoView;
+}
+- (NSMutableArray *)markers {
+    if (!_markers) {
+        _markers = [[NSMutableArray alloc]init];
+    }
+    return _markers;
 }
 
 - (void) viewWillLayoutSubviews
@@ -107,13 +121,14 @@
     });
     self.view                                   = self.mapview;
     self.mapview.delegate                       = self;
+    [self reloadMarker];
     NSLog(@"Load View");
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSLog(@"Appear View");
-    [self reloadMarker];
+//    [self reloadMarker];
     [self.mapview addObserver:self
                    forKeyPath:@"myLocation"
                       options:NSKeyValueObservingOptionNew
@@ -252,18 +267,20 @@
         {
             self.placeInfoView.placeTitle.text = cusMarker.location.title;
             self.placeInfoView.placeAddress.text = cusMarker.location.address;
-            self.placeInfoView.location = cusMarker.location;
+//            self.placeInfoView.location = cusMarker.location;
+            self.placeInfoView.customMarker = cusMarker;
             
-            self.placeInfoView.alpha = 0.0;
-            [UIView animateWithDuration:0.4 animations:^{
-                self.placeInfoView.alpha = 1.0;
-            } completion:^(BOOL finished) {
-                
-            }];
-            
+//            self.placeInfoView.alpha = 1.0;
+            [self.placeInfoView movePoint:CGPointMake(0, -214) finished:NULL];
+//            [UIView animateWithDuration:0.4 animations:^{
+//                self.placeInfoView.alpha = 1.0;
+//            } completion:^(BOOL finished) {
+//                
+//            }];
+            mapViewControl.hidden = NO;
             GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
             [self.mapview animateWithCameraUpdate:cameraUpdate];
-            
+            marker.icon = [UIImage imageNamed:@"selectedMarker"];
             return YES;
         }
         else
@@ -272,16 +289,25 @@
 
 #pragma mark - Place Info View Delegate
 - (void)closeButtonClicked:(PlaceInfoWindowView *)placeInfoView {
-    [UIView animateWithDuration:0.4 animations:^{
-        self.placeInfoView.alpha = 0.0;
-    } completion:^(BOOL finished) {
-    }];
+    mapViewControl.hidden = YES;
+    [self.placeInfoView movePoint:CGPointMake(0, 214) finished:nil];
+    NSLog(@"self.marker count %lu",(unsigned long)[self.markers count]);
+//    [UIView animateWithDuration:0.8 animations:^{
+//        self.placeInfoView.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//    }];
+//    placeInfoView.customMarker.icon = [LocationType getImageByLocationTypeId:[placeInfoView.customMarker.location.location_LocationType.locationTypeID intValue]];
+    for (CustomMarker * customMarker in self.markers) {
+        if ([customMarker isEqual:self.placeInfoView.customMarker]) {
+            customMarker.icon = [LocationType getImageByLocationTypeId:[customMarker.location.location_LocationType.locationTypeID intValue]];
+        }
+    }
 }
 
 - (void)placeInfoViewClicked:(PlaceInfoWindowView *)placeInfoView {
     LocationTabBarController *detailView        = (LocationTabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationDetailTabBar"];
         detailView.rootViewController = self.parentController;
-        detailView.locationInfo       = placeInfoView.location;
+        detailView.locationInfo       = placeInfoView.customMarker.location;
         [self.parentController.navigationController pushViewController:detailView animated:YES];
 }
 //Marker Window Content
