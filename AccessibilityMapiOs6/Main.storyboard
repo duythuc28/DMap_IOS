@@ -53,10 +53,10 @@
                                 <segue destination="OtM-Td-rQ4" kind="push" identifier="RouteViewSegue" id="N4e-dl-gin"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="xef-ZV-64C">
+                        <barButtonItem key="rightBarButtonItem" image="GPS" id="Uki-kK-YmD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="CNa-rL-03j" kind="push" identifier="bookmarkSegue" id="chi-Mz-sqV"/>
+                                <action selector="locationButtonClicked:" destination="tG5-Q2-dmS" id="PQZ-gW-Xpl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -76,12 +76,12 @@
             <objects>
                 <tableViewController id="CNa-rL-03j" customClass="BookmarkTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" id="N6w-I9-aTo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaceInfoCell" rowHeight="90" id="HgW-F8-yBS" customClass="PlaceInfoCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="90"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HgW-F8-yBS" id="Ptw-Fb-i8b">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
@@ -150,9 +150,26 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uh8-rw-Hsn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVZ-Qc-q7t" customClass="XXXRoundMenuButton">
+                                <rect key="frame" x="220" y="404" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="kzg-qO-GYX"/>
+                                    <constraint firstAttribute="width" constant="200" id="npg-fs-0md"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dVZ-Qc-q7t" secondAttribute="trailing" constant="-100" id="k3G-LL-Dan"/>
+                            <constraint firstAttribute="bottom" secondItem="dVZ-Qc-q7t" secondAttribute="bottom" constant="-100" id="yJQ-zh-BYv"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="roundButton" destination="dVZ-Qc-q7t" id="TGc-CL-ym6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZd-FZ-E9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1131,6 +1148,7 @@
     </scenes>
     <resources>
         <image name="BikeType" width="24" height="15"/>
+        <image name="GPS" width="25" height="25"/>
         <image name="Splash Image" width="320" height="568"/>
         <image name="book_mark2" width="25" height="25"/>
         <image name="busType" width="40" height="20"/>

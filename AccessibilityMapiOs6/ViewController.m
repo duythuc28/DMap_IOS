@@ -17,9 +17,12 @@
 #import <MapKit/MapKit.h>
 #import "LocationTabBarController.h"
 #import "LocalizeHelper.h"
+#import "XXXRoundMenuButton.h"
+
 
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet XXXRoundMenuButton *roundButton;
 @property (strong, nonatomic) PlaceInfoWindowView * placeInfoView;
 @end
 
@@ -90,11 +93,6 @@
     }
 }
 
-// Location Manager Delegate Methods
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    //NSLog(@"%@", [locations lastObject]);
-}
 
 - (void)viewDidLoad
 {
@@ -115,14 +113,14 @@
     
     
     self.mapview = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    self.mapview.settings.myLocationButton      = YES;
+//    self.mapview.settings.myLocationButton      = YES;
     dispatch_async(dispatch_get_main_queue(), ^{
         self.mapview.myLocationEnabled = YES;
     });
     self.view                                   = self.mapview;
     self.mapview.delegate                       = self;
     [self reloadMarker];
-    NSLog(@"Load View");
+    [self setUpRoundButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -133,6 +131,23 @@
                    forKeyPath:@"myLocation"
                       options:NSKeyValueObservingOptionNew
                       context:NULL];
+}
+
+- (void)setUpRoundButton {
+    [self.roundButton loadButtonWithIcons:@[
+                                           [UIImage imageNamed:@"map-share"],
+                                           [UIImage imageNamed:@"map-info"],
+                                           [UIImage imageNamed:@"map-reload"]
+                                           
+                                           ] startDegree:-M_PI layoutDegree:M_PI/2];
+    [self.roundButton setButtonClickBlock:^(NSInteger idx) {
+        
+        NSLog(@"button %@ clicked !",@(idx));
+    }];
+    
+    self.roundButton.tintColor = [UIColor whiteColor];
+    self.roundButton.centerButtonSize = CGSizeMake(44, 44);
+    self.roundButton.mainColor = [UIColor colorWithRed:0.13 green:0.58 blue:0.95 alpha:1];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -272,11 +287,6 @@
             
 //            self.placeInfoView.alpha = 1.0;
             [self.placeInfoView movePoint:CGPointMake(0, -214) finished:NULL];
-//            [UIView animateWithDuration:0.4 animations:^{
-//                self.placeInfoView.alpha = 1.0;
-//            } completion:^(BOOL finished) {
-//                
-//            }];
             mapViewControl.hidden = NO;
             GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
             [self.mapview animateWithCameraUpdate:cameraUpdate];
@@ -290,13 +300,8 @@
 #pragma mark - Place Info View Delegate
 - (void)closeButtonClicked:(PlaceInfoWindowView *)placeInfoView {
     mapViewControl.hidden = YES;
+    //???: Hard code
     [self.placeInfoView movePoint:CGPointMake(0, 214) finished:nil];
-    NSLog(@"self.marker count %lu",(unsigned long)[self.markers count]);
-//    [UIView animateWithDuration:0.8 animations:^{
-//        self.placeInfoView.alpha = 0.0;
-//    } completion:^(BOOL finished) {
-//    }];
-//    placeInfoView.customMarker.icon = [LocationType getImageByLocationTypeId:[placeInfoView.customMarker.location.location_LocationType.locationTypeID intValue]];
     for (CustomMarker * customMarker in self.markers) {
         if ([customMarker isEqual:self.placeInfoView.customMarker]) {
             customMarker.icon = [LocationType getImageByLocationTypeId:[customMarker.location.location_LocationType.locationTypeID intValue]];
@@ -310,21 +315,6 @@
         detailView.locationInfo       = placeInfoView.customMarker.location;
         [self.parentController.navigationController pushViewController:detailView animated:YES];
 }
-//Marker Window Content
-//- (UIView *)mapView:(GMSMapView *)mapView markerInfoContents:(GMSMarker *)marker {
-//    CustomMarker * cusMarker = (CustomMarker*)marker;
-//    if(cusMarker.locationMarker == TRUE)
-//    {
-//        CustomMarker *cusMarker = (CustomMarker *)marker;
-//        CustomInfoWindowView *view = [[[NSBundle mainBundle] loadNibNamed:@"CustomInfoWindowView" owner:self options:nil] objectAtIndex:0];
-//        
-//        view.infoTitle.text = cusMarker.location.title;
-//        view.infoAddress.text = cusMarker.location.address;
-//        return view;
-//    }
-//    else
-//        return nil;
-//}
 
 
 //Tap on the marker
@@ -510,6 +500,29 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    // TODO: Did fail request current Location
+    NSLog(@"didFailWithError: %@", error);
+}
+
+
+- (void)didSelectGetCurrentLocationButton {
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager startUpdatingLocation];
+}
+
+// Location Manager Delegate Methods
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation * currentLocation = [locations lastObject];
+    GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:currentLocation.coordinate zoom:14];
+    [self.mapview animateWithCameraUpdate:cameraUpdate];
+    [self.locationManager stopUpdatingLocation];
 }
 
 @end

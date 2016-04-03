@@ -85,7 +85,7 @@ static const NSInteger HTTP_RESPONSE_CODES_SUCCESS = 200;
        success:(void(^)(NSURLSessionTask * operation, id response)) success
        failure:(void(^)(NSURLSessionTask * operation, NSError * error)) failure  {
     // Using AFNetworking to get data
-    [manager GET:self.baseUrl parameters:nil success:^(NSURLSessionTask *operation, id responseObject) {
+    [manager GET:self.baseUrl parameters:nil progress:nil success:^(NSURLSessionTask *operation, id responseObject) {
         // success data
         NSHTTPURLResponse* response = (NSHTTPURLResponse*)operation.response;
         if (response.statusCode == HTTP_RESPONSE_CODES_SUCCESS) {
@@ -104,7 +104,7 @@ static const NSInteger HTTP_RESPONSE_CODES_SUCCESS = 200;
                success:(void(^)(NSURLSessionTask * operation, id response)) success
                failure:(void(^)(NSURLSessionTask * operation, NSError * error)) failure {
     // Using AFNetworking to post data
-    [manager POST:self.baseUrl parameters:self.parameters success:^(NSURLSessionTask *operation, id responseObject) {
+    [manager POST:self.baseUrl parameters:self.parameters progress:nil success:^(NSURLSessionTask *operation, id responseObject) {
         // success data
         NSHTTPURLResponse* response = (NSHTTPURLResponse*)operation.response;
         if (response.statusCode == HTTP_RESPONSE_CODES_SUCCESS) {

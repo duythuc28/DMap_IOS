@@ -98,6 +98,7 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
     [self.fakeButtonSearchBarClicked sendActionsForControlEvents:UIControlEventTouchUpInside];
     return NO;
 }
+
 /*
 #pragma mark - Navigation
 
@@ -210,5 +211,9 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
         });
     });
 
+}
+- (IBAction)locationButtonClicked:(id)sender {
+    ViewController* mapView = (ViewController*)self._mapViewController;
+    [mapView didSelectGetCurrentLocationButton];
 }
 @end

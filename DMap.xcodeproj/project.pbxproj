@@ -71,6 +71,7 @@
 		8B99A1391B9C5507004789C1 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B99A1381B9C5507004789C1 /* Utils.m */; };
 		8BA518E31B77B17B00C6BA03 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BA518E51B77B17B00C6BA03 /* Localizable.strings */; };
 		8BAFDDBD1AB422B300BD49D0 /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAFDDBB1AB422B300BD49D0 /* CustomAlertViewController.m */; };
+		8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2894C1CB118A0001F0937 /* XXXRoundMenuButton.m */; };
 		8BC405291B0E2ED700688D66 /* ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC405281B0E2ED700688D66 /* ToolView.m */; };
 		8BD2481E1BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD248191BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m */; };
 		8BD2481F1BC2C77F00BBC829 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2481B1BC2C77F00BBC829 /* SVProgressHUD.bundle */; };
@@ -222,6 +223,8 @@
 		8BA518E61B77B18D00C6BA03 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8BAFDDBA1AB422B300BD49D0 /* CustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewController.h; sourceTree = "<group>"; };
 		8BAFDDBB1AB422B300BD49D0 /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
+		8BB2894B1CB118A0001F0937 /* XXXRoundMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXXRoundMenuButton.h; sourceTree = "<group>"; };
+		8BB2894C1CB118A0001F0937 /* XXXRoundMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXRoundMenuButton.m; sourceTree = "<group>"; };
 		8BC405271B0E2ED700688D66 /* ToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolView.h; sourceTree = "<group>"; };
 		8BC405281B0E2ED700688D66 /* ToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolView.m; sourceTree = "<group>"; };
 		8BD248181BC2C77F00BBC829 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = Library/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
@@ -657,6 +660,7 @@
 		8B52EB731BA5ECF500EFC89F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8BB2894A1CB11886001F0937 /* RoundMenu */,
 				8B52EB741BA5ED0100EFC89F /* SVProgressHud */,
 			);
 			name = Library;
@@ -701,6 +705,15 @@
 				8B1C11F81B772B1000AA2F0C /* CustomAlertViewController.xib */,
 			);
 			name = CustomAlertView;
+			sourceTree = "<group>";
+		};
+		8BB2894A1CB11886001F0937 /* RoundMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8BB2894B1CB118A0001F0937 /* XXXRoundMenuButton.h */,
+				8BB2894C1CB118A0001F0937 /* XXXRoundMenuButton.m */,
+			);
+			name = RoundMenu;
 			sourceTree = "<group>";
 		};
 		8BB97F9F1B0BB11A00BAC5FD /* CustomInfoView */ = {
@@ -1025,6 +1038,7 @@
 				D695C52519F6CF2300D79253 /* UserAddLocationController.m in Sources */,
 				182FB7DD19DD458400205E8B /* MDDirectionService.m in Sources */,
 				18296F5019E9764700AE7F0B /* Comment.m in Sources */,
+				8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */,
 				18296F3919E946C900AE7F0B /* DetailLocationTableViewController.m in Sources */,
 				18296F4719E96E7000AE7F0B /* LocationFeedbackViewController.m in Sources */,
 				182FB7E219DD509800205E8B /* CustomInfoWindowView.m in Sources */,
