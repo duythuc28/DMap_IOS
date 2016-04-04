@@ -17,10 +17,12 @@
 #import "LocalizeHelper.h"
 #import "SVProgressHUD.h"
 #import "InfoDRDViewController.h"
+
 @interface MainViewController ()<UISearchBarDelegate , UIActionSheetDelegate>
 
 @end
 typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
+typedef enum { Share = 0 , Favorite = 1 , Info = 2} RoundMenuButton;
 @implementation MainViewController
 {
     CustomAlertViewController * customAlertView;
@@ -45,6 +47,7 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
     self.searchBar.delegate = self;
     self.navigationItem.titleView = self.searchBar;
     [self setCustomNavigationBackButton];
+    [self setUpRoundButton];
 }
 
 /**
@@ -110,7 +113,7 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
 }
 */
 
-- (IBAction)reloadButtonClick:(id)sender {
+- (void)reloadButtonClick {
     ViewController* mapView = (ViewController*)self._mapViewController;
     [mapView reloadMarker];
 }
@@ -215,5 +218,30 @@ typedef enum { English = 0 , VietNamese = 1 } SegmentLanguages ;
 - (IBAction)locationButtonClicked:(id)sender {
     ViewController* mapView = (ViewController*)self._mapViewController;
     [mapView didSelectGetCurrentLocationButton];
+}
+
+- (void)setUpRoundButton {
+    [self.roundButton loadButtonWithIcons:@[
+                                            [UIImage imageNamed:@"map-share"],
+                                            [UIImage imageNamed:@"map-favorite"],
+                                            [UIImage imageNamed:@"map-info"]
+                                            ] startDegree:-M_PI layoutDegree:M_PI/2];
+    [self.roundButton setButtonClickBlock:^(NSInteger idx) {
+        switch (idx) {
+            case Share:
+                [self performSegueWithIdentifier:@"addLocationSegue" sender:self];
+                break;
+            case Favorite:
+                [self performSegueWithIdentifier:@"bookmarkSegue" sender:self];
+                break;
+            case Info:
+                [self addToolView];
+                break;
+        }
+        NSLog(@"button %@ clicked !",@(idx));
+    }];
+    [self.roundButton setTintColor:[UIColor whiteColor]];
+    self.roundButton.centerButtonSize = CGSizeMake(44, 44);
+    self.roundButton.mainColor = [UIColor colorWithRed:1.0 green:0.48 blue:0.1 alpha:1];
 }
 @end

@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XXXRoundMenuButton.h"
+
 @interface MainViewController : UIViewController
 
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) UIViewController *_mapViewController;
 @property (strong, nonatomic) IBOutlet UIView *_mainView;
-- (IBAction)reloadButtonClick:(id)sender;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
-- (IBAction)showMapMenu:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton  *fakeButtonSearchBarClicked;
+@property (weak, nonatomic) IBOutlet XXXRoundMenuButton *roundButton;
 @end

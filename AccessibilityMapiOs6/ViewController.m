@@ -17,12 +17,8 @@
 #import <MapKit/MapKit.h>
 #import "LocationTabBarController.h"
 #import "LocalizeHelper.h"
-#import "XXXRoundMenuButton.h"
-
-
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet XXXRoundMenuButton *roundButton;
 @property (strong, nonatomic) PlaceInfoWindowView * placeInfoView;
 @end
 
@@ -109,7 +105,7 @@
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:10.770116
                                                             longitude:106.692401
-                                                                 zoom:13];
+                                                                 zoom:11];
     
     
     self.mapview = [GMSMapView mapWithFrame:CGRectZero camera:camera];
@@ -120,7 +116,6 @@
     self.view                                   = self.mapview;
     self.mapview.delegate                       = self;
     [self reloadMarker];
-    [self setUpRoundButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -133,22 +128,6 @@
                       context:NULL];
 }
 
-- (void)setUpRoundButton {
-    [self.roundButton loadButtonWithIcons:@[
-                                           [UIImage imageNamed:@"map-share"],
-                                           [UIImage imageNamed:@"map-info"],
-                                           [UIImage imageNamed:@"map-reload"]
-                                           
-                                           ] startDegree:-M_PI layoutDegree:M_PI/2];
-    [self.roundButton setButtonClickBlock:^(NSInteger idx) {
-        
-        NSLog(@"button %@ clicked !",@(idx));
-    }];
-    
-    self.roundButton.tintColor = [UIColor whiteColor];
-    self.roundButton.centerButtonSize = CGSizeMake(44, 44);
-    self.roundButton.mainColor = [UIColor colorWithRed:0.13 green:0.58 blue:0.95 alpha:1];
-}
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -163,24 +142,25 @@
     
     //Draw circle
 //    NSArray* settings = [[NSUserDefaults standardUserDefaults]objectForKey:@"settings"];
-    int radius = [[[NSUserDefaults standardUserDefaults] objectForKey:@"radius"]intValue];
-    CLLocationCoordinate2D circleCenter = CLLocationCoordinate2DMake(self.mapview.camera.target.latitude, self.mapview.camera.target.longitude);
-    GMSCircle *circ = [GMSCircle circleWithPosition:circleCenter
-                                             radius:radius *1000];
-    
-    circ.fillColor = [UIColor colorWithRed:0.4 green:0.7 blue:1 alpha:0.05];
-    circ.strokeColor = [UIColor colorWithRed:0.4 green:0.7 blue:1 alpha:1];
-    circ.strokeWidth = 2;
-    circ.map = self.mapview;
+//    int radius = [[[NSUserDefaults standardUserDefaults] objectForKey:@"radius"]intValue];
+//    CLLocationCoordinate2D circleCenter = CLLocationCoordinate2DMake(self.mapview.camera.target.latitude, self.mapview.camera.target.longitude);
+//    GMSCircle *circ = [GMSCircle circleWithPosition:circleCenter
+//                                             radius:radius *1000];
+//    
+//    circ.fillColor = [UIColor colorWithRed:0.4 green:0.7 blue:1 alpha:0.05];
+//    circ.strokeColor = [UIColor colorWithRed:0.4 green:0.7 blue:1 alpha:1];
+//    circ.strokeWidth = 2;
+//    circ.map = self.mapview;
 }
 
 
 - (void)createMarkerObjects{
 //    NSArray* settings = [[NSUserDefaults standardUserDefaults] objectForKey:@"settings"];
-    int radius = [[[NSUserDefaults standardUserDefaults] objectForKey:@"radius"]intValue];
-    CLLocation* zoomLocation = [[CLLocation alloc]initWithLatitude:self.mapview.camera.target.latitude longitude:self.mapview.camera.target.longitude];
-    NSArray* bookmarks = [Location getDataWithCurrentZoomPos:zoomLocation withDistanceInKilomiter:radius];
-    for(Location *data in bookmarks)
+//    int radius = [[[NSUserDefaults standardUserDefaults] objectForKey:@"radius"]intValue];
+//    CLLocation* zoomLocation = [[CLLocation alloc]initWithLatitude:self.mapview.camera.target.latitude longitude:self.mapview.camera.target.longitude];
+//    NSArray* bookmarks = [Location getDataWithCurrentZoomPos:zoomLocation withDistanceInKilomiter:radius];
+    NSArray * locations = [Location getAllData];
+    for(Location *data in locations)
     {
         CustomMarker *marker = [[CustomMarker alloc] initWithVariables:data];
         marker.map = self.mapview;
@@ -291,6 +271,7 @@
             GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
             [self.mapview animateWithCameraUpdate:cameraUpdate];
             marker.icon = [UIImage imageNamed:@"selectedMarker"];
+            self.parentController.roundButton.hidden = YES;
             return YES;
         }
         else
@@ -302,6 +283,8 @@
     mapViewControl.hidden = YES;
     //???: Hard code
     [self.placeInfoView movePoint:CGPointMake(0, 214) finished:nil];
+    self.parentController.roundButton.hidden = NO;
+    [self.parentController.view layoutIfNeeded];
     for (CustomMarker * customMarker in self.markers) {
         if ([customMarker isEqual:self.placeInfoView.customMarker]) {
             customMarker.icon = [LocationType getImageByLocationTypeId:[customMarker.location.location_LocationType.locationTypeID intValue]];
@@ -520,7 +503,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation * currentLocation = [locations lastObject];
-    GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:currentLocation.coordinate zoom:14];
+    GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:currentLocation.coordinate zoom:13];
     [self.mapview animateWithCameraUpdate:cameraUpdate];
     [self.locationManager stopUpdatingLocation];
 }

@@ -384,9 +384,11 @@
     
     [icons enumerateObjectsUsingBlock:^(UIImage * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        UIButton * button  = [UIButton buttonWithType:UIButtonTypeSystem];
         [button setImage:obj forState:UIControlStateNormal];
         button.tintColor = self.tintColor;
+        button.frame = CGRectMake(0, 0, 40, 40);
         [self addSubview:button];
         
         [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
