@@ -166,33 +166,6 @@
         marker.map = self.mapview;
         [self.markers addObject:marker];
     }
-    
-    
-}
-
-- (void) updateCamWithBookmark:(Location*) bookmark
-{
-    GMSCameraPosition *bookmarkCamera = [GMSCameraPosition cameraWithLatitude:[bookmark.latitude doubleValue] longitude:[bookmark.longtitude doubleValue] zoom:16];
-    [self.mapview setCamera:bookmarkCamera];
-    
-    __block CustomMarker* theMarker;
-    [self.markers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        CustomMarker* marker = obj;
-        if(marker.location.latitude == bookmark.latitude && marker.location.longtitude == bookmark.longtitude){
-            theMarker = marker;
-            *stop = YES;
-        }
-    }];
-    
-    if(theMarker == nil){
-        CustomMarker *marker = [[CustomMarker alloc] initWithVariables: bookmark];
-        marker.map = self.mapview;
-        [self.markers addObject:marker];
-        theMarker = marker;
-    }
-    
-    [self.mapview setSelectedMarker:theMarker];
-    
 }
 
 - (void) updateCam:(double)latitude1 andlongitude:(double)longitude1 andlatitude2:(double)latitude2 andlongitude2:(double)longitude2
@@ -231,7 +204,7 @@
     [self.mapview setCamera:camera];
 }
 
-- (void)updateCamWithSearch:(Location *)search
+- (void)updateCamWithLocation:(Location *)search
 {
     GMSCameraPosition *bookmarkCamera = [GMSCameraPosition cameraWithLatitude:[search.latitude doubleValue] longitude:[search.longtitude doubleValue] zoom:16];
     [self.mapview setCamera:bookmarkCamera];
@@ -251,45 +224,68 @@
         [self.markers addObject:marker];
         theMarker = marker;
     }
-    
-    
-    [self.mapview setSelectedMarker:theMarker];
+    // Show info window at selected maker
+    [self setDefaultImageForMarker];
+    [self showInfoWindowAtMarker:theMarker];
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     CustomMarker * cusMarker = (CustomMarker*)marker;
         if(cusMarker.locationMarker == TRUE)
         {
-            self.placeInfoView.placeTitle.text = cusMarker.location.title;
-            self.placeInfoView.placeAddress.text = cusMarker.location.address;
-//            self.placeInfoView.location = cusMarker.location;
-            self.placeInfoView.customMarker = cusMarker;
-            
-//            self.placeInfoView.alpha = 1.0;
-            [self.placeInfoView movePoint:CGPointMake(0, -214) finished:NULL];
-            mapViewControl.hidden = NO;
-            GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
-            [self.mapview animateWithCameraUpdate:cameraUpdate];
-            marker.icon = [UIImage imageNamed:@"selectedMarker"];
-            self.parentController.roundButton.hidden = YES;
+            [self showInfoWindowAtMarker:marker];
             return YES;
         }
         else
             return NO;
 }
 
-#pragma mark - Place Info View Delegate
-- (void)closeButtonClicked:(PlaceInfoWindowView *)placeInfoView {
+/**
+ *  Show info window at selected marker
+ *
+ *  @param marker selected marker
+ */
+- (void)showInfoWindowAtMarker:(GMSMarker *)marker {
+    if (marker) {
+        CustomMarker * cusMarker = (CustomMarker*)marker;
+        self.placeInfoView.placeTitle.text = cusMarker.location.title;
+        self.placeInfoView.placeAddress.text = cusMarker.location.address;
+        self.placeInfoView.customMarker = cusMarker;
+        if (SCREEN_HEIGHT == self.placeInfoView.frame.origin.y) {
+            [self.placeInfoView movePoint:CGPointMake(0, -214) finished:NULL];
+        }
+        self.parentController.roundButton.hidden = YES;
+        mapViewControl.hidden = NO;
+        GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
+        [self.mapview animateWithCameraUpdate:cameraUpdate];
+        marker.icon = [UIImage imageNamed:@"selectedMarker"];
+    }
+}
+/**
+ *  Close Info Window
+ */
+- (void)closeInfoWindow {
     mapViewControl.hidden = YES;
     //???: Hard code
     [self.placeInfoView movePoint:CGPointMake(0, 214) finished:nil];
     self.parentController.roundButton.hidden = NO;
-    [self.parentController.view layoutIfNeeded];
+    [self setDefaultImageForMarker];
+}
+
+/**
+ *  Set marker image back to unselected marker
+ */
+- (void)setDefaultImageForMarker {
     for (CustomMarker * customMarker in self.markers) {
         if ([customMarker isEqual:self.placeInfoView.customMarker]) {
             customMarker.icon = [LocationType getImageByLocationTypeId:[customMarker.location.location_LocationType.locationTypeID intValue]];
         }
     }
+}
+
+#pragma mark - Place Info View Delegate
+- (void)closeButtonClicked:(PlaceInfoWindowView *)placeInfoView {
+    [self closeInfoWindow];
 }
 
 - (void)placeInfoViewClicked:(PlaceInfoWindowView *)placeInfoView {
