@@ -18,4 +18,5 @@
 #import <UIView+DCAnimationKit.h>
 #import "IQDropDownTextField.h"
 #import "CustomTextField.h"
+#import "CMPopTipView.h"
 #endif

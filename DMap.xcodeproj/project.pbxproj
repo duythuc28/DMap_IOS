@@ -62,6 +62,7 @@
 		6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A801CA9256E0057AAF4 /* RequestDataManager.m */; };
 		6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A841CA933640057AAF4 /* SplashViewController.m */; };
 		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
+		8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */; };
 		8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */; };
 		8B1C11F71B772AFF00AA2F0C /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F61B772AFF00AA2F0C /* ToolView.xib */; };
 		8B1C11F91B772B1000AA2F0C /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F81B772B1000AA2F0C /* CustomAlertViewController.xib */; };
@@ -213,6 +214,8 @@
 		6AC4A4A51CA3ECD800C1D220 /* PlaceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoCell.h; sourceTree = "<group>"; };
 		6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoCell.m; sourceTree = "<group>"; };
 		78F8BBAD4A7022EC938A27BA /* libPods-DMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B0123BA1CB586D7002A35D7 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
+		8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
 		8B1065E41BA73BBD00565A3B /* InfoDRDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDRDViewController.h; sourceTree = "<group>"; };
 		8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDRDViewController.m; sourceTree = "<group>"; };
 		8B1C11F61B772AFF00AA2F0C /* ToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolView.xib; sourceTree = "<group>"; };
@@ -653,6 +656,15 @@
 			name = "Place Info Cell";
 			sourceTree = "<group>";
 		};
+		8B0123B91CB586CC002A35D7 /* CMPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				8B0123BA1CB586D7002A35D7 /* CMPopTipView.h */,
+				8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */,
+			);
+			name = CMPopupView;
+			sourceTree = "<group>";
+		};
 		8B4C310F1CA68A4100BFC4E0 /* Info Window */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +678,7 @@
 		8B52EB731BA5ECF500EFC89F /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				8B0123B91CB586CC002A35D7 /* CMPopupView */,
 				8BB2894A1CB11886001F0937 /* RoundMenu */,
 				8B52EB741BA5ED0100EFC89F /* SVProgressHud */,
 			);
@@ -1047,6 +1060,7 @@
 				182FB7F919DD772400205E8B /* SearchTableViewController.m in Sources */,
 				18296F5719E989CD00AE7F0B /* UploadData.m in Sources */,
 				D695C52519F6CF2300D79253 /* UserAddLocationController.m in Sources */,
+				8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */,
 				182FB7DD19DD458400205E8B /* MDDirectionService.m in Sources */,
 				18296F5019E9764700AE7F0B /* Comment.m in Sources */,
 				8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */,

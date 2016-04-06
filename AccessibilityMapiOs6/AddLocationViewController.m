@@ -61,9 +61,14 @@
         CGFloat xOrigin = i * 50 + (i * 20);
 
         UIButton * accessType = [[UIButton alloc]initWithFrame:CGRectMake(xOrigin, 0, 50, 50)];
-         AccessType * selectedImage = [measureData objectAtIndex:i];
+        AccessType * selectedImage = [measureData objectAtIndex:i];
         [accessType setImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
+//        [accessType setBackgroundImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
+        accessType.selected = NO;
+        accessType.tag = i;
         [accessType addTarget:self action:@selector(selectAccessType:) forControlEvents:UIControlEventTouchUpInside];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        [accessType addGestureRecognizer:longPress];
 
         [self.mCarouselScrollView addSubview:accessType];
     }
@@ -71,11 +76,29 @@
                                                       self.mCarouselScrollView.frame.size.height);
 }
 
+- (void)longPress:(UILongPressGestureRecognizer*)gesture {
+    CMPopTipView *popTipView = [[CMPopTipView alloc] initWithTitle:@"Test" message:@"Test 123"];
+    [popTipView presentPointingAtView:gesture.view inView:self.view animated:YES];
+    NSLog(@"Long Press");
+    if ( gesture.state == UIGestureRecognizerStateEnded ) {
+        NSLog(@"Long Press End");
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [popTipView dismissAnimated:YES];
+        });
+        
+    }
+}
+
 - (void)selectAccessType:(UIButton *)sender {
-//    [sender setImage:[UIImage imageNamed:@"nha_ve_sinh"] forState:UIControlStateNormal];
-    UIImageView * selectedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"map_sharing_selected"]];
-    selectedImage.frame = CGRectMake(sender.frame.size.width - 20, sender.frame.size.height -20, 20, 20);
-    [sender.imageView addSubview:selectedImage];
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+         [sender setImage:[UIImage imageNamed:@"map_sharing_selected"] forState:UIControlStateNormal];
+    } else {
+        NSArray * measureData = [AccessType getAllData];
+        AccessType * selectedImage = [measureData objectAtIndex:sender.tag];
+        [sender setImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
+    }
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
