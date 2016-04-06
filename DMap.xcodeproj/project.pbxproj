@@ -57,6 +57,8 @@
 		18DDA10219DD215800834B78 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10119DD215800834B78 /* CoreLocation.framework */; };
 		18DDA10419DD217C00834B78 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10319DD217C00834B78 /* AVFoundation.framework */; };
 		64BD88F76619EA6901F89123 /* libPods-DMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F8BBAD4A7022EC938A27BA /* libPods-DMap.a */; };
+		6A3367801CB4CBD600D38FF1 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A33677F1CB4CBD600D38FF1 /* CustomTextField.m */; };
+		6A3367831CB4CC8100D38FF1 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3367821CB4CC8100D38FF1 /* IQDropDownTextField.m */; };
 		6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A801CA9256E0057AAF4 /* RequestDataManager.m */; };
 		6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A841CA933640057AAF4 /* SplashViewController.m */; };
 		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
@@ -199,6 +201,10 @@
 		18DDA10119DD215800834B78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		18DDA10319DD217C00834B78 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5080A1591E70ABF8D7F12E94 /* Pods-DMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.debug.xcconfig"; sourceTree = "<group>"; };
+		6A33677E1CB4CBD600D38FF1 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		6A33677F1CB4CBD600D38FF1 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
+		6A3367811CB4CC8100D38FF1 /* IQDropDownTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQDropDownTextField.h; sourceTree = "<group>"; };
+		6A3367821CB4CC8100D38FF1 /* IQDropDownTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQDropDownTextField.m; sourceTree = "<group>"; };
 		6A679A7F1CA9256E0057AAF4 /* RequestDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestDataManager.h; sourceTree = "<group>"; };
 		6A679A801CA9256E0057AAF4 /* RequestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestDataManager.m; sourceTree = "<group>"; };
 		6A679A831CA933640057AAF4 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
@@ -729,6 +735,10 @@
 		8BFB4A8B1CA85185005C7058 /* SubClass */ = {
 			isa = PBXGroup;
 			children = (
+				6A3367811CB4CC8100D38FF1 /* IQDropDownTextField.h */,
+				6A3367821CB4CC8100D38FF1 /* IQDropDownTextField.m */,
+				6A33677E1CB4CBD600D38FF1 /* CustomTextField.h */,
+				6A33677F1CB4CBD600D38FF1 /* CustomTextField.m */,
 				8BFB4A921CA857CB005C7058 /* TopAlignLabel.h */,
 				8BFB4A931CA857CB005C7058 /* TopAlignLabel.m */,
 			);
@@ -1018,6 +1028,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3367831CB4CC8100D38FF1 /* IQDropDownTextField.m in Sources */,
 				D66A077E19EA744D009CE296 /* GuideTableViewCell.m in Sources */,
 				D6A3B11F1A24E91000051B0E /* FromToRouteView.m in Sources */,
 				D6A7D0FA1A0A14F900236ACC /* SubAcTableCell.m in Sources */,
@@ -1043,6 +1054,7 @@
 				18296F4719E96E7000AE7F0B /* LocationFeedbackViewController.m in Sources */,
 				182FB7E219DD509800205E8B /* CustomInfoWindowView.m in Sources */,
 				182FB7D619DD451D00205E8B /* MapGoogle.xcdatamodeld in Sources */,
+				6A3367801CB4CBD600D38FF1 /* CustomTextField.m in Sources */,
 				D61C452319FF8BD60076D8F7 /* SaveLocationTempTableController.m in Sources */,
 				8BAFDDBD1AB422B300BD49D0 /* CustomAlertViewController.m in Sources */,
 				18296F5419E9815F00AE7F0B /* Ulti.m in Sources */,

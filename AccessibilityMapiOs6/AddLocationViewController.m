@@ -21,6 +21,8 @@
 #import "TableViewController.h"
 #import "LocalizeHelper.h"
 #import "Utils.h"
+#import "AccessType.h"
+
 @interface AddLocationViewController ()<NSURLConnectionDataDelegate , CLLocationManagerDelegate , UITextFieldDelegate , AccessTypeDelegate>
 {
     NSString *name;
@@ -39,15 +41,42 @@
     NSMutableArray *_locationType;
     CustomAlertViewController * alertView;
 }
+@property (weak, nonatomic) IBOutlet CustomTextField *mNameTextField;
+@property (weak, nonatomic) IBOutlet CustomTextField *mPhoneTextField;
+@property (weak, nonatomic) IBOutlet CustomTextField *mAddressTextField;
+@property (weak, nonatomic) IBOutlet UIScrollView    *mCarouselScrollView;
+//@property (weak, nonatomic) IBOutlet UIView          *mCarouselSubView;
+
 @property (strong, nonatomic) NSMutableArray * access;
 @end
 
 @implementation AddLocationViewController
-//@synthesize _addressLocation,_nameLocation,_phoneLocation,_latitude,_longtitude;
 @synthesize comboBox ,access;
-//bool isConnect;
 
-//static NSString *POST_COMMENT_API = @"http://mapsdemo.tk/web/api/post/location";
+- (void)loadCarousel {
+    [self.mCarouselScrollView setAlwaysBounceVertical:NO];
+    
+    NSArray * measureData = [AccessType getAllData];
+    for (int i = 0 ; i < 5 ; i++) {
+        CGFloat xOrigin = i * 50 + (i * 20);
+
+        UIButton * accessType = [[UIButton alloc]initWithFrame:CGRectMake(xOrigin, 0, 50, 50)];
+         AccessType * selectedImage = [measureData objectAtIndex:i];
+        [accessType setImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
+        [accessType addTarget:self action:@selector(selectAccessType:) forControlEvents:UIControlEventTouchUpInside];
+
+        [self.mCarouselScrollView addSubview:accessType];
+    }
+    self.mCarouselScrollView.contentSize = CGSizeMake(self.mCarouselScrollView.frame.size.width + (1 * 50),
+                                                      self.mCarouselScrollView.frame.size.height);
+}
+
+- (void)selectAccessType:(UIButton *)sender {
+//    [sender setImage:[UIImage imageNamed:@"nha_ve_sinh"] forState:UIControlStateNormal];
+    UIImageView * selectedImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"map_sharing_selected"]];
+    selectedImage.frame = CGRectMake(sender.frame.size.width - 20, sender.frame.size.height -20, 20, 20);
+    [sender.imageView addSubview:selectedImage];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -385,8 +414,11 @@
         [comboBox setArrayData:_locationType];
         [self.view addSubview:comboBox];
     }
-    
+}
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self loadCarousel];
 }
 
 

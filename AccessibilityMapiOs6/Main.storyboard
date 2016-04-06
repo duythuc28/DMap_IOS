@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1kd-sd-ZBI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1kd-sd-ZBI">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -97,7 +97,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HgW-F8-yBS" id="Ptw-Fb-i8b">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIY-5q-kTV">
@@ -235,15 +235,15 @@
             <objects>
                 <tableViewController id="F47-eU-Gua" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fw1-Dg-tNf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="GuideCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GuideCell" rowHeight="100" id="TU2-i6-Brl" customClass="GuideTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TU2-i6-Brl" id="kul-dR-zXT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1b-8p-xMK">
@@ -284,118 +284,189 @@
         <!--AddLocation-->
         <scene sceneID="5or-kF-qOo">
             <objects>
-                <viewController storyboardIdentifier="AddLocationView" title="AddLocation" id="dPU-Sr-y6X" customClass="AddLocationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationView" title="AddLocation" automaticallyAdjustsScrollViewInsets="NO" id="dPU-Sr-y6X" customClass="AddLocationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b2J-Ru-W58"/>
                         <viewControllerLayoutGuide type="bottom" id="IR0-PS-k3c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uiZ-XS-UoD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên địa điểm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vXd-MU-han">
-                                <rect key="frame" x="8" y="109" width="306" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="geP-vR-tb7"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Điện thoại địa điểm" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bOR-v1-byB">
-                                <rect key="frame" x="8" y="160" width="306" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                                <connections>
-                                    <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="Krt-eD-g2b"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Địa chỉ" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mw3-g7-XgT">
-                                <rect key="frame" x="8" y="212" width="306" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="getKeyboardAway:" destination="dPU-Sr-y6X" eventType="editingDidEndOnExit" id="qR3-dF-08N"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnx-gm-IoY">
-                                <rect key="frame" x="167" y="498" width="147" height="50"/>
-                                <color key="backgroundColor" red="0.30107941789999998" green="0.68886656089999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Lưu danh sách">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Save:" destination="dPU-Sr-y6X" eventType="touchUpInside" id="0by-LE-JJd"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loại địa điểm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="q7t-5o-aRM">
-                                <rect key="frame" x="8" y="269" width="98" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loại hỗ trợ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fuo-L5-5Nm">
-                                <rect key="frame" x="8" y="322" width="120" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thông tin địa điểm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tX-Tp-kNq">
-                                <rect key="frame" x="0.0" y="64" width="320" height="37"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STB-dh-McN" userLabel="locationtype_combobox">
-                                <rect key="frame" x="134" y="265" width="180" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cm-Uf-qWH">
-                                <rect key="frame" x="12" y="498" width="147" height="50"/>
-                                <color key="backgroundColor" red="0.30107941789999998" green="0.68886656089999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Gửi lên hệ thống">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postLocation:" destination="dPU-Sr-y6X" eventType="touchUpInside" id="VEq-x2-5mv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sI-vA-qKJ">
-                                <rect key="frame" x="134" y="318" width="180" height="30"/>
-                                <color key="backgroundColor" red="0.1588520236" green="0.61288366849999998" blue="0.89377088900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="- LỰA CHỌN -">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="F47-eU-Gua" kind="push" identifier="accessTypeSG" id="78M-Z3-kyx"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XL-Vk-DdI">
+                                <rect key="frame" x="0.0" y="64" width="320" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Se-Lk-GUE" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tên địa điểm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ei-3Z-Kci" customClass="CustomTextField">
+                                                <rect key="frame" x="12" y="15" width="296" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcW-dG-WVY">
+                                                <rect key="frame" x="12" y="496" width="296" height="60"/>
+                                                <color key="backgroundColor" red="0.30107941789999998" green="0.68886656089999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Gửi lên hệ thống" image="map_sharing_sending"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuE-37-8RV">
+                                                <rect key="frame" x="12" y="426" width="296" height="60"/>
+                                                <color key="backgroundColor" red="0.30107941789999998" green="0.68886656089999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <inset key="imageEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Lưu danh sách" image="map_sharing_save"/>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Điện thoại địa điểm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aGR-U2-j8q" customClass="CustomTextField">
+                                                <rect key="frame" x="12" y="85" width="296" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Địa chỉ" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uid-AF-8Ki" customClass="CustomTextField">
+                                                <rect key="frame" x="12" y="155" width="296" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Loại địa điểm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gPJ-99-Agx" customClass="IQDropDownTextField">
+                                                <rect key="frame" x="12" y="225" width="296" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGO-kR-guA" userLabel="Seperate View">
+                                                <rect key="frame" x="32" y="295" width="256" height="1"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="sFx-4s-gZ3"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loại hỗ trợ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="qxL-7a-KyS">
+                                                <rect key="frame" x="124" y="308" width="73" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c92-90-WeL" userLabel="Carousel View">
+                                                <rect key="frame" x="12" y="341" width="296" height="60"/>
+                                            </scrollView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="gPJ-99-Agx" firstAttribute="height" secondItem="uid-AF-8Ki" secondAttribute="height" id="1gS-jD-jvJ"/>
+                                            <constraint firstItem="1Ei-3Z-Kci" firstAttribute="height" secondItem="1Se-Lk-GUE" secondAttribute="height" multiplier="0.1" id="5oy-tT-3fq"/>
+                                            <constraint firstItem="QcW-dG-WVY" firstAttribute="width" secondItem="gPJ-99-Agx" secondAttribute="width" id="AcY-DG-hwE"/>
+                                            <constraint firstItem="qxL-7a-KyS" firstAttribute="top" secondItem="zGO-kR-guA" secondAttribute="bottom" constant="12" id="DBi-RW-Im8"/>
+                                            <constraint firstItem="QcW-dG-WVY" firstAttribute="height" secondItem="gPJ-99-Agx" secondAttribute="height" id="DE4-KZ-SWu"/>
+                                            <constraint firstItem="aGR-U2-j8q" firstAttribute="width" secondItem="1Ei-3Z-Kci" secondAttribute="width" id="Deh-5a-7a9"/>
+                                            <constraint firstItem="c92-90-WeL" firstAttribute="height" secondItem="gPJ-99-Agx" secondAttribute="height" id="F7Q-SZ-eDg"/>
+                                            <constraint firstItem="QcW-dG-WVY" firstAttribute="centerX" secondItem="gPJ-99-Agx" secondAttribute="centerX" id="FU3-5A-4O3"/>
+                                            <constraint firstItem="zGO-kR-guA" firstAttribute="centerX" secondItem="gPJ-99-Agx" secondAttribute="centerX" id="Gf4-7T-18Y"/>
+                                            <constraint firstItem="zGO-kR-guA" firstAttribute="width" secondItem="1Se-Lk-GUE" secondAttribute="width" multiplier="0.8" id="Gwv-7H-u6S"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Ei-3Z-Kci" secondAttribute="trailing" constant="12" id="HGP-Il-au5"/>
+                                            <constraint firstItem="1Ei-3Z-Kci" firstAttribute="top" secondItem="1Se-Lk-GUE" secondAttribute="top" constant="15" id="Ij7-DN-k0S"/>
+                                            <constraint firstItem="gPJ-99-Agx" firstAttribute="centerX" secondItem="uid-AF-8Ki" secondAttribute="centerX" id="Lvq-18-ZgT"/>
+                                            <constraint firstItem="c92-90-WeL" firstAttribute="width" secondItem="gPJ-99-Agx" secondAttribute="width" id="Nyo-rz-Bch"/>
+                                            <constraint firstItem="zGO-kR-guA" firstAttribute="top" secondItem="gPJ-99-Agx" secondAttribute="bottom" constant="10" id="Om2-yE-dBD"/>
+                                            <constraint firstItem="aGR-U2-j8q" firstAttribute="height" secondItem="1Ei-3Z-Kci" secondAttribute="height" id="U5Q-BV-R9e"/>
+                                            <constraint firstItem="QcW-dG-WVY" firstAttribute="top" secondItem="BuE-37-8RV" secondAttribute="bottom" constant="10" id="XX1-fo-BZs"/>
+                                            <constraint firstItem="c92-90-WeL" firstAttribute="centerX" secondItem="gPJ-99-Agx" secondAttribute="centerX" id="XnX-l7-WKb"/>
+                                            <constraint firstItem="qxL-7a-KyS" firstAttribute="centerX" secondItem="1Se-Lk-GUE" secondAttribute="centerX" id="Ybu-YB-BhT"/>
+                                            <constraint firstItem="aGR-U2-j8q" firstAttribute="centerX" secondItem="1Ei-3Z-Kci" secondAttribute="centerX" id="ZWN-eM-Ybk"/>
+                                            <constraint firstItem="gPJ-99-Agx" firstAttribute="top" secondItem="uid-AF-8Ki" secondAttribute="bottom" constant="10" id="a3s-ne-TFT"/>
+                                            <constraint firstItem="c92-90-WeL" firstAttribute="top" secondItem="qxL-7a-KyS" secondAttribute="bottom" constant="15" id="bwL-X4-tl5"/>
+                                            <constraint firstItem="BuE-37-8RV" firstAttribute="width" secondItem="gPJ-99-Agx" secondAttribute="width" id="cav-kY-6Kf"/>
+                                            <constraint firstItem="BuE-37-8RV" firstAttribute="top" secondItem="c92-90-WeL" secondAttribute="bottom" constant="25" id="eJy-lf-7g4"/>
+                                            <constraint firstItem="gPJ-99-Agx" firstAttribute="width" secondItem="uid-AF-8Ki" secondAttribute="width" id="hcm-6M-cH0"/>
+                                            <constraint firstItem="aGR-U2-j8q" firstAttribute="top" secondItem="1Ei-3Z-Kci" secondAttribute="bottom" constant="10" id="hoM-Jm-zWr"/>
+                                            <constraint firstItem="1Ei-3Z-Kci" firstAttribute="leading" secondItem="1Se-Lk-GUE" secondAttribute="leading" constant="12" id="ijp-Fa-ahu"/>
+                                            <constraint firstItem="uid-AF-8Ki" firstAttribute="top" secondItem="aGR-U2-j8q" secondAttribute="bottom" constant="10" id="iy9-8D-35l"/>
+                                            <constraint firstItem="uid-AF-8Ki" firstAttribute="centerX" secondItem="aGR-U2-j8q" secondAttribute="centerX" id="joA-GY-CoP"/>
+                                            <constraint firstItem="uid-AF-8Ki" firstAttribute="width" secondItem="aGR-U2-j8q" secondAttribute="width" id="mAS-E6-3eO"/>
+                                            <constraint firstItem="BuE-37-8RV" firstAttribute="height" secondItem="gPJ-99-Agx" secondAttribute="height" id="mrd-65-S89"/>
+                                            <constraint firstItem="BuE-37-8RV" firstAttribute="centerX" secondItem="gPJ-99-Agx" secondAttribute="centerX" id="rs4-zf-mwc"/>
+                                            <constraint firstItem="uid-AF-8Ki" firstAttribute="height" secondItem="aGR-U2-j8q" secondAttribute="height" id="yNj-8j-tJE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1Se-Lk-GUE" firstAttribute="leading" secondItem="0XL-Vk-DdI" secondAttribute="leading" id="GXR-sU-uDs"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Se-Lk-GUE" secondAttribute="bottom" id="No9-zv-JlT"/>
+                                    <constraint firstItem="1Se-Lk-GUE" firstAttribute="top" secondItem="0XL-Vk-DdI" secondAttribute="top" id="Z8Q-dc-IEq"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Se-Lk-GUE" secondAttribute="trailing" id="bEk-PD-ZCi"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0XL-Vk-DdI" firstAttribute="top" secondItem="b2J-Ru-W58" secondAttribute="bottom" id="5mO-xY-YTC"/>
+                            <constraint firstAttribute="trailing" secondItem="0XL-Vk-DdI" secondAttribute="trailing" id="8YG-24-gQ9"/>
+                            <constraint firstItem="1Se-Lk-GUE" firstAttribute="height" secondItem="uiZ-XS-UoD" secondAttribute="height" id="dZK-dE-hxP"/>
+                            <constraint firstItem="1Se-Lk-GUE" firstAttribute="width" secondItem="uiZ-XS-UoD" secondAttribute="width" id="mS9-J3-8Bv"/>
+                            <constraint firstItem="IR0-PS-k3c" firstAttribute="top" secondItem="0XL-Vk-DdI" secondAttribute="bottom" id="mTG-RQ-2ON"/>
+                            <constraint firstItem="0XL-Vk-DdI" firstAttribute="leading" secondItem="uiZ-XS-UoD" secondAttribute="leading" id="yQ0-iF-oln"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="t24-y9-lFu">
-                        <barButtonItem key="rightBarButtonItem" title="Xem danh sách" id="JUP-sV-d2Y">
+                    <navigationItem key="navigationItem" title="Thêm địa điểm" id="t24-y9-lFu">
+                        <barButtonItem key="rightBarButtonItem" image="map_sharing_list" id="JUP-sV-d2Y">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="_doneButton:" destination="dPU-Sr-y6X" id="2oU-iK-l8g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="600"/>
                     <connections>
-                        <outlet property="_addressLocation" destination="Mw3-g7-XgT" id="cJ1-fQ-J5B"/>
-                        <outlet property="_nameLocation" destination="vXd-MU-han" id="Q7R-c9-aH9"/>
-                        <outlet property="_phoneLocation" destination="bOR-v1-byB" id="yC1-rg-NCN"/>
-                        <outlet property="comboboxView" destination="STB-dh-McN" id="gtk-O9-lLk"/>
-                        <outlet property="infoLabel" destination="1tX-Tp-kNq" id="QQW-Kr-MnE"/>
-                        <outlet property="measureTypeLabel" destination="fuo-L5-5Nm" id="xE4-ho-0rg"/>
-                        <outlet property="placeTypeLabel" destination="q7t-5o-aRM" id="6gW-5h-AYS"/>
-                        <outlet property="postButton" destination="5Cm-Uf-qWH" id="s0K-FB-5Hm"/>
-                        <outlet property="saveButton" destination="Jnx-gm-IoY" id="r2Y-uK-B4L"/>
-                        <outlet property="selectAccessTypeButton" destination="6sI-vA-qKJ" id="Vd9-qL-Pi8"/>
+                        <outlet property="mAddressTextField" destination="uid-AF-8Ki" id="5tq-GP-Ti0"/>
+                        <outlet property="mCarouselScrollView" destination="c92-90-WeL" id="bRY-6n-rFj"/>
+                        <outlet property="mNameTextField" destination="1Ei-3Z-Kci" id="Bx7-UE-nfj"/>
+                        <outlet property="mPhoneTextField" destination="aGR-U2-j8q" id="ZdB-jN-HX6"/>
                         <outlet property="viewListButton" destination="JUP-sV-d2Y" id="L2u-aE-l3r"/>
                     </connections>
                 </viewController>
@@ -416,7 +487,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fp4-7h-mQV" id="2IT-6n-RHm">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdj-y0-7hB">
@@ -466,7 +537,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9qs-Fu-EaJ" id="f1R-SZ-ndQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -495,7 +566,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yN4-mB-yod" id="YG6-yQ-th4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcw-9e-cMr">
@@ -548,7 +619,7 @@
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x4C-Gg-leL" id="NST-po-M2u">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTO-sz-rtB">
@@ -770,7 +841,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EJM-ya-azS" id="kQI-ma-7Ou">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H76-ub-wSb">
@@ -907,7 +978,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qgz-Zs-xKb" id="AMj-Rd-qdp">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UlG-2Q-ahh">
@@ -961,7 +1032,7 @@
                                         <rect key="frame" x="0.0" y="1" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dLB-MG-Lgx" id="vS0-S9-8b9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fjk-vA-Yrk">
@@ -1023,7 +1094,7 @@
                     <navigationItem key="navigationItem" id="PZG-3v-gFZ">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="AJ1-T7-fpd">
-                            <rect key="frame" x="96" y="7.5" width="123" height="29"/>
+                            <rect key="frame" x="96" y="8" width="123" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="" image="BikeType"/>
@@ -1064,7 +1135,7 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ccQ-Jj-8xj" id="Pdr-eD-gzP">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="109.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-tm-bTU">
@@ -1152,6 +1223,9 @@
         <image name="hoasen_icon" width="184" height="104"/>
         <image name="logo.jpg" width="501" height="438"/>
         <image name="main_back_button" width="22" height="22"/>
+        <image name="map_sharing_list" width="25" height="25"/>
+        <image name="map_sharing_save" width="25" height="25"/>
+        <image name="map_sharing_sending" width="25" height="25"/>
         <image name="switchqu" width="64" height="64"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
