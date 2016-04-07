@@ -21,6 +21,7 @@
 #import "TableViewController.h"
 #import "LocalizeHelper.h"
 #import "Utils.h"
+#import "IQKeyboardReturnKeyHandler.h"
 #import "AccessType.h"
 
 @interface AddLocationViewController ()<NSURLConnectionDataDelegate , CLLocationManagerDelegate , UITextFieldDelegate , AccessTypeDelegate>
@@ -40,65 +41,75 @@
     NSArray *data;
     NSMutableArray *_locationType;
     CustomAlertViewController * alertView;
+    CMPopTipView * popTipView;
+    IQKeyboardReturnKeyHandler *returnKeyHandler;
 }
 @property (weak, nonatomic) IBOutlet CustomTextField *mNameTextField;
 @property (weak, nonatomic) IBOutlet CustomTextField *mPhoneTextField;
 @property (weak, nonatomic) IBOutlet CustomTextField *mAddressTextField;
 @property (weak, nonatomic) IBOutlet UIScrollView    *mCarouselScrollView;
-//@property (weak, nonatomic) IBOutlet UIView          *mCarouselSubView;
-
+@property (weak, nonatomic) IBOutlet IQDropDownTextField *placeTypeTextField;
 @property (strong, nonatomic) NSMutableArray * access;
+@property (weak, nonatomic) NSArray * measureTypes;
 @end
-
 @implementation AddLocationViewController
 @synthesize comboBox ,access;
 
+- (NSArray *)measureTypes {
+    if (!_measureTypes) {
+        _measureTypes = [AccessType getAllData];
+    }
+    return _measureTypes;
+}
+
 - (void)loadCarousel {
     [self.mCarouselScrollView setAlwaysBounceVertical:NO];
-    
-    NSArray * measureData = [AccessType getAllData];
-    for (int i = 0 ; i < 5 ; i++) {
+    for (int i = 0 ; i < [self.measureTypes count] ; i++) {
         CGFloat xOrigin = i * 50 + (i * 20);
-
         UIButton * accessType = [[UIButton alloc]initWithFrame:CGRectMake(xOrigin, 0, 50, 50)];
-        AccessType * selectedImage = [measureData objectAtIndex:i];
-        [accessType setImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
-//        [accessType setBackgroundImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
-        accessType.selected = NO;
+        AccessType * selectedImage = [self.measureTypes objectAtIndex:i];
+        [accessType setBackgroundImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
         accessType.tag = i;
+        // Touch inside button event
         [accessType addTarget:self action:@selector(selectAccessType:) forControlEvents:UIControlEventTouchUpInside];
+        // Long touch event
         UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
         [accessType addGestureRecognizer:longPress];
 
         [self.mCarouselScrollView addSubview:accessType];
     }
-    self.mCarouselScrollView.contentSize = CGSizeMake(self.mCarouselScrollView.frame.size.width + (1 * 50),
-                                                      self.mCarouselScrollView.frame.size.height);
+    if ([self.measureTypes count] > 4) {
+        self.mCarouselScrollView.contentSize = CGSizeMake(self.mCarouselScrollView.frame.size.width + (([self.measureTypes count] - 4) * 50),
+                                                          self.mCarouselScrollView.frame.size.height);
+    }
 }
 
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
-    CMPopTipView *popTipView = [[CMPopTipView alloc] initWithTitle:@"Test" message:@"Test 123"];
-    [popTipView presentPointingAtView:gesture.view inView:self.view animated:YES];
-    NSLog(@"Long Press");
+    if (!popTipView) {
+        NSArray * measureData = [AccessType getAllData];
+        AccessType * accessTypeInfo = [measureData objectAtIndex:gesture.view.tag];
+        popTipView = [[CMPopTipView alloc] initWithTitle:accessTypeInfo.accessName message:accessTypeInfo.accessDescribtion];
+        popTipView.backgroundColor = [UIColor orangeColor];
+        popTipView.textColor = [UIColor whiteColor];
+        popTipView.bubblePaddingX = 20;
+        popTipView.bubblePaddingY = 20;
+        [popTipView presentPointingAtView:gesture.view inView:self.view animated:YES];
+    }
     if ( gesture.state == UIGestureRecognizerStateEnded ) {
-        NSLog(@"Long Press End");
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [popTipView dismissAnimated:YES];
-        });
-        
+        [popTipView dismissAnimated:YES];
+        popTipView = nil;
     }
 }
 
 - (void)selectAccessType:(UIButton *)sender {
     sender.selected = !sender.selected;
+//    NSArray * measureData = [AccessType getAllData];
+//    AccessType * selectedImage = [measureData objectAtIndex:sender.tag];
     if (sender.selected) {
-         [sender setImage:[UIImage imageNamed:@"map_sharing_selected"] forState:UIControlStateNormal];
+        [sender setImage:[UIImage imageNamed:@"map_sharing_selected"] forState:UIControlStateNormal];
     } else {
-        NSArray * measureData = [AccessType getAllData];
-        AccessType * selectedImage = [measureData objectAtIndex:sender.tag];
-        [sender setImage:[AccessType getImageByAcessTypeID:[selectedImage.accessTypeID intValue]] forState:UIControlStateNormal];
+        [sender setImage:nil forState:UIControlStateNormal];
     }
-    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -392,8 +403,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [Utils checkInternetConnection];
-    [locationManager startUpdatingLocation];
+//    [Utils checkInternetConnection];
+//    [locationManager startUpdatingLocation];
     
 }
 -(NSMutableArray *)setUpArray
@@ -415,35 +426,15 @@
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-  
-    //combo.textField.delegate = self;
-    NSString *version = [[UIDevice currentDevice] systemVersion];
-    int ver = [version intValue];
-    if (ver < 7){
-        //iOS 6 work
-        comboBox = [[AJComboBox alloc] initWithFrame:self.comboboxView.frame andisUser:FALSE parentView:self.view];
-        [comboBox setLabelText:LocalizedString(@"Select")];
-        [comboBox setDelegate:self];
-        [comboBox setTag:1];
-        [comboBox setArrayData:_locationType];
-        [self.view addSubview:comboBox];
-    }
-    else{
-        //iOS 7 related work
-        comboBox = [[AJComboBox alloc] initWithFrame:self.comboboxView.frame andisUser:FALSE parentView:self.view];
-        [comboBox setLabelText:LocalizedString(@"Select")];
-        [comboBox setDelegate:self];
-        [comboBox setTag:1];
-        [comboBox setArrayData:_locationType];
-        [self.view addSubview:comboBox];
-    }
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+    
+    self.placeTypeTextField.isOptionalDropDown = YES;
+    self.placeTypeTextField.itemList = _locationType;
+    // Load carousel view
+    [self.view layoutIfNeeded];
     [self loadCarousel];
+    // Set Next button in keyboard
+    returnKeyHandler = [[IQKeyboardReturnKeyHandler alloc] initWithViewController:self];
 }
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -663,6 +654,8 @@
     [self.viewListButton setTitle:LocalizedString(@"Saved places")];
     [self.postButton setTitle:LocalizedString(@"Post to server") forState:UIControlStateNormal];
     [self.saveButton setTitle:LocalizedString(@"Save to list") forState:UIControlStateNormal];
+    
+    
     NSString * languageKey = [[NSUserDefaults standardUserDefaults] objectForKey:APP_LANGUAGE];
     for(int i=0;i<data.count;i++){
         LocationType* locType = (LocationType*) [data objectAtIndex:i];

@@ -467,6 +467,7 @@
                         <outlet property="mCarouselScrollView" destination="c92-90-WeL" id="bRY-6n-rFj"/>
                         <outlet property="mNameTextField" destination="1Ei-3Z-Kci" id="Bx7-UE-nfj"/>
                         <outlet property="mPhoneTextField" destination="aGR-U2-j8q" id="ZdB-jN-HX6"/>
+                        <outlet property="placeTypeTextField" destination="gPJ-99-Agx" id="t0q-0Q-LEq"/>
                         <outlet property="viewListButton" destination="JUP-sV-d2Y" id="L2u-aE-l3r"/>
                     </connections>
                 </viewController>

@@ -131,7 +131,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    NSLog(@"Disappear View");
+//    NSLog(@"Disappear View");
 //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"myLocation"];
     [self.mapview removeObserver:self forKeyPath:@"myLocation"];
     

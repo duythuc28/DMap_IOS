@@ -52,7 +52,7 @@
 		bubbleFrame = CGRectMake(_sidePadding, _targetPoint.y+_pointerSize, _bubbleSize.width, _bubbleSize.height);
 	}
 	else {
-		bubbleFrame = CGRectMake(_sidePadding, _targetPoint.y-_pointerSize-_bubbleSize.height, _bubbleSize.width, _bubbleSize.height);
+		bubbleFrame = CGRectMake(_sidePadding, _targetPoint.y-_pointerSize-_bubbleSize.height , _bubbleSize.width, _bubbleSize.height );
 	}
 	return bubbleFrame;
 }
@@ -68,7 +68,11 @@
         return contentFrame;
     }
     else {
-        return bubbleFrame;
+        // Fix padding top
+        return CGRectMake(bubbleFrame.origin.x ,
+                          bubbleFrame.origin.y + _cornerRadius,
+                          bubbleFrame.size.width ,
+                          bubbleFrame.size.height);
     }
 }
 
@@ -484,7 +488,7 @@
 				_bubbleSize = CGSizeMake(textSize.width + (_bubblePaddingX*2) + (_cornerRadius*2), textSize.height + (_bubblePaddingY*2) + (_cornerRadius*2));
     }
     else {
-        _bubbleSize = CGSizeMake(textSize.width, textSize.height);
+        _bubbleSize = CGSizeMake(textSize.width + _bubblePaddingX, textSize.height + _bubblePaddingY);
     }
 
 	UIView *superview = containerView.superview;
