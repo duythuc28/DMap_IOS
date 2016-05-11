@@ -61,6 +61,7 @@
 		6A3367831CB4CC8100D38FF1 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3367821CB4CC8100D38FF1 /* IQDropDownTextField.m */; };
 		6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A801CA9256E0057AAF4 /* RequestDataManager.m */; };
 		6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A841CA933640057AAF4 /* SplashViewController.m */; };
+		6ABC9CA51CE3333D00825704 /* UIView+CustomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */; };
 		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
 		8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */; };
 		8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */; };
@@ -210,6 +211,8 @@
 		6A679A801CA9256E0057AAF4 /* RequestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestDataManager.m; sourceTree = "<group>"; };
 		6A679A831CA933640057AAF4 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		6A679A841CA933640057AAF4 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		6ABC9CA31CE3333D00825704 /* UIView+CustomAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAnimation.h"; sourceTree = "<group>"; };
+		6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAnimation.m"; sourceTree = "<group>"; };
 		6AC4A4A11CA3DE3000C1D220 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		6AC4A4A51CA3ECD800C1D220 /* PlaceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoCell.h; sourceTree = "<group>"; };
 		6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoCell.m; sourceTree = "<group>"; };
@@ -712,6 +715,8 @@
 			children = (
 				8BFB4A8F1CA855F1005C7058 /* UILabel+VerticalAlign.h */,
 				8BFB4A901CA855F1005C7058 /* UILabel+VerticalAlign.m */,
+				6ABC9CA31CE3333D00825704 /* UIView+CustomAnimation.h */,
+				6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1071,6 +1076,7 @@
 				6A3367801CB4CBD600D38FF1 /* CustomTextField.m in Sources */,
 				D61C452319FF8BD60076D8F7 /* SaveLocationTempTableController.m in Sources */,
 				8BAFDDBD1AB422B300BD49D0 /* CustomAlertViewController.m in Sources */,
+				6ABC9CA51CE3333D00825704 /* UIView+CustomAnimation.m in Sources */,
 				18296F5419E9815F00AE7F0B /* Ulti.m in Sources */,
 				D6EB62D919DEEC0400E505CA /* RouteViewController.m in Sources */,
 				182FB7D919DD452600205E8B /* Location.m in Sources */,

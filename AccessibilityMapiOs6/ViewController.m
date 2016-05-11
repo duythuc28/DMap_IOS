@@ -252,7 +252,7 @@
         self.placeInfoView.placeAddress.text = cusMarker.location.address;
         self.placeInfoView.customMarker = cusMarker;
         if (SCREEN_HEIGHT == self.placeInfoView.frame.origin.y) {
-            [self.placeInfoView movePoint:CGPointMake(0, -214) finished:NULL];
+            [self.placeInfoView movePoint:CGPointMake(0, -214) duration:0.5 finished:nil];
         }
         self.parentController.roundButton.hidden = YES;
         mapViewControl.hidden = NO;
@@ -267,7 +267,7 @@
 - (void)closeInfoWindow {
     mapViewControl.hidden = YES;
     //???: Hard code
-    [self.placeInfoView movePoint:CGPointMake(0, 214) finished:nil];
+    [self.placeInfoView movePoint:CGPointMake(0, 214) duration:0.5 finished:nil];
     self.parentController.roundButton.hidden = NO;
     [self setDefaultImageForMarker];
 }

@@ -15,6 +15,7 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "Constant.h"
+#import "UIView+CustomAnimation.h"
 #import <UIView+DCAnimationKit.h>
 #import "IQDropDownTextField.h"
 #import "CustomTextField.h"
