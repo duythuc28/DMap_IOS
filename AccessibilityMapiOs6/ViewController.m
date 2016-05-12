@@ -34,8 +34,7 @@
     if (!_placeInfoView) {
         
         mapViewControl = [[UIControl alloc]initWithFrame:self.view.frame];
-//        mapViewControl.alpha = 0.25;
-//        mapViewControl.backgroundColor = [UIColor blackColor];
+
         [mapViewControl addTarget:self action:@selector(closeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:mapViewControl];
         
@@ -248,9 +247,7 @@
 - (void)showInfoWindowAtMarker:(GMSMarker *)marker {
     if (marker) {
         CustomMarker * cusMarker = (CustomMarker*)marker;
-        self.placeInfoView.placeTitle.text = cusMarker.location.title;
-        self.placeInfoView.placeAddress.text = cusMarker.location.address;
-        self.placeInfoView.customMarker = cusMarker;
+        [self.placeInfoView displayView:cusMarker];
         if (SCREEN_HEIGHT == self.placeInfoView.frame.origin.y) {
             [self.placeInfoView movePoint:CGPointMake(0, -214) duration:0.5 finished:nil];
         }

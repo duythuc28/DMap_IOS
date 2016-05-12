@@ -1,5 +1,5 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A9768104BC35D2545AF39326FE07BDBDCC47A88B",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "40BC36D1020EFB71552CD731F18231FC308A9033",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "4acb82bf-45c4-459c-a24d-65e7752386e7++5833" : {
 
@@ -7,33 +7,26 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "4acb82bf-45c4-459c-a24d-65e7752386e7++5833" : 0,
-    "A9768104BC35D2545AF39326FE07BDBDCC47A88B" : 0,
-    "9F9A8192368776F9FD3BF2857F88F3D2A9795179" : 0
+    "40BC36D1020EFB71552CD731F18231FC308A9033" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3BA8B4A3-CAC5-4CC5-B439-223BD84F12A9",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "4acb82bf-45c4-459c-a24d-65e7752386e7++5833" : "DMap\/AccessMap\/AccessibilityMapiOs6\/base64\/",
-    "A9768104BC35D2545AF39326FE07BDBDCC47A88B" : "DMap",
-    "9F9A8192368776F9FD3BF2857F88F3D2A9795179" : "Here%20News"
+    "4acb82bf-45c4-459c-a24d-65e7752386e7++5833" : "Dmap\/AccessibilityMapiOs6\/base64\/",
+    "40BC36D1020EFB71552CD731F18231FC308A9033" : "Dmap\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "DMap",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AccessMap\/DMap.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DMap.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/duythuc28\/DMap_IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40BC36D1020EFB71552CD731F18231FC308A9033"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/repo.flipdevnet.com\/svn\/osx",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4acb82bf-45c4-459c-a24d-65e7752386e7++5833"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/khanhpham\/here-news.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F9A8192368776F9FD3BF2857F88F3D2A9795179"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/pdthuc\/dmap.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A9768104BC35D2545AF39326FE07BDBDCC47A88B"
     }
   ]
 }

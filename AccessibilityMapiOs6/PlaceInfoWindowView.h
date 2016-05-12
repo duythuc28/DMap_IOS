@@ -28,4 +28,6 @@
 
 - (id)initWithFrame:(CGRect)frame;
 
+- (void)displayView:(CustomMarker *)marker;
+
 @end

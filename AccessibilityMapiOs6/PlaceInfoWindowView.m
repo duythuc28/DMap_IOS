@@ -23,6 +23,12 @@
     return self;
 }
 
+- (void)displayView:(CustomMarker *)marker {
+    self.customMarker = marker;
+    self.placeTitle.text = marker.location.title;
+    self.placeAddress.text = marker.location.address;
+}
+
 - (IBAction)placeInfoViewClicked:(id)sender {
     [self.delegate placeInfoViewClicked:self];
 }
