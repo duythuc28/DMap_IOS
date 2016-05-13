@@ -18,4 +18,6 @@
 @property (strong, nonatomic) Location * currentLocation;
 
 - (void) displayDetailInfo:(NSString *)title address:(NSString *)address phoneNumber : (NSString *)phoneNumber;
+
+- (id)initWithFrame:(CGRect)frame;
 @end

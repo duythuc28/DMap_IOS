@@ -64,6 +64,8 @@
 		6A3367831CB4CC8100D38FF1 /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3367821CB4CC8100D38FF1 /* IQDropDownTextField.m */; };
 		6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A801CA9256E0057AAF4 /* RequestDataManager.m */; };
 		6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A679A841CA933640057AAF4 /* SplashViewController.m */; };
+		6ABC2D5D1CE5BACE008238AD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC2D5C1CE5BACE008238AD /* DetailViewController.m */; };
+		6ABC2D601CE5DAF2008238AD /* MessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC2D5F1CE5DAF2008238AD /* MessageViewCell.m */; };
 		6ABC9CA51CE3333D00825704 /* UIView+CustomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */; };
 		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
 		8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */; };
@@ -217,6 +219,10 @@
 		6A679A801CA9256E0057AAF4 /* RequestDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestDataManager.m; sourceTree = "<group>"; };
 		6A679A831CA933640057AAF4 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		6A679A841CA933640057AAF4 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		6ABC2D5B1CE5BACE008238AD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		6ABC2D5C1CE5BACE008238AD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		6ABC2D5E1CE5DAF2008238AD /* MessageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewCell.h; sourceTree = "<group>"; };
+		6ABC2D5F1CE5DAF2008238AD /* MessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewCell.m; sourceTree = "<group>"; };
 		6ABC9CA31CE3333D00825704 /* UIView+CustomAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAnimation.h"; sourceTree = "<group>"; };
 		6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAnimation.m"; sourceTree = "<group>"; };
 		6AC4A4A11CA3DE3000C1D220 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
@@ -632,6 +638,17 @@
 			name = "Splash Screen";
 			sourceTree = "<group>";
 		};
+		6ABC2D571CE5BA7E008238AD /* Detail View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6ABC2D5B1CE5BACE008238AD /* DetailViewController.h */,
+				6ABC2D5C1CE5BACE008238AD /* DetailViewController.m */,
+				6ABC2D5E1CE5DAF2008238AD /* MessageViewCell.h */,
+				6ABC2D5F1CE5DAF2008238AD /* MessageViewCell.m */,
+			);
+			name = "Detail View Controller";
+			sourceTree = "<group>";
+		};
 		6AC4A49F1CA3DD8C00C1D220 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +688,7 @@
 		6AC4A4A31CA3EAE900C1D220 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				6ABC2D571CE5BA7E008238AD /* Detail View Controller */,
 				6A679A821CA92EA40057AAF4 /* Splash Screen */,
 				182FB7FA19DD838500205E8B /* MoreInfoView */,
 				D6EB62D619DEEBEE00E505CA /* DrawView */,
@@ -1138,7 +1156,9 @@
 				182FB7F919DD772400205E8B /* SearchTableViewController.m in Sources */,
 				18296F5719E989CD00AE7F0B /* UploadData.m in Sources */,
 				D695C52519F6CF2300D79253 /* UserAddLocationController.m in Sources */,
+				6ABC2D5D1CE5BACE008238AD /* DetailViewController.m in Sources */,
 				8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */,
+				6ABC2D601CE5DAF2008238AD /* MessageViewCell.m in Sources */,
 				182FB7DD19DD458400205E8B /* MDDirectionService.m in Sources */,
 				18296F5019E9764700AE7F0B /* Comment.m in Sources */,
 				8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */,

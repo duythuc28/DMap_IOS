@@ -17,6 +17,14 @@
 
 @implementation DetailInfoViewController
 
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithNibName:@"DetailViewInfo" bundle:nil];
+    if (self) {
+        self.view.frame = frame;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
