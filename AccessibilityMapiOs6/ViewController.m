@@ -19,7 +19,7 @@
 #import "LocalizeHelper.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) PlaceInfoWindowView * placeInfoView;
+
 @end
 
 @implementation ViewController
@@ -286,10 +286,11 @@
 }
 
 - (void)placeInfoViewClicked:(PlaceInfoWindowView *)placeInfoView {
-    LocationTabBarController *detailView        = (LocationTabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationDetailTabBar"];
-        detailView.rootViewController = self.parentController;
-        detailView.locationInfo       = placeInfoView.customMarker.location;
-        [self.parentController.navigationController pushViewController:detailView animated:YES];
+//    LocationTabBarController *detailView        = (LocationTabBarController*)[self.storyboard instantiateViewControllerWithIdentifier:@"LocationDetailTabBar"];
+//        detailView.rootViewController = self.parentController;
+//        detailView.locationInfo       = placeInfoView.customMarker.location;
+//        [self.parentController.navigationController pushViewController:detailView animated:YES];
+    [self.parentController performSegueWithIdentifier:@"kPushToDetailViewController" sender:self.parentController];
 }
 
 

@@ -17,6 +17,7 @@
 #import "LocalizeHelper.h"
 #import "SVProgressHUD.h"
 #import "InfoDRDViewController.h"
+#import "DetailViewController.h"
 
 @interface MainViewController ()<UISearchBarDelegate , UIActionSheetDelegate>
 
@@ -93,8 +94,11 @@ typedef enum { Share = 0 , Favorite = 1 , Info = 2} RoundMenuButton;
         RouteViewController * routeview = (RouteViewController *)[segue destinationViewController];
         routeview.container = self;
     }
-
-    
+    else if ([segueName isEqualToString:@"kPushToDetailViewController"]) {
+        ViewController *viewController = (ViewController *)self._mapViewController;
+        DetailViewController * detailViewController = (DetailViewController *)[segue destinationViewController];
+        detailViewController.locationInfo = viewController.placeInfoView.customMarker.location;
+    }
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{

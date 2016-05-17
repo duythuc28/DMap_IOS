@@ -13,6 +13,7 @@
                 <outlet property="placeAddress" destination="LKQ-tZ-ggE" id="1Rx-UG-5wn"/>
                 <outlet property="placePhone" destination="yhb-M8-9bj" id="bjw-Dv-UEQ"/>
                 <outlet property="placeTitle" destination="tW1-WB-3nY" id="lZs-LX-PX8"/>
+                <outlet property="view" destination="iN0-l3-epB" id="g22-hL-pNr"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,12 +21,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaL-7b-qOQ" customClass="GMSMapView">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQp-dN-967">
-                    <rect key="frame" x="0.0" y="120" width="320" height="180"/>
+                    <rect key="frame" x="0.0" y="150" width="320" height="150"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW1-WB-3nY">
                             <rect key="frame" x="8" y="8" width="295" height="21"/>
@@ -50,11 +47,16 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhb-M8-9bj">
-                            <rect key="frame" x="48" y="127" width="224" height="38"/>
+                            <rect key="frame" x="48" y="102" width="224" height="38"/>
+                            <color key="backgroundColor" red="0.098550691169999996" green="0.75462438060000003" blue="0.09927092236" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="yhb-M8-9bj" secondAttribute="height" multiplier="235:40" id="Kaa-Rd-W7Q"/>
                             </constraints>
-                            <state key="normal" title="Call"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                            <state key="normal" title="Call" image="place-telephone">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
                             <connections>
                                 <action selector="callButtonClicked:" destination="-1" eventType="touchUpInside" id="ryK-nN-wxB"/>
                             </connections>
@@ -64,7 +66,7 @@
                     <constraints>
                         <constraint firstItem="LKQ-tZ-ggE" firstAttribute="centerY" secondItem="KgC-fS-i74" secondAttribute="centerY" id="78K-HU-Ize"/>
                         <constraint firstItem="tW1-WB-3nY" firstAttribute="top" secondItem="bQp-dN-967" secondAttribute="top" constant="8" id="Bzf-C8-VEM"/>
-                        <constraint firstAttribute="bottom" secondItem="yhb-M8-9bj" secondAttribute="bottom" constant="15" id="FrH-37-Oyc"/>
+                        <constraint firstAttribute="bottom" secondItem="yhb-M8-9bj" secondAttribute="bottom" constant="10" id="FrH-37-Oyc"/>
                         <constraint firstItem="yhb-M8-9bj" firstAttribute="width" secondItem="bQp-dN-967" secondAttribute="width" multiplier="0.7" id="SQd-Rc-bvr"/>
                         <constraint firstAttribute="trailing" secondItem="tW1-WB-3nY" secondAttribute="trailing" constant="17" id="TpF-Zf-BWx"/>
                         <constraint firstItem="LKQ-tZ-ggE" firstAttribute="trailing" secondItem="tW1-WB-3nY" secondAttribute="trailing" id="Z9o-oD-GKH"/>
@@ -75,6 +77,10 @@
                         <constraint firstItem="KgC-fS-i74" firstAttribute="leading" secondItem="tW1-WB-3nY" secondAttribute="leading" id="zLU-hg-tOY"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaL-7b-qOQ" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -84,7 +90,7 @@
                 <constraint firstAttribute="trailing" secondItem="gaL-7b-qOQ" secondAttribute="trailing" id="Kqu-Or-Myg"/>
                 <constraint firstAttribute="trailing" secondItem="bQp-dN-967" secondAttribute="trailing" id="L56-qf-Ggk"/>
                 <constraint firstItem="bQp-dN-967" firstAttribute="top" secondItem="gaL-7b-qOQ" secondAttribute="bottom" id="a8H-6f-ag8"/>
-                <constraint firstItem="gaL-7b-qOQ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="fp4-9d-S5k"/>
+                <constraint firstItem="gaL-7b-qOQ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.5" id="fp4-9d-S5k"/>
                 <constraint firstItem="bQp-dN-967" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lBk-7g-XZ8"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -94,5 +100,6 @@
     </objects>
     <resources>
         <image name="place-address" width="32" height="32"/>
+        <image name="place-telephone" width="21" height="21"/>
     </resources>
 </document>

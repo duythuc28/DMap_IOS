@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailInfoViewController.h"
+#import "Location.h"
 
 @interface DetailViewController : UITableViewController <DetailInfoViewDelegate>
-
+@property (strong, nonatomic) Location * locationInfo;
 @end

@@ -11,6 +11,7 @@
 
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end
 
@@ -19,11 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self setUpHeaderView];
+}
+
+- (void)setUpHeaderView {
+    DetailInfoViewController * detailInfoViewController = [[DetailInfoViewController alloc]initWithFrame:self.headerView.frame selectedLocation:self.locationInfo];
+    detailInfoViewController.delegate = self;
+    [self addChildViewController:detailInfoViewController];
+    [self.headerView addSubview:detailInfoViewController.view];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,15 +53,11 @@
     return cell;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    DetailInfoViewController * detailViewController = [[DetailInfoViewController alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 250)];
-    detailViewController.delegate = self;
-    return detailViewController.view;
-}
 
 #pragma mark - Detail Info View Delegate
 - (void)callButtonClicked {
-    
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:self.locationInfo.phone];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
 @end

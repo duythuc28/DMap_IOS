@@ -17,6 +17,7 @@
 @property (strong) MainViewController*  parentController;
 @property (strong )GMSMapView*          mapview;
 @property (strong) GMSPolyline*         polyline;
+@property (strong, nonatomic) PlaceInfoWindowView * placeInfoView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 //@property (strong) GMSCameraUpdate *    camerapos;
 @property (strong, nonatomic) NSMutableArray* markers;

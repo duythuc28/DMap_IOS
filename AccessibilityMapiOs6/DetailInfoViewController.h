@@ -13,11 +13,11 @@
 - (void) callButtonClicked;
 @end
 
-@interface DetailInfoViewController : ViewController
+@interface DetailInfoViewController : UIViewController
 @property (weak, nonatomic) id <DetailInfoViewDelegate> delegate;
 @property (strong, nonatomic) Location * currentLocation;
 
 - (void) displayDetailInfo:(NSString *)title address:(NSString *)address phoneNumber : (NSString *)phoneNumber;
 
-- (id)initWithFrame:(CGRect)frame;
+- initWithFrame:(CGRect)frame selectedLocation:(Location *)location;
 @end

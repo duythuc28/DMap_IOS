@@ -17,32 +17,41 @@
 
 @implementation DetailInfoViewController
 
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame selectedLocation:(Location *)location {
     self = [super initWithNibName:@"DetailViewInfo" bundle:nil];
     if (self) {
         self.view.frame = frame;
+//        [self setupMapView:location];
+        self.currentLocation = location;
+        [self displayDetailInfo:location.title
+                        address:location.address
+                    phoneNumber:location.phone];
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self setupMapView:self.currentLocation];
 }
 
 - (void)setupMapView:(Location *)location {
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[location.latitude floatValue]
                                                             longitude:[location.longtitude floatValue]
-                                                                 zoom:16];
-    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    
+                                                                 zoom:17];
+    [self.mapView setCamera:camera];
+    self.mapView.padding = UIEdgeInsetsMake(80, 0, 0, 0);
+    self.mapView.settings.scrollGestures = NO;
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake([location.latitude floatValue], [location.longtitude floatValue]);
     marker.title = location.title;
     marker.snippet = location.address;
-    marker.icon = [LocationType getImageByLocationTypeId:[location.locationID intValue]];
+    marker.icon = [LocationType getImageByLocationTypeId:[location.location_LocationType.locationTypeID intValue]];
     marker.map = self.mapView;
 }
 
