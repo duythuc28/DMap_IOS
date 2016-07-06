@@ -224,7 +224,7 @@
         theMarker = marker;
     }
     // Show info window at selected maker
-    [self setDefaultImageForMarker];
+//    [self setDefaultImageForMarker];
     [self showInfoWindowAtMarker:theMarker];
 }
 
@@ -255,7 +255,7 @@
         mapViewControl.hidden = NO;
         GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
         [self.mapview animateWithCameraUpdate:cameraUpdate];
-        marker.icon = [UIImage imageNamed:@"selectedMarker"];
+//        marker.icon = [UIImage imageNamed:@"selectedMarker"];
     }
 }
 /**
@@ -266,7 +266,7 @@
     //???: Hard code
     [self.placeInfoView movePoint:CGPointMake(0, 214) duration:0.5 finished:nil];
     self.parentController.roundButton.hidden = NO;
-    [self setDefaultImageForMarker];
+//    [self setDefaultImageForMarker];
 }
 
 /**

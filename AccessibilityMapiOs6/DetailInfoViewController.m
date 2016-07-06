@@ -65,7 +65,13 @@
               phoneNumber : (NSString *)phoneNumber {
     self.placeTitle.text = title;
     self.placeAddress.text = address;
-    [self.placePhone setTitle:phoneNumber forState:UIControlStateNormal];
+    if ([phoneNumber isEqualToString:@""] || !phoneNumber) {
+        self.placePhone.hidden = YES;
+    } else {
+        self.placePhone.hidden = NO;
+        [self.placePhone setTitle:phoneNumber forState:UIControlStateNormal];
+    }
+   
 }
 
 - (IBAction)callButtonClicked:(id)sender {
