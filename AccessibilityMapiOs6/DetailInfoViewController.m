@@ -53,6 +53,7 @@
     marker.snippet = location.address;
     marker.icon = [LocationType getImageByLocationTypeId:[location.location_LocationType.locationTypeID intValue]];
     marker.map = self.mapView;
+    self.mapView.selectedMarker = marker;
 }
 
 - (void)didReceiveMemoryWarning {

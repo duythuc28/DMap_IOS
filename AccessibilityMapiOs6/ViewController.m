@@ -235,14 +235,15 @@
 }
 
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
-    CustomMarker * cusMarker = (CustomMarker*)marker;
+    if ([marker isKindOfClass:[CustomMarker class]]) {
+        CustomMarker * cusMarker = (CustomMarker*)marker;
         if(cusMarker.locationMarker == TRUE)
         {
             [self showInfoWindowAtMarker:marker];
             return YES;
         }
-        else
-            return NO;
+    }
+    return NO;
 }
 
 
