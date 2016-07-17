@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccessibilityMapiOs6/AddLocationViewController.m"
-            timestampString = "474387701.797071"
+            timestampString = "481736318.005889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
-            landmarkName = "-postToServerByEndUser"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-postToServerByDRDStaff"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,44 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AccessibilityMapiOs6/AddLocationViewController.m"
-            timestampString = "474387896.458115"
+            timestampString = "481736318.005889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "-postToServerByEndUser"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AccessibilityMapiOs6/AddLocationViewController.m"
-            timestampString = "474387914.865845"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "-postToServerByEndUser"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AccessibilityMapiOs6/AddLocationViewController.m"
-            timestampString = "474387942.569517"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-checkValidInfo"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-postToServerByDRDStaff"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

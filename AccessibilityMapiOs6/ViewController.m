@@ -106,22 +106,27 @@
                                                             longitude:106.692401
                                                                  zoom:11];
     
+    HSDemoClusterRenderer *clusterRenderer = [HSDemoClusterRenderer new];
+    self.clusterMapView = [[HSClusterMapView alloc] initWithFrame:self.view.bounds renderer:clusterRenderer];
+    self.clusterMapView.delegate = self;
+    [self.clusterMapView setCamera:camera];
+    [self.view addSubview:self.clusterMapView];
+    [self.view sendSubviewToBack:self.clusterMapView];
     
-    self.mapview = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+//    self.mapview = [GMSMapView mapWithFrame:CGRectZero camera:camera];
 //    self.mapview.settings.myLocationButton      = YES;
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.mapview.myLocationEnabled = YES;
+        self.clusterMapView.myLocationEnabled = YES;
     });
-    self.view                                   = self.mapview;
-    self.mapview.delegate                       = self;
     [self reloadMarker];
+    [self.clusterMapView cluster];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSLog(@"Appear View");
 //    [self reloadMarker];
-    [self.mapview addObserver:self
+    [self.clusterMapView addObserver:self
                    forKeyPath:@"myLocation"
                       options:NSKeyValueObservingOptionNew
                       context:NULL];
@@ -132,11 +137,11 @@
     [super viewWillDisappear:animated];
 //    NSLog(@"Disappear View");
 //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"myLocation"];
-    [self.mapview removeObserver:self forKeyPath:@"myLocation"];
+    [self.clusterMapView removeObserver:self forKeyPath:@"myLocation"];
     
 }
 - (void)reloadMarker{
-    [self.mapview clear];
+    [self.clusterMapView clear];
     [self createMarkerObjects];
     
     //Draw circle
@@ -162,8 +167,9 @@
     for(Location *data in locations)
     {
         CustomMarker *marker = [[CustomMarker alloc] initWithVariables:data];
-        marker.map = self.mapview;
+        marker.map = self.clusterMapView;
         [self.markers addObject:marker];
+        [self.clusterMapView addMarker:marker];
     }
 }
 
@@ -175,8 +181,8 @@
     CLLocationCoordinate2DMake(latitude2, longitude2);
     
     
-    float mapViewWidth = self.mapview.frame.size.width;
-    float mapViewHeight = self.mapview.frame.size.height;
+    float mapViewWidth = self.clusterMapView.frame.size.width;
+    float mapViewHeight = self.clusterMapView.frame.size.height;
     
     // Camera Update
     
@@ -200,13 +206,13 @@
                                  zoom: zoomLevel-1];
     
     //GMSCameraPosition *bookmarkCamera = [GMSCameraPosition cameraWithLatitude:latitude1 longitude:longitude1 zoom:8];
-    [self.mapview setCamera:camera];
+    [self.clusterMapView setCamera:camera];
 }
 
 - (void)updateCamWithLocation:(Location *)search
 {
     GMSCameraPosition *bookmarkCamera = [GMSCameraPosition cameraWithLatitude:[search.latitude doubleValue] longitude:[search.longtitude doubleValue] zoom:16];
-    [self.mapview setCamera:bookmarkCamera];
+    [self.clusterMapView setCamera:bookmarkCamera];
     
     __block CustomMarker* theMarker;
     [self.markers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -219,7 +225,7 @@
     
     if(theMarker == nil){
         CustomMarker *marker = [[CustomMarker alloc] initWithVariables: search];
-        marker.map = self.mapview;
+        marker.map = self.clusterMapView;
         [self.markers addObject:marker];
         theMarker = marker;
     }
@@ -239,6 +245,7 @@
             return NO;
 }
 
+
 /**
  *  Show info window at selected marker
  *
@@ -254,7 +261,7 @@
         self.parentController.roundButton.hidden = YES;
         mapViewControl.hidden = NO;
         GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
-        [self.mapview animateWithCameraUpdate:cameraUpdate];
+        [self.clusterMapView animateWithCameraUpdate:cameraUpdate];
 //        marker.icon = [UIImage imageNamed:@"selectedMarker"];
     }
 }
@@ -293,6 +300,9 @@
     [self.parentController performSegueWithIdentifier:@"kPushToDetailViewController" sender:self.parentController];
 }
 
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    [self.clusterMapView cluster];
+}
 
 //Tap on the marker
 -(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:marker
@@ -322,7 +332,7 @@
         firstLocationUpdate_ = YES;
         //[self.locationManager startUpdatingLocation];
         CLLocation *location = [change objectForKey:NSKeyValueChangeNewKey];
-        self.mapview.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
+        self.clusterMapView.camera = [GMSCameraPosition cameraWithTarget:location.coordinate
                                                              zoom:13];
     }
 }
@@ -395,7 +405,7 @@
     marker.icon = [UIImage imageNamed:@"bike"];
     marker.title = LocalizedString(@"Bike");
     marker.snippet = dis;
-    marker.map= self.mapview;
+    marker.map= self.clusterMapView;
     marker.zIndex = 100;
     
     NSDictionary *route = [routes objectForKey:@"overview_polyline"];
@@ -404,7 +414,7 @@
     self.polyline = [GMSPolyline polylineWithPath:path];
     self.polyline.strokeWidth = 2;
     self.polyline.strokeColor = [UIColor redColor];
-    self.polyline.map = self.mapview;
+    self.polyline.map = self.clusterMapView;
 }
 
 -(void)addBusDirections:(NSDictionary*)json
@@ -425,7 +435,7 @@
             self.polyline = [GMSPolyline polylineWithPath:path];
             self.polyline.strokeWidth = 2;
             self.polyline.strokeColor =[UIColor greenColor];
-            self.polyline.map = self.mapview;
+            self.polyline.map = self.clusterMapView;
             //NSDictionary * start = [step objectForKey:@"start_location"];
             NSDictionary * steps = [step objectForKey:@"steps"][0];
             NSDictionary * end = [steps objectForKey:@"start_location"];
@@ -441,7 +451,7 @@
             marker.icon = [UIImage imageNamed:@"walking"];
             marker.title = LocalizedString(@"Walking");
             marker.snippet = dis;
-            marker.map= self.mapview;
+            marker.map= self.clusterMapView;
             marker.zIndex = 100;
             
         }
@@ -450,7 +460,7 @@
             self.polyline = [GMSPolyline polylineWithPath:path];
             self.polyline.strokeWidth = 2;
             self.polyline.strokeColor =[UIColor redColor];
-            self.polyline.map = self.mapview;
+            self.polyline.map = self.clusterMapView;
             NSDictionary * transit= [step objectForKey:@"transit_details"];
             NSDictionary * stop= [transit objectForKey:@"departure_stop"];
             NSDictionary * location = [stop objectForKey:@"location"];
@@ -466,7 +476,7 @@
             marker.icon = [UIImage imageNamed:@"bus"];
             marker.title =LocalizedString(@"Bus number");
             marker.snippet = busname;
-            marker.map= self.mapview;
+            marker.map= self.clusterMapView;
             marker.zIndex = 100;
         }
     }
@@ -498,7 +508,7 @@
 {
     CLLocation * currentLocation = [locations lastObject];
     GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:currentLocation.coordinate zoom:13];
-    [self.mapview animateWithCameraUpdate:cameraUpdate];
+    [self.clusterMapView animateWithCameraUpdate:cameraUpdate];
     [self.locationManager stopUpdatingLocation];
 }
 

@@ -20,13 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpHeaderView];
+    self.tableView.estimatedRowHeight = 100;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)setUpHeaderView {
     
     if (!self.locationInfo.phone || [self.locationInfo.phone isEqualToString:@""]) {
         CGRect changeFrame = self.headerView.frame;
-        changeFrame.size.height = 230;
+        changeFrame.size.height = 370;
         self.headerView.frame = changeFrame;
         DetailInfoViewController * detailInfoViewController = [[DetailInfoViewController alloc]initWithFrame:changeFrame selectedLocation:self.locationInfo];
         detailInfoViewController.delegate = self;
@@ -35,7 +37,7 @@
         
     } else {
         CGRect changeFrame = self.headerView.frame;
-        changeFrame.size.height = 350;
+        changeFrame.size.height = 450;
         self.headerView.frame = changeFrame;
         DetailInfoViewController * detailInfoViewController = [[DetailInfoViewController alloc]initWithFrame:self.headerView.frame selectedLocation:self.locationInfo];
         detailInfoViewController.delegate = self;
@@ -60,10 +62,15 @@
     return 5;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MessageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
+    
+    cell.userComment.text = @"If you build and run now it almost works. Unfortunately the cells displayed on the initial screen are still incorrect. If you scroll the table view you will see that the height is fine for new cells as they appear on screen. I suspect the problem is that the initial cells load before we have a valid row height. The workaround is to force a table reload when the view appears";
     
     return cell;
 }
@@ -74,5 +81,11 @@
     NSString *phoneNumber = [@"tel://" stringByAppendingString:self.locationInfo.phone];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
+
+#pragma mark - Action
+- (IBAction)favoriteButtonClicked:(id)sender {
+    
+}
+
 
 @end

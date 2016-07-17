@@ -64,12 +64,12 @@ LocationTabBarController * tabBar ;
 
     self.marker = [[CustomMarker alloc]initWithVariables:tabBar.locationInfo];
     //[self.tabBarItem ]
-    UITabBar *tabBaritem = tabBar.tabBar;
-    UITabBarItem *tabBarItem1 = [tabBaritem.items objectAtIndex:0];
-    UITabBarItem *tabBarItem2 = [tabBaritem.items objectAtIndex:1];
-    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"locationdt.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"locationdt_selected.png"]];
-    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"feedback.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"feedback_selected.png"]];
-    tabBarItem2.title = LocalizedString(@"Feedback");
+//    UITabBar *tabBaritem = tabBar.tabBar;
+//    UITabBarItem *tabBarItem1 = [tabBaritem.items objectAtIndex:0];
+//    UITabBarItem *tabBarItem2 = [tabBaritem.items objectAtIndex:1];
+//    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"locationdt.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"locationdt_selected.png"]];
+//    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"feedback.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"feedback_selected.png"]];
+//    tabBarItem2.title = LocalizedString(@"Feedback");
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,7 +103,7 @@ LocationTabBarController * tabBar ;
         MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
         ViewController *mapViewController = (ViewController *)mainController._mapViewController;
         
-        if(mapViewController.mapview.myLocation){
+        if(mapViewController.clusterMapView.myLocation){
             self.routeview = [[FromToRouteView alloc]initWithNibName:@"FromToRouteView" bundle:nil withparentcontroller:self];
             self.routeview._myLocationtitle = LocalizedString(@"Current Location");
             self.routeview._destinationtitle = self.marker.location.title;
@@ -143,7 +143,7 @@ LocationTabBarController * tabBar ;
     {
         [waypoints_ addObject:GPS];
         NSString *positionString1 = [[NSString alloc] initWithFormat:@"%f,%f",
-                                     mapViewController.mapview.myLocation.coordinate.latitude,mapViewController.mapview.myLocation.coordinate.longitude];
+                                     mapViewController.clusterMapView.myLocation.coordinate.latitude,mapViewController.clusterMapView.myLocation.coordinate.longitude];
         [waypointStrings_ addObject:positionString1];
         
         [waypoints_ addObject:marker];
@@ -151,7 +151,7 @@ LocationTabBarController * tabBar ;
                                     self.marker.position.latitude,self.marker.position.longitude];
         [waypointStrings_ addObject:positionString];
         
-        [mapViewController updateCam:mapViewController.mapview.myLocation.coordinate.latitude andlongitude:mapViewController.mapview.myLocation.coordinate.longitude andlatitude2:self.marker.position.latitude andlongitude2:self.marker.position.longitude];
+        [mapViewController updateCam:mapViewController.clusterMapView.myLocation.coordinate.latitude andlongitude:mapViewController.clusterMapView.myLocation.coordinate.longitude andlatitude2:self.marker.position.latitude andlongitude2:self.marker.position.longitude];
     }
     else
     {
@@ -162,10 +162,10 @@ LocationTabBarController * tabBar ;
         
         [waypoints_ addObject:GPS];
         NSString *positionString1 = [[NSString alloc] initWithFormat:@"%f,%f",
-                                     mapViewController.mapview.myLocation.coordinate.latitude,mapViewController.mapview.myLocation.coordinate.longitude];
+                                     mapViewController.clusterMapView.myLocation.coordinate.latitude,mapViewController.clusterMapView.myLocation.coordinate.longitude];
         [waypointStrings_ addObject:positionString1];
         
-        [mapViewController updateCam:mapViewController.mapview.myLocation.coordinate.latitude andlongitude:mapViewController.mapview.myLocation.coordinate.longitude andlatitude2:self.marker.position.latitude andlongitude2:self.marker.position.longitude];
+        [mapViewController updateCam:mapViewController.clusterMapView.myLocation.coordinate.latitude andlongitude:mapViewController.clusterMapView.myLocation.coordinate.longitude andlatitude2:self.marker.position.latitude andlongitude2:self.marker.position.longitude];
         //[mapViewController updateCam:self.marker.position.latitude andlongitude:self.marker.position.longitude];
 
         
@@ -225,7 +225,7 @@ LocationTabBarController * tabBar ;
                 mapViewController.polyline = [GMSPolyline polylineWithPath:path];
                 mapViewController.polyline.strokeWidth = 2;
                 mapViewController.polyline.strokeColor =[UIColor greenColor];
-                mapViewController.polyline.map = mapViewController.mapview;
+                mapViewController.polyline.map = mapViewController.clusterMapView;
                 //NSDictionary * start = [step objectForKey:@"start_location"];
                 NSDictionary * steps = [step objectForKey:@"steps"][0];
                 NSDictionary * end = [steps objectForKey:@"start_location"];
@@ -241,7 +241,7 @@ LocationTabBarController * tabBar ;
                 marker.icon = [UIImage imageNamed:@"walking"];
                 marker.title =LocalizedString(@"Walking");
                 marker.snippet = dis;
-                marker.map= mapViewController.mapview;
+                marker.map= mapViewController.clusterMapView;
                 marker.zIndex = 100;
                 
             }
@@ -250,7 +250,7 @@ LocationTabBarController * tabBar ;
                 mapViewController.polyline = [GMSPolyline polylineWithPath:path];
                 mapViewController.polyline.strokeWidth = 2;
                 mapViewController.polyline.strokeColor =[UIColor redColor];
-                mapViewController.polyline.map = mapViewController.mapview;
+                mapViewController.polyline.map = mapViewController.clusterMapView;
                 NSDictionary * transit= [step objectForKey:@"transit_details"];
                 NSDictionary * stop= [transit objectForKey:@"departure_stop"];
                 NSDictionary * location = [stop objectForKey:@"location"];
@@ -266,7 +266,7 @@ LocationTabBarController * tabBar ;
                 marker.icon = [UIImage imageNamed:@"bus"];
                 marker.title = LocalizedString(@"Bus");
                 marker.snippet = busname;
-                marker.map= mapViewController.mapview;
+                marker.map= mapViewController.clusterMapView;
                 marker.zIndex = 100;
             }
         }
@@ -293,7 +293,7 @@ LocationTabBarController * tabBar ;
     marker.icon = [UIImage imageNamed:@"bike"];
     marker.title =LocalizedString(@"Bike");
     marker.snippet = dis;
-    marker.map= mapViewController.mapview;
+    marker.map= mapViewController.clusterMapView;
     marker.zIndex = 100;
     
     NSDictionary *route = [routes objectForKey:@"overview_polyline"];
@@ -302,7 +302,7 @@ LocationTabBarController * tabBar ;
     mapViewController.polyline = [GMSPolyline polylineWithPath:path];
     mapViewController.polyline.strokeWidth = 2;
     mapViewController.polyline.strokeColor =[UIColor redColor];
-    mapViewController.polyline.map = mapViewController.mapview;
+    mapViewController.polyline.map = mapViewController.clusterMapView;
     
     
 }

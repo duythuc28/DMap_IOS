@@ -235,7 +235,7 @@ bool isStartSearch;
     
     else
     {
-        if(mapViewController.mapview.myLocation)
+        if(mapViewController.clusterMapView.myLocation)
             {
                     if (longLocation1 != nil && latLocation1 != nil && longLocation2 != nil && latLocation2 != nil)
                     {

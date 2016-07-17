@@ -12,10 +12,14 @@
 #import "Location.h"
 #import "PlaceInfoWindowView.h"
 #import <CoreLocation/CoreLocation.h>
+// Cluster Map View
+#import "HSClusterMapView.h"
+#import "HSDemoClusterRenderer.h"
 
 @interface ViewController : UIViewController<GMSMapViewDelegate, CLLocationManagerDelegate, UIAlertViewDelegate , PlaceInfoWindowDelegate>
 @property (strong) MainViewController*  parentController;
-@property (strong )GMSMapView*          mapview;
+//@property (strong )GMSMapView*          mapview;
+@property (strong, nonatomic) HSClusterMapView *clusterMapView;
 @property (strong) GMSPolyline*         polyline;
 @property (strong, nonatomic) PlaceInfoWindowView * placeInfoView;
 @property (strong, nonatomic) CLLocationManager *locationManager;
