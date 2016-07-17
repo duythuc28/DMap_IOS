@@ -8,11 +8,12 @@
 
 #import "DetailViewController.h"
 #import "MessageViewCell.h"
-
+#import "DownloadData.h"
+#import "Comment.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
-
+@property (strong, nonatomic) NSMutableArray * comments;
 @end
 
 @implementation DetailViewController
@@ -20,8 +21,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpHeaderView];
-    self.tableView.estimatedRowHeight = 100;
+    self.tableView.estimatedRowHeight = 140;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.title =  LocalizedString(@"Details");
+    [self getUserComments];
+}
+
+- (NSMutableArray *)comments {
+    if (!_comments) {
+        _comments = [[NSMutableArray alloc]init];
+    }
+    return _comments;
+}
+
+- (void)getUserComments {
+    [DownloadData downloadCommentFromLocationID:[self.locationInfo.locationID stringValue] success:^(NSDictionary *response) {
+        for(NSArray * data in response){
+            Comment * comment = [[Comment alloc]init];
+            comment.name = [data valueForKeyPath:@"name"];
+            comment.content = [data valueForKeyPath:@"Content"];
+            [self.comments addObject:comment];
+            [self.tableView reloadData];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"download error");
+    }];
 }
 
 - (void)setUpHeaderView {
@@ -59,7 +83,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return [self.comments count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -70,7 +94,10 @@
     
     MessageViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
     
-    cell.userComment.text = @"If you build and run now it almost works. Unfortunately the cells displayed on the initial screen are still incorrect. If you scroll the table view you will see that the height is fine for new cells as they appear on screen. I suspect the problem is that the initial cells load before we have a valid row height. The workaround is to force a table reload when the view appears";
+    if ([self.comments count] > 0) {
+        Comment * currentComment = [self.comments objectAtIndex:indexPath.row];
+        [cell setupCellUserPhone:currentComment.name userComment:currentComment.content];
+    }
     
     return cell;
 }

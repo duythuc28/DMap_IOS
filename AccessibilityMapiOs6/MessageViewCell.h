@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel * userPhone;
 @property (weak, nonatomic) IBOutlet UILabel * userComment;
 
-- (void)setupCell:(NSString *)userPhone
+- (void)setupCellUserPhone:(NSString *)userPhone
       userComment:(NSString *)userComment;
 
 @end

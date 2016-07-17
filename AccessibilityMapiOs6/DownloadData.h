@@ -25,7 +25,9 @@
 + (BOOL) downloadWholePackage;
 
 
-+ (NSArray *) downloadCommentFromLocationID:(NSString*)locationId;
++ (void)downloadCommentFromLocationID:(NSString*)locationId
+                              success:(void(^)(NSDictionary * response))success
+                              failure:(void(^)(NSError * error)) failure;
 
 /**
  *  Download whole data package

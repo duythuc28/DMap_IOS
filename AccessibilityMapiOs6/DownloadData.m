@@ -17,28 +17,42 @@
 @implementation DownloadData
 
 
-+ (NSArray *) downloadCommentFromLocationID:(NSString*)locationId{
-    @try {
-        NSString *url = [NSString stringWithFormat:@"%@%@",COMMENT_API, locationId];
-        NSURL *jsonURL = [NSURL URLWithString:url];
-        NSURLResponse *response = nil;
-        NSError* error = nil;
-        NSData* data = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:jsonURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:(20.0)] returningResponse:&response error:&error];
-        
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSMutableArray *returnArray = [[NSMutableArray alloc]init];
-        for(NSArray * data in json){
-            Comment * comment = [[Comment alloc]init];
-            comment.name = [data valueForKeyPath:@"name"];
-            comment.content = [data valueForKeyPath:@"Content"];
-            [returnArray addObject:comment];
-        }
-        return returnArray;
-        
-    }
-    @catch (NSException *exception) {
-        return NULL;
-    }
+//+ (NSArray *) downloadCommentFromLocationID:(NSString*)locationId{
+//    @try {
+//        NSString *url = [NSString stringWithFormat:@"%@%@",COMMENT_API, locationId];
+//        NSURL *jsonURL = [NSURL URLWithString:url];
+//        NSURLResponse *response = nil;
+//        NSError* error = nil;
+//        NSData* data = [NSURLConnection sendSynchronousRequest:[[NSURLRequest alloc] initWithURL:jsonURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:(20.0)] returningResponse:&response error:&error];
+//        
+//        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        NSMutableArray *returnArray = [[NSMutableArray alloc]init];
+//        for(NSArray * data in json){
+//            Comment * comment = [[Comment alloc]init];
+//            comment.name = [data valueForKeyPath:@"name"];
+//            comment.content = [data valueForKeyPath:@"Content"];
+//            [returnArray addObject:comment];
+//        }
+//        return returnArray;
+//        
+//    }
+//    @catch (NSException *exception) {
+//        return NULL;
+//    }
+//}
+
++ (void)downloadCommentFromLocationID:(NSString*)locationId
+                              success:(void(^)(NSDictionary * response))success
+                              failure:(void(^)(NSError * error)) failure {
+    NSString *url = [NSString stringWithFormat:@"%@%@",COMMENT_API, locationId];
+    RequestDataManager * requestData = [[RequestDataManager alloc]initWithUrl:url];
+    [requestData setRequestMethod:GET];
+    [requestData requestHTMLDataSuccess:^(NSURLSessionTask *operation, id response) {
+        NSDictionary * responseData = response;
+        success(responseData);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        failure(error);
+    }];
 }
 
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error

@@ -20,4 +20,6 @@
 #import "IQDropDownTextField.h"
 #import "CustomTextField.h"
 #import "CMPopTipView.h"
+#import "LocalizeHelper.h"
+#import "Utils.h"
 #endif

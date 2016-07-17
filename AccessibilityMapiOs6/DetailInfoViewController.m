@@ -45,7 +45,7 @@
                                                                  zoom:16];
     [self.mapView setCamera:camera];
     self.mapView.padding = UIEdgeInsetsMake(80, 0, 0, 0);
-//    self.mapView.settings.scrollGestures = NO;
+    self.mapView.settings.scrollGestures = NO;
     // Creates a marker in the center of the map.
     GMSMarker *marker = [[GMSMarker alloc] init];
     marker.position = CLLocationCoordinate2DMake([location.latitude floatValue], [location.longtitude floatValue]);

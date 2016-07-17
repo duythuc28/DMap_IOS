@@ -15,7 +15,7 @@
     // Initialization code
 }
 
-- (void)setupCell:(NSString *)userPhone userComment:(NSString *)userComment {
+- (void)setupCellUserPhone:(NSString *)userPhone userComment:(NSString *)userComment {
     self.userPhone.text = userPhone;
     self.userComment.text = userComment;
 }

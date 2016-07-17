@@ -23,34 +23,34 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    LocationTabBarController * cusTabBar = (LocationTabBarController*)self.tabBar;
-    Location * location = cusTabBar.locationInfo;
-    if ([Utils checkInternetConnection] == YES)
-    {
-        if ([DownloadData downloadCommentFromLocationID:[location.locationID stringValue]] != NULL)
-        {
-            data = [DownloadData downloadCommentFromLocationID:[location.locationID stringValue]];
-            [self.tableView reloadData];
-        }
-        else
-        {
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
-                                                              message:LocalizedString(@"Error Internet Connection")
-                                                             delegate:nil
-                                                    cancelButtonTitle:LocalizedString(@"Ok")
-                                                    otherButtonTitles:nil];
-            [message show];
-        }
-    }
-    else
-    {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
-                                                          message:LocalizedString(@"Error Internet Connection")
-                                                         delegate:nil
-                                                cancelButtonTitle:LocalizedString(@"Ok")
-                                                otherButtonTitles:nil];
-        [message show];
-    }
+//    LocationTabBarController * cusTabBar = (LocationTabBarController*)self.tabBar;
+//    Location * location = cusTabBar.locationInfo;
+//    if ([Utils checkInternetConnection] == YES)
+//    {
+//        if ([DownloadData downloadCommentFromLocationID:[location.locationID stringValue]] != NULL)
+//        {
+//            data = [DownloadData downloadCommentFromLocationID:[location.locationID stringValue]];
+//            [self.tableView reloadData];
+//        }
+//        else
+//        {
+//            UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
+//                                                              message:LocalizedString(@"Error Internet Connection")
+//                                                             delegate:nil
+//                                                    cancelButtonTitle:LocalizedString(@"Ok")
+//                                                    otherButtonTitles:nil];
+//            [message show];
+//        }
+//    }
+//    else
+//    {
+//        UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
+//                                                          message:LocalizedString(@"Error Internet Connection")
+//                                                         delegate:nil
+//                                                cancelButtonTitle:LocalizedString(@"Ok")
+//                                                otherButtonTitles:nil];
+//        [message show];
+//    }
 
 }
 
