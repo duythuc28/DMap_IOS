@@ -12,6 +12,7 @@
 #import "Comment.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *mFavouriteButton;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) NSMutableArray * comments;
 @end
@@ -25,6 +26,12 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.title =  LocalizedString(@"Details");
     [self getUserComments];
+    if ([self.locationInfo.isBookmark boolValue]) {
+        [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite-filled"]];
+    } else {
+        [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite"]];
+    }
+    
 }
 
 - (NSMutableArray *)comments {
