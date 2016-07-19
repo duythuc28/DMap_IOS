@@ -135,7 +135,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"myLocation"];
-    [self closeInfoWindow];
+//    [self closeInfoWindow];
     [self.clusterMapView removeObserver:self forKeyPath:@"myLocation"];
     
 }
