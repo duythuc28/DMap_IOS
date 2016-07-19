@@ -204,6 +204,16 @@
     }
 }
 
++ (void) setFavoriteLocation:(Location*)location isFavorite:(BOOL) isFavorite {
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    location.isBookmark = [NSNumber numberWithBool:isFavorite];
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
 + (void) removeBookmarkTheMarker:(Location*)pos{
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];

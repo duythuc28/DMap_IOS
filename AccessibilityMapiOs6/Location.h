@@ -36,4 +36,5 @@
 + (NSArray *) getBookmarkedData;
 + (void) deleteDataWithLatitude:(NSString*)latitude andLongtitude:(NSString*)longtitude;
 + (NSArray *) getLocationByName: (NSString*)name;
++ (void) setFavoriteLocation:(Location*)location isFavorite:(BOOL) isFavorite;
 @end

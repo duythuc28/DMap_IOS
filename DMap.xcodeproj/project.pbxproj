@@ -83,6 +83,7 @@
 		8BAFDDBD1AB422B300BD49D0 /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAFDDBB1AB422B300BD49D0 /* CustomAlertViewController.m */; };
 		8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB2894C1CB118A0001F0937 /* XXXRoundMenuButton.m */; };
 		8BC405291B0E2ED700688D66 /* ToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC405281B0E2ED700688D66 /* ToolView.m */; };
+		8BCC18631D3E91F10099490F /* UIAlertView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCC18621D3E91F10099490F /* UIAlertView+Custom.m */; };
 		8BD2481E1BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD248191BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m */; };
 		8BD2481F1BC2C77F00BBC829 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BD2481B1BC2C77F00BBC829 /* SVProgressHUD.bundle */; };
 		8BD248201BC2C77F00BBC829 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2481D1BC2C77F00BBC829 /* SVProgressHUD.m */; };
@@ -255,6 +256,8 @@
 		8BB2894C1CB118A0001F0937 /* XXXRoundMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXXRoundMenuButton.m; sourceTree = "<group>"; };
 		8BC405271B0E2ED700688D66 /* ToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolView.h; sourceTree = "<group>"; };
 		8BC405281B0E2ED700688D66 /* ToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToolView.m; sourceTree = "<group>"; };
+		8BCC18611D3E91F10099490F /* UIAlertView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Custom.h"; sourceTree = "<group>"; };
+		8BCC18621D3E91F10099490F /* UIAlertView+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Custom.m"; sourceTree = "<group>"; };
 		8BD248181BC2C77F00BBC829 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = Library/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		8BD248191BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = Library/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		8BD2481A1BC2C77F00BBC829 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "Library/SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
@@ -780,6 +783,8 @@
 				8BFB4A901CA855F1005C7058 /* UILabel+VerticalAlign.m */,
 				6ABC9CA31CE3333D00825704 /* UIView+CustomAnimation.h */,
 				6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */,
+				8BCC18611D3E91F10099490F /* UIAlertView+Custom.h */,
+				8BCC18621D3E91F10099490F /* UIAlertView+Custom.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1191,6 +1196,7 @@
 				6ABC2D601CE5DAF2008238AD /* MessageViewCell.m in Sources */,
 				182FB7DD19DD458400205E8B /* MDDirectionService.m in Sources */,
 				18296F5019E9764700AE7F0B /* Comment.m in Sources */,
+				8BCC18631D3E91F10099490F /* UIAlertView+Custom.m in Sources */,
 				8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */,
 				18296F3919E946C900AE7F0B /* DetailLocationTableViewController.m in Sources */,
 				18296F4719E96E7000AE7F0B /* LocationFeedbackViewController.m in Sources */,

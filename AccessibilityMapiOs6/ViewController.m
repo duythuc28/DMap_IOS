@@ -124,7 +124,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"Appear View");
 //    [self reloadMarker];
     [self.clusterMapView addObserver:self
                    forKeyPath:@"myLocation"
@@ -135,7 +134,6 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    NSLog(@"Disappear View");
 //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"myLocation"];
     [self.clusterMapView removeObserver:self forKeyPath:@"myLocation"];
     

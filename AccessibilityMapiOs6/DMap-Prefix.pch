@@ -22,4 +22,5 @@
 #import "CMPopTipView.h"
 #import "LocalizeHelper.h"
 #import "Utils.h"
+#import "UIAlertView+Custom.h"
 #endif

@@ -10,6 +10,7 @@
 #import "MessageViewCell.h"
 #import "DownloadData.h"
 #import "Comment.h"
+#import "Location.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mFavouriteButton;
@@ -59,7 +60,7 @@
     
     if (!self.locationInfo.phone || [self.locationInfo.phone isEqualToString:@""]) {
         CGRect changeFrame = self.headerView.frame;
-        changeFrame.size.height = 370;
+        changeFrame.size.height = 320;
         self.headerView.frame = changeFrame;
         DetailInfoViewController * detailInfoViewController = [[DetailInfoViewController alloc]initWithFrame:changeFrame selectedLocation:self.locationInfo];
         detailInfoViewController.delegate = self;
@@ -68,7 +69,7 @@
         
     } else {
         CGRect changeFrame = self.headerView.frame;
-        changeFrame.size.height = 450;
+        changeFrame.size.height = 370;
         self.headerView.frame = changeFrame;
         DetailInfoViewController * detailInfoViewController = [[DetailInfoViewController alloc]initWithFrame:self.headerView.frame selectedLocation:self.locationInfo];
         detailInfoViewController.delegate = self;
@@ -119,6 +120,16 @@
 #pragma mark - Action
 - (IBAction)favoriteButtonClicked:(id)sender {
     
+    [Location setFavoriteLocation:self.locationInfo
+                       isFavorite:![self.locationInfo.isBookmark boolValue]];
+    if ([self.locationInfo.isBookmark boolValue]) {
+        [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite-filled"]];
+//        [UIAlertView createAlertViewWithTitle:LocalizedString(@"Success") message:LocalizedString(@"Bookmark Success") sCancelButtonTitle:@"OK" sOtherButtonTitle:nil on:nil];
+
+    } else {
+        [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite"]];
+//        [UIAlertView createAlertViewWithTitle:LocalizedString(@"Success") message:LocalizedString(@"Bookmark Success") sCancelButtonTitle:@"OK" sOtherButtonTitle:nil on:nil];
+    }
 }
 
 
