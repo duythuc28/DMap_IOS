@@ -135,6 +135,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"myLocation"];
+    [self closeInfoWindow];
     [self.clusterMapView removeObserver:self forKeyPath:@"myLocation"];
     
 }
@@ -235,7 +236,7 @@
 - (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker {
     if ([marker isKindOfClass:[CustomMarker class]]) {
         CustomMarker * cusMarker = (CustomMarker*)marker;
-        if(cusMarker.locationMarker == TRUE)
+        if(cusMarker.locationMarker)
         {
             [self showInfoWindowAtMarker:marker];
             return YES;
@@ -260,7 +261,15 @@
         self.parentController.roundButton.hidden = YES;
         mapViewControl.hidden = NO;
         GMSCameraUpdate * cameraUpdate = [GMSCameraUpdate setTarget:marker.position zoom:16];
-        [self.clusterMapView animateWithCameraUpdate:cameraUpdate];
+        
+        for (CustomMarker * customMarker in self.markers) {
+            if (![customMarker isEqual:marker]) {
+                customMarker.map = nil;
+            } else {
+                [self.clusterMapView animateWithCameraUpdate:cameraUpdate];
+            }
+        }
+//        [self.clusterMapView animateWithCameraUpdate:cameraUpdate];
 //        marker.icon = [UIImage imageNamed:@"selectedMarker"];
     }
 }
@@ -268,11 +277,18 @@
  *  Close Info Window
  */
 - (void)closeInfoWindow {
-    mapViewControl.hidden = YES;
-    //???: Hard code
-    [self.placeInfoView movePoint:CGPointMake(0, 214) duration:0.5 finished:nil];
-    self.parentController.roundButton.hidden = NO;
-//    [self setDefaultImageForMarker];
+    if (SCREEN_HEIGHT-214 == self.placeInfoView.frame.origin.y) {
+        mapViewControl.hidden = YES;
+        //???: Hard code
+        [self.placeInfoView movePoint:CGPointMake(0, 214) duration:0.5 finished:nil];
+        self.parentController.roundButton.hidden = NO;
+        //    [self setDefaultImageForMarker];
+        for (CustomMarker * customMarker in self.markers) {
+            if (![customMarker isEqual:self.placeInfoView.customMarker]) {
+                customMarker.map = self.clusterMapView;
+            }
+        }
+    }
 }
 
 /**
