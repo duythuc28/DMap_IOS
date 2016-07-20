@@ -83,6 +83,9 @@ typedef enum { Share = 0 , Favorite = 1 , Info = 2} RoundMenuButton;
         //Save the searchController
         SearchTableViewController* searchController = (SearchTableViewController *)[segue destinationViewController];
         searchController.container = self;
+        // Hide info window
+        ViewController* mapView = (ViewController*)self._mapViewController;
+        [mapView closeInfoWindow];
     }
     else if ([segueName isEqualToString: @"bookmarkSegue"]) {
         //Save the bookmarkContoller

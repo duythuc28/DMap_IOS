@@ -135,7 +135,7 @@
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:@"myLocation"];
-//    [self closeInfoWindow];
+    
     [self.clusterMapView removeObserver:self forKeyPath:@"myLocation"];
     
 }
@@ -283,10 +283,10 @@
         [self.placeInfoView movePoint:CGPointMake(0, 214) duration:0.5 finished:nil];
         self.parentController.roundButton.hidden = NO;
         //    [self setDefaultImageForMarker];
-        for (CustomMarker * customMarker in self.markers) {
-            if (![customMarker isEqual:self.placeInfoView.customMarker]) {
-                customMarker.map = self.clusterMapView;
-            }
+    }
+    for (CustomMarker * customMarker in self.markers) {
+        if (![customMarker isEqual:self.placeInfoView.customMarker]) {
+            customMarker.map = self.clusterMapView;
         }
     }
 }

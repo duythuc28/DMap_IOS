@@ -30,4 +30,5 @@
 - (void) DrawMap:(NSString*)latlocation1 andlongLocation1:(NSString*)longlocation1 andlatLocation2:(NSString*)latlocation2 andlongLocation2:(NSString*)longlocation2 andisBus:(bool)isBus;
 - (void) updateCam:(double)latitude1 andlongitude:(double)longitude1 andlatitude2:(double)latitude2 andlongitude2:(double)longitude2 ;
 - (void)didSelectGetCurrentLocationButton;
+- (void)closeInfoWindow;
 @end
