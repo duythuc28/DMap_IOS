@@ -32,7 +32,13 @@
     } else {
         [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite"]];
     }
-    
+    UIButton * commentButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 120, 40, 40)];
+    commentButton.layer.cornerRadius = commentButton.frame.size.width / 2;
+    commentButton.layer.masksToBounds = YES;
+    commentButton.layer.backgroundColor = [[UIColor greenColor] CGColor];
+    [commentButton setImage:[UIImage imageNamed:@"Add"] forState:UIControlStateNormal];
+    [self.tableView addSubview:commentButton];
+//    [self.tableView ]
 }
 
 - (NSMutableArray *)comments {
@@ -76,7 +82,6 @@
         [self addChildViewController:detailInfoViewController];
         [self.headerView addSubview:detailInfoViewController.view];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {

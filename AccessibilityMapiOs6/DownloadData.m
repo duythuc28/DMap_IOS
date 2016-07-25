@@ -191,6 +191,19 @@
     }];
 }
 
++ (void)postCommentWithParams:(NSDictionary *) params
+            completionHandler:(void (^) (NSURLSessionTask *operation, id response))completionHandler
+                      failure:(void (^)(NSURLSessionTask *operation, NSError *error)) failure {
+    RequestDataManager * requestData = [[RequestDataManager alloc]initWithUrl:POST_COMMENT_API];
+    [requestData setRequestMethod:POST];
+    [requestData setParameters:params];
+    [requestData requestDataSuccess:^(NSURLSessionTask *operation, id response) {
+        completionHandler (operation, response);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        failure (operation , error);
+    }];
+}
+
 + (void)storeAccessTypeToCoreData:(NSArray *)json{
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];

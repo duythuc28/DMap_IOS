@@ -40,4 +40,8 @@
                     completionHandler:(void (^) (NSURLSessionTask *operation, id response))completionHandler
                               failure:(void (^)(NSURLSessionTask *operation, NSError *error)) failure;
 
++ (void)postCommentWithParams:(NSDictionary *) params
+            completionHandler:(void (^) (NSURLSessionTask *operation, id response))completionHandler
+                      failure:(void (^)(NSURLSessionTask *operation, NSError *error)) failure;
+
 @end
