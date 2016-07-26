@@ -11,6 +11,7 @@
 #import "DownloadData.h"
 #import "Comment.h"
 #import "Location.h"
+#import "CommentPopupView.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mFavouriteButton;
@@ -34,6 +35,7 @@
     }
     [self setupFloatButton];
 }
+
 
 - (void)setupFloatButton {
     UIButton * commentButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -143,7 +145,11 @@
 }
 
 - (void)didSelectCommentButton {
-    
+    CommentPopupView * commentPopupView = [[CommentPopupView alloc]initWithFrame:CGRectMake(0, 0 , SCREEN_WIDTH, 220)];
+//    commentPopupView.delegate = self;
+    [self.view addSubview:commentPopupView];
 }
+
+
 
 @end
