@@ -58,6 +58,7 @@
 		18DDA10419DD217C00834B78 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18DDA10319DD217C00834B78 /* AVFoundation.framework */; };
 		18F3FB34E26A599468CE84CA /* libPods-DMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B2335412205FB9D62E5BB8B /* libPods-DMap.a */; };
 		46CB1E574E2FB5F844EC883A /* libPods-DMapTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B3BAADCE994EC25F4B2C6A /* libPods-DMapTests.a */; };
+		6A00A3731D470DC900F64903 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A00A3721D470DC900F64903 /* UIColor+Custom.m */; };
 		6A30CE181CE467A4009FECB0 /* DetailViewInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A30CE171CE467A4009FECB0 /* DetailViewInfo.xib */; };
 		6A30CE1B1CE4772E009FECB0 /* DetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A30CE1A1CE4772E009FECB0 /* DetailInfoViewController.m */; };
 		6A3367801CB4CBD600D38FF1 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A33677F1CB4CBD600D38FF1 /* CustomTextField.m */; };
@@ -68,6 +69,8 @@
 		6ABC2D601CE5DAF2008238AD /* MessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC2D5F1CE5DAF2008238AD /* MessageViewCell.m */; };
 		6ABC9CA51CE3333D00825704 /* UIView+CustomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */; };
 		6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */; };
+		6AD9F3191D47408D00F2B424 /* CommentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9F3181D47408D00F2B424 /* CommentPopupView.m */; };
+		6AD9F31B1D47411B00F2B424 /* CommentPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9F31A1D47411B00F2B424 /* CommentPopupView.xib */; };
 		8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */; };
 		8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */; };
 		8B1C11F71B772AFF00AA2F0C /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F61B772AFF00AA2F0C /* ToolView.xib */; };
@@ -210,6 +213,8 @@
 		18DDA10119DD215800834B78 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		18DDA10319DD217C00834B78 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B2335412205FB9D62E5BB8B /* libPods-DMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A00A3711D470DC900F64903 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		6A00A3721D470DC900F64903 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		6A30CE171CE467A4009FECB0 /* DetailViewInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewInfo.xib; sourceTree = "<group>"; };
 		6A30CE191CE4772E009FECB0 /* DetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInfoViewController.h; sourceTree = "<group>"; };
 		6A30CE1A1CE4772E009FECB0 /* DetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInfoViewController.m; sourceTree = "<group>"; };
@@ -230,6 +235,9 @@
 		6AC4A4A11CA3DE3000C1D220 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		6AC4A4A51CA3ECD800C1D220 /* PlaceInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoCell.h; sourceTree = "<group>"; };
 		6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoCell.m; sourceTree = "<group>"; };
+		6AD9F3171D47408D00F2B424 /* CommentPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPopupView.h; sourceTree = "<group>"; };
+		6AD9F3181D47408D00F2B424 /* CommentPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPopupView.m; sourceTree = "<group>"; };
+		6AD9F31A1D47411B00F2B424 /* CommentPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentPopupView.xib; sourceTree = "<group>"; };
 		77563041C647B184F3922D12 /* Pods-DMapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMapTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMapTests/Pods-DMapTests.release.xcconfig"; sourceTree = "<group>"; };
 		7F874202935D1F5ACC933C9D /* Pods-DMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.release.xcconfig"; sourceTree = "<group>"; };
 		8B0123BA1CB586D7002A35D7 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
@@ -681,6 +689,7 @@
 		6AC4A4A21CA3EAB500C1D220 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6AD9F3161D47407100F2B424 /* Comment Popup View */,
 				6A30CE161CE4675E009FECB0 /* Detail Info View  */,
 				8B4C310F1CA68A4100BFC4E0 /* Info Window */,
 				6AC4A4A41CA3EC9E00C1D220 /* Place Info Cell */,
@@ -714,6 +723,16 @@
 				6AC4A4A61CA3ECD800C1D220 /* PlaceInfoCell.m */,
 			);
 			name = "Place Info Cell";
+			sourceTree = "<group>";
+		};
+		6AD9F3161D47407100F2B424 /* Comment Popup View */ = {
+			isa = PBXGroup;
+			children = (
+				6AD9F3171D47408D00F2B424 /* CommentPopupView.h */,
+				6AD9F3181D47408D00F2B424 /* CommentPopupView.m */,
+				6AD9F31A1D47411B00F2B424 /* CommentPopupView.xib */,
+			);
+			name = "Comment Popup View";
 			sourceTree = "<group>";
 		};
 		8B0123B91CB586CC002A35D7 /* CMPopupView */ = {
@@ -785,6 +804,8 @@
 				6ABC9CA41CE3333D00825704 /* UIView+CustomAnimation.m */,
 				8BCC18611D3E91F10099490F /* UIAlertView+Custom.h */,
 				8BCC18621D3E91F10099490F /* UIAlertView+Custom.m */,
+				6A00A3711D470DC900F64903 /* UIColor+Custom.h */,
+				6A00A3721D470DC900F64903 /* UIColor+Custom.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1031,6 +1052,7 @@
 				18DDA0CC19DD185900834B78 /* Images.xcassets in Resources */,
 				182FB7E319DD509800205E8B /* CustomInfoWindowView.xib in Resources */,
 				D6A26D551A504AA4004B7C90 /* logo.png in Resources */,
+				6AD9F31B1D47411B00F2B424 /* CommentPopupView.xib in Resources */,
 				6A30CE181CE467A4009FECB0 /* DetailViewInfo.xib in Resources */,
 				D68B7C5F1A0FDB4F00775478 /* feedback(35x35).png in Resources */,
 				D687F7B61A4A73B9001EF62F /* logo.jpg in Resources */,
@@ -1212,6 +1234,7 @@
 				18DDA0CA19DD185900834B78 /* ViewController.m in Sources */,
 				D6A7D0EF1A0A00BA00236ACC /* SubAcViewController.m in Sources */,
 				D6EB62DC19DEEC1600E505CA /* TableViewCell.m in Sources */,
+				6AD9F3191D47408D00F2B424 /* CommentPopupView.m in Sources */,
 				D66A078119EA76FF009CE296 /* TableViewController.m in Sources */,
 				182FB7F419DD5EBD00205E8B /* BookmarkTableViewCellController.m in Sources */,
 				6A679A851CA933640057AAF4 /* SplashViewController.m in Sources */,
@@ -1241,6 +1264,7 @@
 				D6CDA2C519FE1DB800EBEA7A /* LocationTemp.m in Sources */,
 				18DDA0EA19DD205100834B78 /* MainViewController.m in Sources */,
 				18296F3C19E9476F00AE7F0B /* DetailLocationTableCellController.m in Sources */,
+				6A00A3731D470DC900F64903 /* UIColor+Custom.m in Sources */,
 				185023BA19E8D3AC008156D5 /* DownloadData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

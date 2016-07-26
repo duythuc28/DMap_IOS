@@ -45,7 +45,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhb-M8-9bj">
                             <rect key="frame" x="48" y="112" width="224" height="38"/>
-                            <color key="backgroundColor" red="0.098550691169999996" green="0.75462438060000003" blue="0.09927092236" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.098039215686274508" green="0.75294117647058822" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="yhb-M8-9bj" secondAttribute="height" multiplier="235:40" id="Kaa-Rd-W7Q"/>
                             </constraints>

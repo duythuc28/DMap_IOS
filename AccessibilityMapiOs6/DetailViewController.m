@@ -32,13 +32,20 @@
     } else {
         [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite"]];
     }
-    UIButton * commentButton = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 120, 40, 40)];
+    [self setupFloatButton];
+}
+
+- (void)setupFloatButton {
+    UIButton * commentButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    commentButton.frame = CGRectMake(SCREEN_WIDTH - 50, SCREEN_HEIGHT - 120, 40, 40);
     commentButton.layer.cornerRadius = commentButton.frame.size.width / 2;
     commentButton.layer.masksToBounds = YES;
-    commentButton.layer.backgroundColor = [[UIColor greenColor] CGColor];
-    [commentButton setImage:[UIImage imageNamed:@"Add"] forState:UIControlStateNormal];
+    commentButton.tintColor = [UIColor whiteColor];
+    commentButton.backgroundColor = [UIColor colorWithHexString:@"#19C019"];
+    [commentButton setImage:[UIImage imageNamed:@"edit_float_button"] forState:UIControlStateNormal];
+    [commentButton addTarget:self action:@selector(didSelectCommentButton) forControlEvents:UIControlEventTouchUpInside];
+    [commentButton setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     [self.tableView addSubview:commentButton];
-//    [self.tableView ]
 }
 
 - (NSMutableArray *)comments {
@@ -129,13 +136,14 @@
                        isFavorite:![self.locationInfo.isBookmark boolValue]];
     if ([self.locationInfo.isBookmark boolValue]) {
         [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite-filled"]];
-//        [UIAlertView createAlertViewWithTitle:LocalizedString(@"Success") message:LocalizedString(@"Bookmark Success") sCancelButtonTitle:@"OK" sOtherButtonTitle:nil on:nil];
 
     } else {
         [self.mFavouriteButton setImage:[UIImage imageNamed:@"map-favorite"]];
-//        [UIAlertView createAlertViewWithTitle:LocalizedString(@"Success") message:LocalizedString(@"Bookmark Success") sCancelButtonTitle:@"OK" sOtherButtonTitle:nil on:nil];
     }
 }
 
+- (void)didSelectCommentButton {
+    
+}
 
 @end

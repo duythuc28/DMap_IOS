@@ -23,4 +23,5 @@
 #import "LocalizeHelper.h"
 #import "Utils.h"
 #import "UIAlertView+Custom.h"
+#import "UIColor+Custom.h"
 #endif
