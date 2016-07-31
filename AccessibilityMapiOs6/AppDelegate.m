@@ -11,6 +11,8 @@
 #import "DownloadData.h"
 #import "LocalizeHelper.h"
 #import "SplashViewController.h"
+#import "IQKeyBoardManager.h"
+#import "DetailViewController.h"
 
 @implementation AppDelegate
 @synthesize managedObjectContext = _managedObjectContext;
@@ -20,9 +22,10 @@ id services_;
 bool isTimeOut;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-   
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:GOOGLE_MAP_API_KEY];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager].disabledToolbarClasses addObject:[DetailViewController class]];
     services_ = [GMSServices sharedServices];
     NSString * languageKey = [[NSUserDefaults standardUserDefaults] objectForKey:APP_LANGUAGE];
     if ([languageKey isEqualToString:@"vi"] || languageKey == nil) {
@@ -40,17 +43,7 @@ bool isTimeOut;
         [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:@"radius"];
         [[NSUserDefaults standardUserDefaults] setObject:@"vi" forKey:APP_LANGUAGE];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:TRUE] forKey:kFIRST_TIME];
-        //Download the marker
-//        if (![DownloadData downloadWholePackage])
-//        {
-//            isTimeOut = true;
-//            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                              message:@"Your internet quality is not good enough to download data ! Go to Update Location to download again"
-//                                                             delegate:nil
-//                                                    cancelButtonTitle:@"OK"
-//                                                    otherButtonTitles:nil];
-//            [message show];
-//        }
+
         UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         SplashViewController * splashViewController = [storyBoard instantiateViewControllerWithIdentifier:@"SplashViewController"];
         [self.window setRootViewController:splashViewController];

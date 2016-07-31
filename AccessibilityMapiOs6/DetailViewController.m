@@ -12,6 +12,7 @@
 #import "Comment.h"
 #import "Location.h"
 #import "CommentPopupView.h"
+#import "IQUITextFieldView+Additions.h"
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mFavouriteButton;
@@ -145,11 +146,50 @@
 }
 
 - (void)didSelectCommentButton {
-    CommentPopupView * commentPopupView = [[CommentPopupView alloc]initWithFrame:CGRectMake(0, 0 , SCREEN_WIDTH, 220)];
-//    commentPopupView.delegate = self;
-    [self.view addSubview:commentPopupView];
+    CGFloat popupWidth = SCREEN_WIDTH_4INCH_RATIO * 280;
+    CGFloat popupHeight = SCREEN_HEIGHT_4INCH_RATIO * 180;
+    CommentPopupView * commentPopupView = [[CommentPopupView alloc]initWithFrame:CGRectMake(0, 0 , popupWidth, popupHeight)];
+    commentPopupView.delegate = self;
+    [commentPopupView showPopupInView:self.view];
 }
 
-
+#pragma mark - Comment Popup View Delegate
+- (void)postButtonClicked:(NSString *)userPhone comment:(NSString *)comment {
+    if (userPhone.length == 0 || comment.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
+                                                        message:LocalizedString(@"ErrorNotValid")
+                                                       delegate:nil
+                                              cancelButtonTitle:LocalizedString(@"Ok")
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    else {
+//        NSDictionary * params = @{@"LocationID" : self.locationInfo.locationID,
+//                                  @"Name": userPhone ,
+//                                  @"Content" : comment};
+        
+        NSArray *keys = [NSArray arrayWithObjects:@"LocationID", @"Name", @"Content", nil];
+        NSArray *objects = [NSArray arrayWithObjects:self.locationInfo.locationID, userPhone, comment, nil];
+        NSDictionary *params = [NSDictionary dictionaryWithObjects:objects
+                                                               forKeys:keys];
+        
+        [DownloadData postCommentWithParams:params completionHandler:^(NSURLSessionTask *operation, id response) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Success")
+                                                            message:LocalizedString(@"Success Post Message")
+                                                           delegate:nil
+                                                  cancelButtonTitle:LocalizedString(@"Ok")
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
+                                                              message:LocalizedString(@"Error Post")
+                                                             delegate:nil
+                                                    cancelButtonTitle:LocalizedString(@"Ok")
+                                                    otherButtonTitles:nil];
+            [message show];
+        }];
+    }
+}
 
 @end

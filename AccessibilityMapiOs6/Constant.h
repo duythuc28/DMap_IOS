@@ -11,6 +11,8 @@
 
 #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_WIDTH_4INCH_RATIO ([[UIScreen mainScreen] bounds].size.width)/320
+#define SCREEN_HEIGHT_4INCH_RATIO ([[UIScreen mainScreen] bounds].size.height)/568
 
 #define IS_IPHONE_4_OR_LESS     (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
 #define IS_IPHONE_5             (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)

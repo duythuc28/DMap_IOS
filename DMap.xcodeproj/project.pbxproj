@@ -72,6 +72,7 @@
 		6AD9F3191D47408D00F2B424 /* CommentPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9F3181D47408D00F2B424 /* CommentPopupView.m */; };
 		6AD9F31B1D47411B00F2B424 /* CommentPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AD9F31A1D47411B00F2B424 /* CommentPopupView.xib */; };
 		8B0123BC1CB586D7002A35D7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */; };
+		8B081CC01D4E782F00DF425A /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B081CBF1D4E782F00DF425A /* UIPlaceHolderTextView.m */; };
 		8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */; };
 		8B1C11F71B772AFF00AA2F0C /* ToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F61B772AFF00AA2F0C /* ToolView.xib */; };
 		8B1C11F91B772B1000AA2F0C /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1C11F81B772B1000AA2F0C /* CustomAlertViewController.xib */; };
@@ -242,6 +243,8 @@
 		7F874202935D1F5ACC933C9D /* Pods-DMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-DMap/Pods-DMap.release.xcconfig"; sourceTree = "<group>"; };
 		8B0123BA1CB586D7002A35D7 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
 		8B0123BB1CB586D7002A35D7 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
+		8B081CBE1D4E782F00DF425A /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		8B081CBF1D4E782F00DF425A /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
 		8B1065E41BA73BBD00565A3B /* InfoDRDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoDRDViewController.h; sourceTree = "<group>"; };
 		8B1065E51BA73BBD00565A3B /* InfoDRDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoDRDViewController.m; sourceTree = "<group>"; };
 		8B1C11F61B772AFF00AA2F0C /* ToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToolView.xib; sourceTree = "<group>"; };
@@ -848,6 +851,8 @@
 				6A33677F1CB4CBD600D38FF1 /* CustomTextField.m */,
 				8BFB4A921CA857CB005C7058 /* TopAlignLabel.h */,
 				8BFB4A931CA857CB005C7058 /* TopAlignLabel.m */,
+				8B081CBE1D4E782F00DF425A /* UIPlaceHolderTextView.h */,
+				8B081CBF1D4E782F00DF425A /* UIPlaceHolderTextView.m */,
 			);
 			name = SubClass;
 			sourceTree = "<group>";
@@ -1250,6 +1255,7 @@
 				8B4C31121CA68A7300BFC4E0 /* PlaceInfoWindowView.m in Sources */,
 				182FB7F519DD5EBD00205E8B /* BookmarkTableViewController.m in Sources */,
 				18DDA0C419DD185900834B78 /* AppDelegate.m in Sources */,
+				8B081CC01D4E782F00DF425A /* UIPlaceHolderTextView.m in Sources */,
 				18296F4A19E96EC700AE7F0B /* LocationFeedbackTableController.m in Sources */,
 				8BD248201BC2C77F00BBC829 /* SVProgressHUD.m in Sources */,
 				D644D7AE1A3A058D00F15FF5 /* LocalizeHelper.m in Sources */,

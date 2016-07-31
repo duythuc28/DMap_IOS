@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DetailInfoViewController.h"
 #import "Location.h"
+#import "CommentPopupView.h"
 
-@interface DetailViewController : UITableViewController <DetailInfoViewDelegate>
+@interface DetailViewController : UITableViewController <DetailInfoViewDelegate, CommentPopupViewDelegate>
 @property (strong, nonatomic) Location * locationInfo;
 @end
