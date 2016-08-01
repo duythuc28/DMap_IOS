@@ -15,7 +15,6 @@
 #import "RouteViewController.h"
 #import "DownloadData.h"
 #import <MapKit/MapKit.h>
-#import "LocationTabBarController.h"
 #import "LocalizeHelper.h"
 
 @interface ViewController ()

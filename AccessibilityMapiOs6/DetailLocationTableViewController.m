@@ -7,7 +7,6 @@
 //
 
 #import "DetailLocationTableViewController.h"
-#import "LocationTabBarController.h"
 #import "AccessType.h"
 #import "DetailLocationTableCellController.h"
 @interface DetailLocationTableViewController ()
@@ -31,10 +30,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    LocationTabBarController * cusTabBar = (LocationTabBarController*)self.tabBar;
-    Location * location = cusTabBar.locationInfo;
-    
-    data = [location.location_AccessType allObjects];
+//    LocationTabBarController * cusTabBar = (LocationTabBarController*)self.tabBar;
+//    Location * location = cusTabBar.locationInfo;
+//    
+//    data = [location.location_AccessType allObjects];
 }
 
 - (void)didReceiveMemoryWarning

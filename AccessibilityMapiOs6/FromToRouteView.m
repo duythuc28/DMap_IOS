@@ -9,7 +9,6 @@
 #import "FromToRouteView.h"
 #import "DetailLocationViewController.h"
 #import "MainViewController.h"
-#import "LocationTabBarController.h"
 #import "ViewController.h"
 #import "LocalizeHelper.h"
 @interface FromToRouteView ()
@@ -31,33 +30,33 @@
 }
 
 - (IBAction)findway:(id)sender {
-    DetailLocationViewController * detailview = (DetailLocationViewController*)_parentController;
-    LocationTabBarController * tabBar = (LocationTabBarController*)_parentController.tabBarController;
-    MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
-    ViewController *mapViewController = (ViewController *)mainController._mapViewController;
-    //LocalizationSetLanguage(selectedLanguage);
-    if ([self._from.text isEqualToString:LocalizedString(@"Current Location")])
-    {
-        detailview.isGo = TRUE ;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [detailview showWay:mapViewController];
-        });
-
-        
-        [self.view removeFromSuperview];
-        [detailview.navigationController popToRootViewControllerAnimated:YES];
-    }
-    else
-    {
-        detailview.isGo = FALSE;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [detailview showWay:mapViewController];
-        });
-
-        
-        [self.view removeFromSuperview];
-        [detailview.navigationController popToRootViewControllerAnimated:YES];
-    }
+//    DetailLocationViewController * detailview = (DetailLocationViewController*)_parentController;
+//    LocationTabBarController * tabBar = (LocationTabBarController*)_parentController.tabBarController;
+//    MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
+//    ViewController *mapViewController = (ViewController *)mainController._mapViewController;
+//    //LocalizationSetLanguage(selectedLanguage);
+//    if ([self._from.text isEqualToString:LocalizedString(@"Current Location")])
+//    {
+//        detailview.isGo = TRUE ;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            [detailview showWay:mapViewController];
+//        });
+//
+//        
+//        [self.view removeFromSuperview];
+//        [detailview.navigationController popToRootViewControllerAnimated:YES];
+//    }
+//    else
+//    {
+//        detailview.isGo = FALSE;
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//            [detailview showWay:mapViewController];
+//        });
+//
+//        
+//        [self.view removeFromSuperview];
+//        [detailview.navigationController popToRootViewControllerAnimated:YES];
+//    }
 }
 
 - (IBAction)swtichplace:(id)sender {

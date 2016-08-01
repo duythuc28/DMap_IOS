@@ -10,11 +10,7 @@
 		18214DB319EE6BF1003BE4F0 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 18214DB219EE6BF1003BE4F0 /* Base64.m */; };
 		18296F3919E946C900AE7F0B /* DetailLocationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F3819E946C900AE7F0B /* DetailLocationTableViewController.m */; };
 		18296F3C19E9476F00AE7F0B /* DetailLocationTableCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F3B19E9476F00AE7F0B /* DetailLocationTableCellController.m */; };
-		18296F3F19E947BF00AE7F0B /* LocationTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F3E19E947BF00AE7F0B /* LocationTabBarController.m */; };
 		18296F4219E9495400AE7F0B /* DetailLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F4119E9495400AE7F0B /* DetailLocationViewController.m */; };
-		18296F4719E96E7000AE7F0B /* LocationFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F4619E96E7000AE7F0B /* LocationFeedbackViewController.m */; };
-		18296F4A19E96EC700AE7F0B /* LocationFeedbackTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F4919E96EC700AE7F0B /* LocationFeedbackTableController.m */; };
-		18296F4D19E96EEB00AE7F0B /* LocationFeedbackCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F4C19E96EEB00AE7F0B /* LocationFeedbackCellController.m */; };
 		18296F5019E9764700AE7F0B /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F4F19E9764700AE7F0B /* Comment.m */; };
 		18296F5419E9815F00AE7F0B /* Ulti.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F5319E9815F00AE7F0B /* Ulti.m */; };
 		18296F5719E989CD00AE7F0B /* UploadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 18296F5619E989CD00AE7F0B /* UploadData.m */; };
@@ -101,7 +97,6 @@
 		D66A077E19EA744D009CE296 /* GuideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A077D19EA744D009CE296 /* GuideTableViewCell.m */; };
 		D66A078119EA76FF009CE296 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A078019EA76FF009CE296 /* TableViewController.m */; };
 		D687F7B61A4A73B9001EF62F /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D687F7B51A4A73B9001EF62F /* logo.jpg */; };
-		D68A5BDA1A206A070030ED07 /* AddFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68A5BD91A206A070030ED07 /* AddFeedBackViewController.m */; };
 		D68B7C5D1A0FDB3700775478 /* locationDetail(35x35).png in Resources */ = {isa = PBXBuildFile; fileRef = D68B7C5C1A0FDB3700775478 /* locationDetail(35x35).png */; };
 		D68B7C5F1A0FDB4F00775478 /* feedback(35x35).png in Resources */ = {isa = PBXBuildFile; fileRef = D68B7C5E1A0FDB4F00775478 /* feedback(35x35).png */; };
 		D695C52519F6CF2300D79253 /* UserAddLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D695C52419F6CF2300D79253 /* UserAddLocationController.m */; };
@@ -138,16 +133,8 @@
 		18296F3819E946C900AE7F0B /* DetailLocationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLocationTableViewController.m; sourceTree = "<group>"; };
 		18296F3A19E9476F00AE7F0B /* DetailLocationTableCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLocationTableCellController.h; sourceTree = "<group>"; };
 		18296F3B19E9476F00AE7F0B /* DetailLocationTableCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLocationTableCellController.m; sourceTree = "<group>"; };
-		18296F3D19E947BF00AE7F0B /* LocationTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTabBarController.h; sourceTree = "<group>"; };
-		18296F3E19E947BF00AE7F0B /* LocationTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationTabBarController.m; sourceTree = "<group>"; };
 		18296F4019E9495400AE7F0B /* DetailLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLocationViewController.h; sourceTree = "<group>"; };
 		18296F4119E9495400AE7F0B /* DetailLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLocationViewController.m; sourceTree = "<group>"; };
-		18296F4519E96E7000AE7F0B /* LocationFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationFeedbackViewController.h; sourceTree = "<group>"; };
-		18296F4619E96E7000AE7F0B /* LocationFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFeedbackViewController.m; sourceTree = "<group>"; };
-		18296F4819E96EC700AE7F0B /* LocationFeedbackTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationFeedbackTableController.h; sourceTree = "<group>"; };
-		18296F4919E96EC700AE7F0B /* LocationFeedbackTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFeedbackTableController.m; sourceTree = "<group>"; };
-		18296F4B19E96EEB00AE7F0B /* LocationFeedbackCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationFeedbackCellController.h; sourceTree = "<group>"; };
-		18296F4C19E96EEB00AE7F0B /* LocationFeedbackCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationFeedbackCellController.m; sourceTree = "<group>"; };
 		18296F4E19E9764700AE7F0B /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		18296F4F19E9764700AE7F0B /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		18296F5219E9815F00AE7F0B /* Ulti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ulti.h; sourceTree = "<group>"; };
@@ -295,8 +282,6 @@
 		D66A077F19EA76FF009CE296 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		D66A078019EA76FF009CE296 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		D687F7B51A4A73B9001EF62F /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
-		D68A5BD81A206A070030ED07 /* AddFeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFeedBackViewController.h; sourceTree = "<group>"; };
-		D68A5BD91A206A070030ED07 /* AddFeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFeedBackViewController.m; sourceTree = "<group>"; };
 		D68B7C5C1A0FDB3700775478 /* locationDetail(35x35).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "locationDetail(35x35).png"; sourceTree = "<group>"; };
 		D68B7C5E1A0FDB4F00775478 /* feedback(35x35).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback(35x35).png"; sourceTree = "<group>"; };
 		D695C52319F6CF2300D79253 /* UserAddLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAddLocationController.h; sourceTree = "<group>"; };
@@ -374,10 +359,7 @@
 		18296F3019E9460600AE7F0B /* LocationDetail */ = {
 			isa = PBXGroup;
 			children = (
-				18296F4419E96CCA00AE7F0B /* Feedback */,
 				18296F4319E9555E00AE7F0B /* DetailView */,
-				18296F3D19E947BF00AE7F0B /* LocationTabBarController.h */,
-				18296F3E19E947BF00AE7F0B /* LocationTabBarController.m */,
 			);
 			name = LocationDetail;
 			sourceTree = "<group>";
@@ -394,21 +376,6 @@
 				18296F3B19E9476F00AE7F0B /* DetailLocationTableCellController.m */,
 			);
 			name = DetailView;
-			sourceTree = "<group>";
-		};
-		18296F4419E96CCA00AE7F0B /* Feedback */ = {
-			isa = PBXGroup;
-			children = (
-				18296F4519E96E7000AE7F0B /* LocationFeedbackViewController.h */,
-				18296F4619E96E7000AE7F0B /* LocationFeedbackViewController.m */,
-				18296F4819E96EC700AE7F0B /* LocationFeedbackTableController.h */,
-				18296F4919E96EC700AE7F0B /* LocationFeedbackTableController.m */,
-				18296F4B19E96EEB00AE7F0B /* LocationFeedbackCellController.h */,
-				18296F4C19E96EEB00AE7F0B /* LocationFeedbackCellController.m */,
-				D68A5BD81A206A070030ED07 /* AddFeedBackViewController.h */,
-				D68A5BD91A206A070030ED07 /* AddFeedBackViewController.m */,
-			);
-			name = Feedback;
 			sourceTree = "<group>";
 		};
 		18296F5119E9814E00AE7F0B /* DataConnect */ = {
@@ -1208,11 +1175,9 @@
 				6A679A811CA9256E0057AAF4 /* RequestDataManager.m in Sources */,
 				183DCAB019DD34EC0054A630 /* FilterController.m in Sources */,
 				18296F4219E9495400AE7F0B /* DetailLocationViewController.m in Sources */,
-				18296F3F19E947BF00AE7F0B /* LocationTabBarController.m in Sources */,
 				D6C210F219F278BE007BAF88 /* AddLocationViewController.m in Sources */,
 				8BFB4A941CA857CB005C7058 /* TopAlignLabel.m in Sources */,
 				182FB80419DD855000205E8B /* Guide.m in Sources */,
-				18296F4D19E96EEB00AE7F0B /* LocationFeedbackCellController.m in Sources */,
 				6AC4A4A71CA3ECD800C1D220 /* PlaceInfoCell.m in Sources */,
 				185023C019E8F150008156D5 /* LocationType.m in Sources */,
 				182FB7F919DD772400205E8B /* SearchTableViewController.m in Sources */,
@@ -1226,7 +1191,6 @@
 				8BCC18631D3E91F10099490F /* UIAlertView+Custom.m in Sources */,
 				8BB2894D1CB118A0001F0937 /* XXXRoundMenuButton.m in Sources */,
 				18296F3919E946C900AE7F0B /* DetailLocationTableViewController.m in Sources */,
-				18296F4719E96E7000AE7F0B /* LocationFeedbackViewController.m in Sources */,
 				182FB7E219DD509800205E8B /* CustomInfoWindowView.m in Sources */,
 				182FB7D619DD451D00205E8B /* MapGoogle.xcdatamodeld in Sources */,
 				6A3367801CB4CBD600D38FF1 /* CustomTextField.m in Sources */,
@@ -1256,7 +1220,6 @@
 				182FB7F519DD5EBD00205E8B /* BookmarkTableViewController.m in Sources */,
 				18DDA0C419DD185900834B78 /* AppDelegate.m in Sources */,
 				8B081CC01D4E782F00DF425A /* UIPlaceHolderTextView.m in Sources */,
-				18296F4A19E96EC700AE7F0B /* LocationFeedbackTableController.m in Sources */,
 				8BD248201BC2C77F00BBC829 /* SVProgressHUD.m in Sources */,
 				D644D7AE1A3A058D00F15FF5 /* LocalizeHelper.m in Sources */,
 				182C025819ECE8B900E1DD41 /* FilterTableCell.m in Sources */,
@@ -1265,7 +1228,6 @@
 				185023BD19E8DD3B008156D5 /* AccessType.m in Sources */,
 				8B1065E61BA73BBD00565A3B /* InfoDRDViewController.m in Sources */,
 				8BD2481E1BC2C77F00BBC829 /* SVIndefiniteAnimatedView.m in Sources */,
-				D68A5BDA1A206A070030ED07 /* AddFeedBackViewController.m in Sources */,
 				8B99A1391B9C5507004789C1 /* Utils.m in Sources */,
 				D6CDA2C519FE1DB800EBEA7A /* LocationTemp.m in Sources */,
 				18DDA0EA19DD205100834B78 /* MainViewController.m in Sources */,

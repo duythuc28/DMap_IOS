@@ -7,7 +7,6 @@
 //
 
 #import "DetailLocationViewController.h"
-#import "LocationTabBarController.h"
 #import "DetailLocationTableViewController.h"
 #import "MDDirectionService.h"
 #import "Location.h"
@@ -25,7 +24,7 @@
 NSMutableArray *waypoints_;
 NSMutableArray *waypointStrings_;
 bool isBus ;
-LocationTabBarController * tabBar ;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,9 +38,9 @@ LocationTabBarController * tabBar ;
 {
     [super viewWillAppear:animated];
     [Utils checkInternetConnection];
-    tabBar = (LocationTabBarController*)self.tabBarController;
-    tabBar.navigationItem.title = LocalizedString(@"Details");
-    [tabBar toggleBarButton:NO];
+//    tabBar = (LocationTabBarController*)self.tabBarController;
+//    tabBar.navigationItem.title = LocalizedString(@"Details");
+//    [tabBar toggleBarButton:NO];
     //[[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
 - (void)viewDidLoad
@@ -53,16 +52,16 @@ LocationTabBarController * tabBar ;
     waypoints_ = [[NSMutableArray alloc]init];
     waypointStrings_ = [[NSMutableArray alloc]init];
 
-    tabBar = (LocationTabBarController*)self.tabBarController;
-    tabBar.navigationItem.title = LocalizedString(@"Details");
-    self.labelTitle.text   = tabBar.locationInfo.title;
-    self.labelAddress.text = tabBar.locationInfo.address;
-    //[tabBar toggleBarButton:NO];
-    
-    if(tabBar.locationInfo.phone.length > 0)
-        self.labelPhone.text   = tabBar.locationInfo.phone;
-
-    self.marker = [[CustomMarker alloc]initWithVariables:tabBar.locationInfo];
+//    tabBar = (LocationTabBarController*)self.tabBarController;
+//    tabBar.navigationItem.title = LocalizedString(@"Details");
+//    self.labelTitle.text   = tabBar.locationInfo.title;
+//    self.labelAddress.text = tabBar.locationInfo.address;
+//    //[tabBar toggleBarButton:NO];
+//    
+//    if(tabBar.locationInfo.phone.length > 0)
+//        self.labelPhone.text   = tabBar.locationInfo.phone;
+//
+//    self.marker = [[CustomMarker alloc]initWithVariables:tabBar.locationInfo];
     //[self.tabBarItem ]
 //    UITabBar *tabBaritem = tabBar.tabBar;
 //    UITabBarItem *tabBarItem1 = [tabBaritem.items objectAtIndex:0];
@@ -97,41 +96,41 @@ LocationTabBarController * tabBar ;
     [self drawDirection];
 }
 -(void)drawDirection{
-    if ([Utils checkInternetConnection] == YES)
-    {
-        LocationTabBarController * tabBar = (LocationTabBarController*)self.tabBarController;
-        MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
-        ViewController *mapViewController = (ViewController *)mainController._mapViewController;
-        
-        if(mapViewController.clusterMapView.myLocation){
-            self.routeview = [[FromToRouteView alloc]initWithNibName:@"FromToRouteView" bundle:nil withparentcontroller:self];
-            self.routeview._myLocationtitle = LocalizedString(@"Current Location");
-            self.routeview._destinationtitle = self.marker.location.title;
-            [self.view addSubview:self.routeview.view];
-            
-        }
-        else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                //GMSMapView* mapView =  mapViewController.mapview;
-                UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
-                                                                  message:LocalizedString(@"Error GPS")
-                                                                 delegate:nil
-                                                        cancelButtonTitle:LocalizedString(@"Ok")
-                                                        otherButtonTitles:nil];
-                [message show];
-            });
-        }
-    }
-    else
-    {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
-                                                          message:LocalizedString(@"Error Internet Connection")
-                                                         delegate:nil
-                                                cancelButtonTitle:LocalizedString(@"Ok")
-                                                otherButtonTitles:nil];
-        [message show];
-        
-    }
+//    if ([Utils checkInternetConnection] == YES)
+//    {
+//        LocationTabBarController * tabBar = (LocationTabBarController*)self.tabBarController;
+//        MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
+//        ViewController *mapViewController = (ViewController *)mainController._mapViewController;
+//        
+//        if(mapViewController.clusterMapView.myLocation){
+//            self.routeview = [[FromToRouteView alloc]initWithNibName:@"FromToRouteView" bundle:nil withparentcontroller:self];
+//            self.routeview._myLocationtitle = LocalizedString(@"Current Location");
+//            self.routeview._destinationtitle = self.marker.location.title;
+//            [self.view addSubview:self.routeview.view];
+//            
+//        }
+//        else{
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                //GMSMapView* mapView =  mapViewController.mapview;
+//                UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
+//                                                                  message:LocalizedString(@"Error GPS")
+//                                                                 delegate:nil
+//                                                        cancelButtonTitle:LocalizedString(@"Ok")
+//                                                        otherButtonTitles:nil];
+//                [message show];
+//            });
+//        }
+//    }
+//    else
+//    {
+//        UIAlertView *message = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
+//                                                          message:LocalizedString(@"Error Internet Connection")
+//                                                         delegate:nil
+//                                                cancelButtonTitle:LocalizedString(@"Ok")
+//                                                otherButtonTitles:nil];
+//        [message show];
+//        
+//    }
 }
 
 - (void)showWay:(ViewController*)mapViewController{
@@ -205,104 +204,104 @@ LocationTabBarController * tabBar ;
 
 -(void)addBusDirections:(NSDictionary*)json
 {
-    LocationTabBarController * tabBar = (LocationTabBarController*)self.tabBarController;
-    MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
-    ViewController *mapViewController = (ViewController *)mainController._mapViewController;
-    if ([[json objectForKey:@"routes"] count]) {
-        NSDictionary * routes = [json objectForKey:@"routes"][0];
-        NSDictionary * legs = [routes objectForKey:@"legs"][0];
-        NSDictionary * steps = [legs objectForKey:@"steps"];
-        for  (int i=0;i<steps.count;i++)
-        {
-            NSDictionary * step = [legs objectForKey:@"steps"][i];
-            NSString * travel = [step objectForKey:@"travel_mode"];
-            NSDictionary * route = [step objectForKey:@"polyline"];
-            NSString * overview_route = [route objectForKey:@"points"];
-            GMSPath * path= [GMSPath pathFromEncodedPath:overview_route];
-            
-            if ([travel isEqualToString:@"WALKING"])
-            {
-                mapViewController.polyline = [GMSPolyline polylineWithPath:path];
-                mapViewController.polyline.strokeWidth = 2;
-                mapViewController.polyline.strokeColor =[UIColor greenColor];
-                mapViewController.polyline.map = mapViewController.clusterMapView;
-                //NSDictionary * start = [step objectForKey:@"start_location"];
-                NSDictionary * steps = [step objectForKey:@"steps"][0];
-                NSDictionary * end = [steps objectForKey:@"start_location"];
-                NSString * latitude = [end objectForKey:@"lat"];
-                NSString * longitude= [end objectForKey:@"lng"];
-                
-                NSDictionary * distance = [step objectForKey:@"distance"];
-                NSString * dis = [distance objectForKey:@"text"];
-                
-                CLLocationCoordinate2D position = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-                CustomMarker * marker = [[CustomMarker alloc] initRaw:position];
-                
-                marker.icon = [UIImage imageNamed:@"walking"];
-                marker.title =LocalizedString(@"Walking");
-                marker.snippet = dis;
-                marker.map= mapViewController.clusterMapView;
-                marker.zIndex = 100;
-                
-            }
-            else if ([travel isEqualToString:@"TRANSIT"])
-            {
-                mapViewController.polyline = [GMSPolyline polylineWithPath:path];
-                mapViewController.polyline.strokeWidth = 2;
-                mapViewController.polyline.strokeColor =[UIColor redColor];
-                mapViewController.polyline.map = mapViewController.clusterMapView;
-                NSDictionary * transit= [step objectForKey:@"transit_details"];
-                NSDictionary * stop= [transit objectForKey:@"departure_stop"];
-                NSDictionary * location = [stop objectForKey:@"location"];
-                NSString * latitude = [location objectForKey:@"lat"];
-                NSString * longitude = [location objectForKey:@"lng"];
-                NSDictionary * line = [transit objectForKey:@"line"];
-                NSString * busname = [line objectForKey:@"name"];
-                
-                //Create marker
-                CLLocationCoordinate2D position = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-                CustomMarker * marker = [[CustomMarker alloc] initRaw:position];
-                
-                marker.icon = [UIImage imageNamed:@"bus"];
-                marker.title = LocalizedString(@"Bus");
-                marker.snippet = busname;
-                marker.map= mapViewController.clusterMapView;
-                marker.zIndex = 100;
-            }
-        }
-    }
+//    LocationTabBarController * tabBar = (LocationTabBarController*)self.tabBarController;
+//    MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
+//    ViewController *mapViewController = (ViewController *)mainController._mapViewController;
+//    if ([[json objectForKey:@"routes"] count]) {
+//        NSDictionary * routes = [json objectForKey:@"routes"][0];
+//        NSDictionary * legs = [routes objectForKey:@"legs"][0];
+//        NSDictionary * steps = [legs objectForKey:@"steps"];
+//        for  (int i=0;i<steps.count;i++)
+//        {
+//            NSDictionary * step = [legs objectForKey:@"steps"][i];
+//            NSString * travel = [step objectForKey:@"travel_mode"];
+//            NSDictionary * route = [step objectForKey:@"polyline"];
+//            NSString * overview_route = [route objectForKey:@"points"];
+//            GMSPath * path= [GMSPath pathFromEncodedPath:overview_route];
+//            
+//            if ([travel isEqualToString:@"WALKING"])
+//            {
+//                mapViewController.polyline = [GMSPolyline polylineWithPath:path];
+//                mapViewController.polyline.strokeWidth = 2;
+//                mapViewController.polyline.strokeColor =[UIColor greenColor];
+//                mapViewController.polyline.map = mapViewController.clusterMapView;
+//                //NSDictionary * start = [step objectForKey:@"start_location"];
+//                NSDictionary * steps = [step objectForKey:@"steps"][0];
+//                NSDictionary * end = [steps objectForKey:@"start_location"];
+//                NSString * latitude = [end objectForKey:@"lat"];
+//                NSString * longitude= [end objectForKey:@"lng"];
+//                
+//                NSDictionary * distance = [step objectForKey:@"distance"];
+//                NSString * dis = [distance objectForKey:@"text"];
+//                
+//                CLLocationCoordinate2D position = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+//                CustomMarker * marker = [[CustomMarker alloc] initRaw:position];
+//                
+//                marker.icon = [UIImage imageNamed:@"walking"];
+//                marker.title =LocalizedString(@"Walking");
+//                marker.snippet = dis;
+//                marker.map= mapViewController.clusterMapView;
+//                marker.zIndex = 100;
+//                
+//            }
+//            else if ([travel isEqualToString:@"TRANSIT"])
+//            {
+//                mapViewController.polyline = [GMSPolyline polylineWithPath:path];
+//                mapViewController.polyline.strokeWidth = 2;
+//                mapViewController.polyline.strokeColor =[UIColor redColor];
+//                mapViewController.polyline.map = mapViewController.clusterMapView;
+//                NSDictionary * transit= [step objectForKey:@"transit_details"];
+//                NSDictionary * stop= [transit objectForKey:@"departure_stop"];
+//                NSDictionary * location = [stop objectForKey:@"location"];
+//                NSString * latitude = [location objectForKey:@"lat"];
+//                NSString * longitude = [location objectForKey:@"lng"];
+//                NSDictionary * line = [transit objectForKey:@"line"];
+//                NSString * busname = [line objectForKey:@"name"];
+//                
+//                //Create marker
+//                CLLocationCoordinate2D position = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+//                CustomMarker * marker = [[CustomMarker alloc] initRaw:position];
+//                
+//                marker.icon = [UIImage imageNamed:@"bus"];
+//                marker.title = LocalizedString(@"Bus");
+//                marker.snippet = busname;
+//                marker.map= mapViewController.clusterMapView;
+//                marker.zIndex = 100;
+//            }
+//        }
+//    }
 }
 //
 - (void)addDirections:(NSDictionary *)json {
-    LocationTabBarController * tabBar = (LocationTabBarController*)self.tabBarController;
-    MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
-    ViewController *mapViewController = (ViewController *)mainController._mapViewController;
-    NSDictionary *routes = [json objectForKey:@"routes"][0];
-    NSDictionary *legs = [routes objectForKey:@"legs"][0];
-    NSDictionary * distance = [legs objectForKey:@"distance"];
-    NSString *dis= [distance objectForKey:@"text"];
-    NSDictionary * steps = [legs objectForKey:@"steps"][0];
-    NSDictionary * end = [steps objectForKey:@"start_location"];
-    NSString * latitude = [end objectForKey:@"lat"];
-    NSString * longitude= [end objectForKey:@"lng"];
-    
-    //Create marker
-    CLLocationCoordinate2D position = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-    CustomMarker * marker = [[CustomMarker alloc] initRaw:position];
-    
-    marker.icon = [UIImage imageNamed:@"bike"];
-    marker.title =LocalizedString(@"Bike");
-    marker.snippet = dis;
-    marker.map= mapViewController.clusterMapView;
-    marker.zIndex = 100;
-    
-    NSDictionary *route = [routes objectForKey:@"overview_polyline"];
-    NSString *overview_route = [route objectForKey:@"points"];
-    GMSPath *path = [GMSPath pathFromEncodedPath:overview_route];
-    mapViewController.polyline = [GMSPolyline polylineWithPath:path];
-    mapViewController.polyline.strokeWidth = 2;
-    mapViewController.polyline.strokeColor =[UIColor redColor];
-    mapViewController.polyline.map = mapViewController.clusterMapView;
+//    LocationTabBarController * tabBar = (LocationTabBarController*)self.tabBarController;
+//    MainViewController *mainController = (MainViewController *)tabBar.rootViewController;
+//    ViewController *mapViewController = (ViewController *)mainController._mapViewController;
+//    NSDictionary *routes = [json objectForKey:@"routes"][0];
+//    NSDictionary *legs = [routes objectForKey:@"legs"][0];
+//    NSDictionary * distance = [legs objectForKey:@"distance"];
+//    NSString *dis= [distance objectForKey:@"text"];
+//    NSDictionary * steps = [legs objectForKey:@"steps"][0];
+//    NSDictionary * end = [steps objectForKey:@"start_location"];
+//    NSString * latitude = [end objectForKey:@"lat"];
+//    NSString * longitude= [end objectForKey:@"lng"];
+//    
+//    //Create marker
+//    CLLocationCoordinate2D position = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+//    CustomMarker * marker = [[CustomMarker alloc] initRaw:position];
+//    
+//    marker.icon = [UIImage imageNamed:@"bike"];
+//    marker.title =LocalizedString(@"Bike");
+//    marker.snippet = dis;
+//    marker.map= mapViewController.clusterMapView;
+//    marker.zIndex = 100;
+//    
+//    NSDictionary *route = [routes objectForKey:@"overview_polyline"];
+//    NSString *overview_route = [route objectForKey:@"points"];
+//    GMSPath *path = [GMSPath pathFromEncodedPath:overview_route];
+//    mapViewController.polyline = [GMSPolyline polylineWithPath:path];
+//    mapViewController.polyline.strokeWidth = 2;
+//    mapViewController.polyline.strokeColor =[UIColor redColor];
+//    mapViewController.polyline.map = mapViewController.clusterMapView;
     
     
 }

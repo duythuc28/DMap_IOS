@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -57,19 +57,6 @@
                 <view contentMode="scaleToFill" id="OQB-fE-vX6" userLabel="Update view">
                     <rect key="frame" x="0.0" y="227" width="322" height="70"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                    <subviews>
-                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" id="xsy-kg-ypL">
-                            <rect key="frame" x="9" y="12" width="307" height="31"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </slider>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Km" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="swo-aU-AcA">
-                            <rect key="frame" x="141" y="46" width="42" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" id="fVl-rq-bIC" userLabel="About View">
@@ -127,10 +114,8 @@
                 <outlet property="aboutButton" destination="F3Z-CZ-QTX" id="j9L-vN-0UE"/>
                 <outlet property="doneButton" destination="UUg-EO-6fh" id="Xzt-2a-24a"/>
                 <outlet property="helpButton" destination="40D-WM-hr3" id="TPl-bB-Pog"/>
-                <outlet property="kilometerLable" destination="swo-aU-AcA" id="sub-2o-w5Y"/>
                 <outlet property="languageSelected" destination="FgA-Kc-Pf4" id="epb-gY-PQI"/>
                 <outlet property="selectPlaceType" destination="hqA-Pd-heP" id="o5f-Rm-jV6"/>
-                <outlet property="sliderRange" destination="xsy-kg-ypL" id="wAO-Ho-vkh"/>
                 <outlet property="updateDatabaseButton" destination="it9-hG-rNr" id="ABV-9G-bSe"/>
             </connections>
             <point key="canvasLocation" x="390" y="265"/>
