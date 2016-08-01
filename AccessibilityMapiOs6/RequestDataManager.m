@@ -38,7 +38,10 @@ static const NSInteger HTTP_RESPONSE_CODES_SUCCESS = 200;
 - (void)requestHTMLDataSuccess:(void(^)(NSURLSessionTask * operation, id response))success
                        failure:(void(^)(NSURLSessionTask * operation, NSError * error)) failure {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
     [self invokeRequestOperation:manager
                    requestMethod:self.requestMethod
                          success:success

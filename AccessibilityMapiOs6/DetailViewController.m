@@ -164,14 +164,14 @@
         [alert show];
     }
     else {
-//        NSDictionary * params = @{@"LocationID" : self.locationInfo.locationID,
-//                                  @"Name": userPhone ,
-//                                  @"Content" : comment};
+        NSDictionary * params = @{@"LocationID" : [self.locationInfo.locationID stringValue],
+                                  @"Name": userPhone ,
+                                  @"Content" : comment};
         
-        NSArray *keys = [NSArray arrayWithObjects:@"LocationID", @"Name", @"Content", nil];
-        NSArray *objects = [NSArray arrayWithObjects:self.locationInfo.locationID, userPhone, comment, nil];
-        NSDictionary *params = [NSDictionary dictionaryWithObjects:objects
-                                                               forKeys:keys];
+//        NSArray *keys = [NSArray arrayWithObjects:@"LocationID", @"Name", @"Content", nil];
+//        NSArray *objects = [NSArray arrayWithObjects:self.locationInfo.locationID, userPhone, comment, nil];
+//        NSDictionary *params = [NSDictionary dictionaryWithObjects:objects
+//                                                               forKeys:keys];
         
         [DownloadData postCommentWithParams:params completionHandler:^(NSURLSessionTask *operation, id response) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"Success")
